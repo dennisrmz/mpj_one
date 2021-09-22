@@ -1,0 +1,2 @@
+2021-08-03T06:28:12+00:00 CRITICAL Allowed memory size of 536870912 bytes exhausted (tried to allocate 32768 bytes) en C:\xampp\htdocs\mpj_one\wp-includes\media.php en la línea 3653
+

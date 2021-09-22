@@ -1,0 +1,793 @@
+# Translation of Plugins - Social Chat - Stable (latest release) in Spanish (Spain)
+# This file is distributed under the same license as the Plugins - Social Chat - Stable (latest release) package.
+msgid ""
+msgstr ""
+"PO-Revision-Date: 2021-08-12 08:42:05+0000\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: GlotPress/3.0.0-alpha.2\n"
+"Language: es\n"
+"Project-Id-Version: Plugins - Social Chat - Stable (latest release)\n"
+
+#: includes/view/backend/pages/button.php:29
+msgid "Contact box is enabled. Please set the contact phone number in the <a href=\"%s\">contacts tab</a>"
+msgstr "La caja de contacto está activada. Por favor, establece el número de teléfono de contacto en la <a href=\"%s\">pestaña de contactos</a>"
+
+#: includes/view/backend/pages/scheme.php:27
+msgid "In pixels"
+msgstr "En píxeles"
+
+#: includes/view/backend/pages/button.php:87
+msgid "Full phone number in international format. Only nnumbers."
+msgstr "Número de teléfono completo en formato internacional. Solo números."
+
+#: includes/view/backend/pages/button.php:80
+msgid "Customize your button text."
+msgstr "Personaliza el texto de tu botón."
+
+#: includes/quadlayers/widget.php:84
+msgid "Read more like this on our blog"
+msgstr "Lee más como esto en nuestro blog"
+
+#: includes/quadlayers/widget.php:79
+msgid "<li><a href=\"%s\" target=\"_blank\">%s </a>%s%s%s</li>"
+msgstr "<li><a href=\"%s\" target=\"_blank\">%s</a> %s%s%s</li>"
+
+#: includes/quadlayers/widget.php:63
+msgid "Untitled"
+msgstr "Sin título"
+
+#: includes/quadlayers/widget.php:44
+msgid "More products"
+msgstr "Más productos"
+
+#: includes/quadlayers/widget.php:43
+msgid "Hi! We are Quadlayers! Welcome to QuadLayers! We’re a team of international people who have been working in the WordPress sphere for the last ten years."
+msgstr "¡Hola! ¡Somos QuadLayers! ¡Bienvenido a QuadLayers! Somos un equipo internacional de gente que ha estado trabajando en la esfera de WordPress durante los últimos diez años."
+
+#: includes/quadlayers/widget.php:34
+msgid "An error has occurred, which probably means the feed is down. Try again later"
+msgstr "Ha ocurrido un error, que probablemente significa que el feed está caído. Inténtalo de nuevo más tarde"
+
+#: includes/quadlayers/widget.php:29
+msgid "Error"
+msgstr "Error"
+
+#: includes/quadlayers/widget.php:19
+msgid "QuadLayers News"
+msgstr "Noticias de QuadLayers"
+
+#: includes/controllers/SchemeController.php:13
+msgid "Scheme"
+msgstr "Scheme"
+
+#: includes/models/Button.php:18 includes/models/Contact.php:27
+msgid "Hello! I'm testing the %s plugin %s"
+msgstr "¡Hola! Estoy probando el plugin %s %s"
+
+#: includes/view/backend/pages/scheme.php:25
+msgid "Font Size"
+msgstr "Tamaño de la fuente"
+
+#: includes/view/backend/pages/scheme.php:8
+#: includes/view/backend/pages/scheme.php:9
+msgid "Web Default"
+msgstr "Por defecto de la web"
+
+#: includes/view/backend/pages/scheme.php:6
+msgid "Font Family"
+msgstr "Familia de la fuente"
+
+#. Plugin Name of the plugin
+msgid "Social Chat"
+msgstr "Social Chat"
+
+#: includes/view/backend/pages/welcome.php:14
+msgid "Thank you for choosing our %s plugin for WordPress! Here you can see our demo and test the features we offer in the premium version."
+msgstr "¡Gracias por elegir nuestro plugin %s para WordPress! Aquí puedes ver nuestra demostración y probar las características que ofrecemos en la versión premium."
+
+#: includes/view/backend/pages/box.php:19
+msgid "In miliseconds"
+msgstr "En milisegundos"
+
+#: includes/view/backend/pages/box.php:16
+msgid "Delay"
+msgstr "Retraso"
+
+#: includes/view/backend/pages/box.php:10
+msgid "Disable auto open"
+msgstr "Desactivar abrir automáticamente"
+
+#: includes/view/backend/pages/box.php:9
+msgid "Enable auto open"
+msgstr "Activar abrir automáticamente"
+
+#: includes/view/backend/pages/box.php:6
+msgid "Auto open"
+msgstr "Abrir automáticamente"
+
+#: includes/view/backend/pages/button.php:127
+#: includes/view/backend/pages/modals/contact/panel-contact.php:72
+msgid "Saturday"
+msgstr "Sábado"
+
+#: includes/view/backend/pages/button.php:126
+#: includes/view/backend/pages/modals/contact/panel-contact.php:71
+msgid "Friday"
+msgstr "Viernes"
+
+#: includes/view/backend/pages/button.php:125
+#: includes/view/backend/pages/modals/contact/panel-contact.php:70
+msgid "Thursday"
+msgstr "Jueves"
+
+#: includes/view/backend/pages/button.php:124
+#: includes/view/backend/pages/modals/contact/panel-contact.php:69
+msgid "Wednesday"
+msgstr "Miércoles"
+
+#: includes/view/backend/pages/button.php:123
+#: includes/view/backend/pages/modals/contact/panel-contact.php:68
+msgid "Tuesday"
+msgstr "Martes"
+
+#: includes/view/backend/pages/button.php:122
+#: includes/view/backend/pages/modals/contact/panel-contact.php:67
+msgid "Monday"
+msgstr "Lunes"
+
+#: includes/view/backend/pages/button.php:121
+#: includes/view/backend/pages/modals/contact/panel-contact.php:66
+msgid "Sunday"
+msgstr "Domingo"
+
+#: includes/view/backend/pages/button.php:118
+#: includes/view/backend/pages/modals/contact/panel-contact.php:64
+msgid "Available days"
+msgstr "Días disponibles"
+
+#: includes/view/backend/pages/modals/contact/panel-contact.php:39
+msgid "Available hours"
+msgstr "Horas disponibles"
+
+#: includes/view/backend/pages/modals/contact/panel-contact-chat.php:8
+msgid "Default message sent to the contact number."
+msgstr "Mensaje por defecto enviado al número de contacto."
+
+#: includes/view/backend/pages/modals/contact/panel-contact-chat.php:6
+msgid "First message sent to the user in the chat box."
+msgstr "Primer mensaje enviado al usuario en la caja de chat."
+
+#: includes/controllers/ContactController.php:37
+#: includes/controllers/ContactController.php:52
+#: includes/controllers/DisplayController.php:54 includes/settings.php:102
+#: includes/view/backend/pages/display.php:30
+#: includes/view/backend/pages/display.php:54
+#: includes/view/backend/pages/display.php:107
+msgid "All"
+msgstr "Todo"
+
+#: includes/view/backend/pages/modals/contact/panel-visibility.php:18
+#: includes/view/backend/pages/modals/contact/panel-visibility.php:37
+#: includes/view/backend/pages/modals/contact/panel-visibility.php:54
+msgid "Exclude"
+msgstr "Excluir"
+
+#: includes/view/backend/pages/modals/contact/panel-visibility.php:17
+#: includes/view/backend/pages/modals/contact/panel-visibility.php:36
+#: includes/view/backend/pages/modals/contact/panel-visibility.php:53
+msgid "Include"
+msgstr "Incluir"
+
+#: includes/view/backend/pages/modals/contact/panel-tabs.php:6
+msgid "Visibility"
+msgstr "Visibilidad"
+
+#: includes/view/backend/pages/modals/contact/panel-tabs.php:3
+msgid "Contact"
+msgstr "Contacto"
+
+#: includes/controllers/QLWAPP_Controller.php:18
+msgid "Access denied"
+msgstr "Acceso denegado"
+
+#: includes/controllers/QLWAPP_Controller.php:14
+msgid "Please, reload page"
+msgstr "Por favor, recarga la página"
+
+#: includes/view/backend/pages/parts/header.php:8
+msgid "Purchase"
+msgstr "Comprar"
+
+#: includes/view/backend/pages/modals/contact/panel-info.php:8
+msgid "Contact id"
+msgstr "ID del contacto"
+
+#: includes/view/backend/pages/modals/contact/panel-info.php:4
+msgid "Saved."
+msgstr "Guardado."
+
+#: includes/view/backend/pages/modals/contact/panel-header.php:9
+msgid "new"
+msgstr "nuevo"
+
+#: includes/view/backend/pages/modals/contact/panel-header.php:6
+msgid "Close dialog"
+msgstr "Cerrar ventana"
+
+#: includes/view/backend/pages/modals/contact/panel-header.php:4
+msgid "Edit next media item"
+msgstr "Editar el siguiente elemento multimedia"
+
+#: includes/view/backend/pages/modals/contact/panel-header.php:3
+msgid "Edit previous media item"
+msgstr "Editar el elemento multimedia anterior"
+
+#: includes/view/backend/pages/contacts.php:37
+msgid "Move down"
+msgstr "Mover abajo"
+
+#: includes/view/backend/pages/contacts.php:36
+msgid "Move up"
+msgstr "Mover arriba"
+
+#: includes/view/backend/pages/contacts.php:15
+msgid "Order"
+msgstr "Ordenar"
+
+#: includes/view/backend/pages/box.php:51
+#: includes/view/backend/pages/button.php:153
+#: includes/view/backend/pages/contacts.php:8
+#: includes/view/backend/pages/display.php:128
+#: includes/view/backend/pages/scheme.php:76
+msgid "Saved successfully!"
+msgstr "¡Guardado correctamente!"
+
+#: includes/view/backend/pages/contacts.php:5
+msgid "Save reorder"
+msgstr "Guardar nuevo orden"
+
+#: includes/view/backend/pages/contacts.php:4
+msgid "+ Contact"
+msgstr "+ Contacto"
+
+#: includes/models/Suggestions.php:129
+msgctxt "Plugin Installer"
+msgid "Favorites"
+msgstr "Favoritos"
+
+#: includes/models/Suggestions.php:128
+msgctxt "Plugin Installer"
+msgid "Recommended"
+msgstr "Recomendados"
+
+#: includes/models/Suggestions.php:127
+msgctxt "Plugin Installer"
+msgid "Popular"
+msgstr "Populares"
+
+#: includes/models/Suggestions.php:126
+msgctxt "Plugin Installer"
+msgid "Featured"
+msgstr "Destacado"
+
+#: includes/models/Suggestions.php:124
+msgctxt "Plugin Installer"
+msgid "Beta Testing"
+msgstr "Pruebas beta"
+
+#: includes/models/Suggestions.php:121
+msgid "Search Results"
+msgstr "Resultados de búsqueda"
+
+#: includes/controllers/SuggestionsController.php:8
+msgid "Suggestions"
+msgstr "Sugerencias"
+
+#: includes/view/backend/pages/modals/contact/panel-info.php:24
+#: includes/view/backend/pages/parts/header.php:10
+msgid "Documentation"
+msgstr "Documentación"
+
+#: includes/view/backend/pages/contacts.php:54
+msgid "Delete"
+msgstr "Borrar"
+
+#: includes/view/backend/pages/contacts.php:53
+msgid "Edit"
+msgstr "Editar"
+
+#: includes/view/backend/pages/contacts.php:53
+#: includes/view/backend/pages/contacts.php:54
+msgid "Edit checkout field"
+msgstr "Editar el campo de pago"
+
+#: includes/view/backend/pages/button.php:113
+msgid "Hide button if the user is out of the available hours."
+msgstr "Ocultar el botón si el usuario está fuera de las horas disponibles."
+
+#: includes/view/backend/pages/modals/contact/panel-footer.php:10
+msgid "Close"
+msgstr "Cerrar"
+
+#: includes/view/backend/pages/modals/contact/panel-header.php:9
+msgid "Edit Contact:"
+msgstr "Editar el contacto:"
+
+#: includes/view/backend/pages/contacts.php:22
+msgid "Availability"
+msgstr "Disponibilidad"
+
+#: includes/view/backend/pages/button.php:141
+msgid "Do not show the button"
+msgstr "No mostrar el botón"
+
+#: includes/view/backend/pages/button.php:139
+msgid "Show the button as read only"
+msgstr "Mostrar el botón como solo de lectura"
+
+#: includes/view/backend/pages/button.php:108
+#: includes/view/backend/pages/contacts.php:23
+#: includes/view/backend/pages/modals/contact/panel-contact.php:56
+msgid "Timezone"
+msgstr "Zona horaria"
+
+#: includes/view/backend/pages/modals/contact/panel-contact.php:47
+msgid "Do not show the field"
+msgstr "No mostrar el campo"
+
+#: includes/view/backend/pages/modals/contact/panel-contact.php:46
+msgid "Show the field as read only"
+msgstr "Mostrar el campo como solo de lectura"
+
+#: includes/view/backend/pages/modals/contact/panel-contact.php:43
+msgid "Time is over"
+msgstr "Se ha acabado el tiempo"
+
+#: includes/view/backend/pages/button.php:102
+#: includes/view/backend/pages/modals/contact/panel-contact.php:41
+msgid "To"
+msgstr "Para"
+
+#: includes/view/backend/pages/button.php:100
+msgid "From"
+msgstr "De"
+
+#: includes/view/backend/pages/button.php:98
+msgid "Schedule"
+msgstr "Programar"
+
+#: includes/view/backend/pages/scheme.php:43
+msgid "Link"
+msgstr "Enlace"
+
+#: includes/view/backend/pages/scheme.php:37
+msgid "Color"
+msgstr "Color"
+
+#: includes/view/backend/pages/scheme.php:31
+msgid "Background"
+msgstr "Fondo"
+
+#: includes/view/backend/pages/welcome.php:23
+#: includes/view/backend/pages/welcome.php:30
+#: includes/view/backend/pages/welcome.php:37
+msgid "Submit ticket"
+msgstr "Enviar un ticket"
+
+#: includes/view/backend/pages/welcome.php:35
+msgid "If you have any doubt or you find any issue don't hesitate to contact us through our ticket system or join our community to meet other %s users."
+msgstr "Si tienes alguna duda o si encuentras algún problema, no dudes en contactar con nosotros a través de nuestro sistema de tiques o unirte a nuestra comunidad para conocer a otros usuarios de %s."
+
+#: includes/view/backend/pages/welcome.php:28
+msgid "Thank you for choosing our %s plugin for WordPress! Here you can see our demo and a description about the features we offer in the premium version."
+msgstr "¡Gracias por elegir nuestro plugin %s para WordPress! Aquí puedes ver nuestra demostración y una descripción de las características que ofrecemos en la versión premium."
+
+#: includes/view/backend/pages/parts/header.php:9
+#: includes/view/backend/pages/welcome.php:26
+msgid "Demo"
+msgstr "Demostración"
+
+#: includes/view/backend/pages/welcome.php:21
+msgid "If you want to get in touch with other %s users or be aware of our promotional discounts join our community now."
+msgstr "Si deseas ponerse en contacto con otros usuarios de %s o conocer nuestros descuentos promocionales, únete a nuestra comunidad ahora."
+
+#: includes/view/backend/pages/welcome.php:19
+msgid "Community"
+msgstr "Comunidad"
+
+#: includes/view/backend/pages/welcome.php:7
+msgid "Hello we're QuadLayers! We've recently acquired this plugin and this is the first update. We have worked very much and very hard to release it, and we will do our absolute best to support it and fix all the issues."
+msgstr "¡Hola, somos QuadLayers! Recientemente hemos adquirido este plugin y esta es la primera actualización. Hemos trabajado mucho y muy duro para su lanzamiento y haremos todo lo posible para dar el mejor soporte y solucionar todos los problemas."
+
+#: includes/view/backend/pages/display.php:53
+msgid "Select for %s&hellip;"
+msgstr "Selecciona para %s&hellip;"
+
+#: includes/view/backend/pages/display.php:36
+#: includes/view/backend/pages/modals/contact/panel-visibility.php:28
+msgid "If you select an option all the other will be excluded"
+msgstr "Si seleccionas una opción, todas las demás serán excluidas."
+
+#: includes/view/backend/pages/display.php:33
+msgid "Search"
+msgstr "Buscar"
+
+#: includes/view/backend/pages/display.php:32
+msgid "Blog"
+msgstr "Blog"
+
+#: includes/view/backend/pages/display.php:31
+msgid "Home"
+msgstr "Inicio"
+
+#: includes/view/backend/pages/display.php:17
+#: includes/view/backend/pages/modals/contact/panel-visibility.php:15
+msgid "Target"
+msgstr "Destino"
+
+#: includes/view/backend/pages/display.php:12
+msgid "Hide in all devices"
+msgstr "Ocultar en todos los dispositivos"
+
+#: includes/view/backend/pages/display.php:11
+msgid "Show in desktop devices"
+msgstr "Mostrar en dispositivos de escritorio"
+
+#: includes/view/backend/pages/display.php:10
+msgid "Show in mobile devices"
+msgstr "Mostrar en dispositivos móviles"
+
+#: includes/view/backend/pages/display.php:9
+msgid "Show in all devices"
+msgstr "Mostrar en todos los dispositivos"
+
+#: includes/view/backend/pages/display.php:6
+#: includes/view/backend/pages/modals/contact/panel-visibility.php:4
+msgid "Devices"
+msgstr "Dispositivos"
+
+#: includes/view/backend/pages/contacts.php:24
+msgid "Actions"
+msgstr "Acciones"
+
+#: includes/view/backend/pages/contacts.php:18
+#: includes/view/backend/pages/scheme.php:64
+msgid "Name"
+msgstr "Nombre"
+
+#: includes/view/backend/pages/contacts.php:16
+msgid "Avatar"
+msgstr "Avatar"
+
+#: includes/controllers/ContactController.php:12
+msgid "Contacts"
+msgstr "Contactos"
+
+#: includes/view/backend/pages/box.php:41
+msgid "Write a response text."
+msgstr "Escribe un texto de respuesta."
+
+#: includes/view/backend/pages/box.php:38
+msgid "Response"
+msgstr "Respuesta"
+
+#: includes/view/backend/pages/box.php:30
+msgid "Footer"
+msgstr "Pie de página"
+
+#: includes/view/backend/pages/box.php:24
+msgid "Header"
+msgstr "Cabecera"
+
+#: includes/view/backend/pages/button.php:20
+msgid "Disable contact box"
+msgstr "Desactivar la caja de contactos"
+
+#: includes/view/backend/pages/button.php:19
+msgid "Enable contact box"
+msgstr "Activar la caja de contactos"
+
+#: includes/view/backend/pages/premium.php:68
+msgid "Allow your users to type their own messages before sending it to the agent phone number."
+msgstr "Permite que tus usuarios escriban sus propios mensajes antes de enviarlos al número de teléfono del agente."
+
+#: includes/view/backend/pages/premium.php:66
+msgid "Type user message"
+msgstr "Escribe el mensaje del usuario"
+
+#: includes/view/backend/pages/premium.php:62
+msgid "You can choose the predefined user message that will be sent to the agent phone number."
+msgstr "Puedes elegir el mensaje del usuario predefinido que se enviará al número de teléfono del agente."
+
+#: includes/view/backend/pages/premium.php:60
+msgid "Custom user message"
+msgstr "Mensaje del usuario personalizado"
+
+#: includes/view/backend/pages/premium.php:56
+msgid "Allow you to set a custom message for each agent that will be displayed on the chatbox."
+msgstr "Te permite establecer un mensaje personalizado para cada agente que se mostrará en la caja de chat."
+
+#: includes/view/backend/pages/premium.php:54
+msgid "Custom agent message"
+msgstr "Mensaje del agente personalizado"
+
+#: includes/view/backend/pages/premium.php:48
+msgid "%s for WordPress allows you to include a chatbox for each agent where your users can type their first message."
+msgstr "%s para WordPress te permite incluir una caja de chat para cada agente donde tus usuarios pueden escribir su primer mensaje."
+
+#: includes/view/backend/pages/premium.php:41
+#: includes/view/backend/pages/premium.php:46
+msgid "Chatbox interface"
+msgstr "Interfaz del chat"
+
+#: includes/view/backend/pages/premium.php:29
+msgid "Our plugin allows you to select between more than forty icons to include in your Whatsapp button."
+msgstr "Nuestro plugin te permite seleccionar entre más de cuarenta iconos para incluir en tu botón de WhatsApp."
+
+#: includes/view/backend/pages/premium.php:27
+msgid "Custom icons"
+msgstr "Iconos personalizados"
+
+#: includes/view/backend/pages/premium.php:23
+msgid "Customize the colors to match your site theme through the WordPress live customizer interface."
+msgstr "Personaliza los colores para que coincidan con los colores del tema de tu sitio a través del personalizador de WordPress."
+
+#: includes/view/backend/pages/premium.php:21
+msgid "Customize colors"
+msgstr "Personalizar los colores"
+
+#: includes/view/backend/pages/premium.php:17
+msgid "%s allows you to include unlimited agent accounts with their names and labels inside the box to provide direct contact to the different support areas of your site."
+msgstr "%s te permite incluir cuentas de agentes ilimitadas con sus nombres y etiquetas dentro de la caja para proporcionar un contacto directo hacia las diferentes áreas de soporte de tu sitio."
+
+#: includes/view/backend/pages/premium.php:15
+msgid "Multiple agents"
+msgstr "Múltiples agentes"
+
+#: includes/view/backend/pages/premium.php:11
+msgid "Get Support"
+msgstr "Obtener soporte"
+
+#: includes/view/backend/pages/premium.php:10
+#: includes/view/backend/pages/welcome.php:16
+msgid "Purchase Now"
+msgstr "Comprar ahora"
+
+#: includes/view/backend/pages/premium.php:7
+msgid "Unlock the power of our premium %s plugin which allows you to include unlimited agent accounts with their names and labels inside the box to provide direct contact to the different support areas of your site."
+msgstr "Desbloquea la potencia de la version premium de %s que te permite incluir cuentas de agentes ilimitadas con sus nombres y etiquetas para proporcionar un contacto directo a las diferentes áreas de soporte de tu sitio."
+
+#: includes/view/backend/pages/button.php:73
+msgid "Leave a discrete link to developer to help and keep new updates and support."
+msgstr "Deja un enlace discreto al desarrollador para ayudar y mantener nuevas actualizaciones y el soporte."
+
+#: includes/view/backend/pages/button.php:71
+msgid "Hide developer link"
+msgstr "Ocultar el enlace del desarrollador"
+
+#: includes/view/backend/pages/button.php:70
+msgid "Show developer link"
+msgstr "Mostrar el enlace del desarrollador"
+
+#: includes/view/backend/pages/button.php:67
+msgid "Discreet link"
+msgstr "Enlace discreto"
+
+#: includes/view/backend/pages/button.php:94
+msgid "Message that will automatically appear in the text field of a chat."
+msgstr "Mensaje que aparecerá automáticamente en el campo de texto del chat."
+
+#: includes/view/backend/pages/box.php:12
+#: includes/view/backend/pages/box.php:20
+#: includes/view/backend/pages/button.php:61
+#: includes/view/backend/pages/button.php:104
+#: includes/view/backend/pages/button.php:114
+#: includes/view/backend/pages/button.php:129
+#: includes/view/backend/pages/display.php:73
+#: includes/view/backend/pages/modals/contact/panel-contact-chat.php:19
+#: includes/view/backend/pages/modals/contact/panel-contact.php:49
+#: includes/view/backend/pages/scheme.php:46
+#: includes/view/backend/pages/scheme.php:53
+#: includes/view/backend/pages/scheme.php:60
+#: includes/view/backend/pages/scheme.php:67
+msgid "This is a premium feature"
+msgstr "Esta es una característica premium"
+
+#: includes/view/backend/pages/button.php:60
+msgid "Add Icon"
+msgstr "Añadir un icono"
+
+#: includes/view/backend/pages/button.php:57
+msgid "Icon"
+msgstr "Icono"
+
+#: includes/view/backend/pages/button.php:77
+msgid "Text"
+msgstr "Texto"
+
+#: includes/view/backend/pages/button.php:53
+msgid "Switch to change the button position."
+msgstr "Cambiar la posición del botón."
+
+#: includes/view/backend/pages/button.php:51
+msgid "Bottom Right"
+msgstr "Abajo a la derecha"
+
+#: includes/view/backend/pages/button.php:50
+msgid "Bottom Left"
+msgstr "Abajo a la izquierda"
+
+#: includes/view/backend/pages/button.php:49
+msgid "Middle Right"
+msgstr "Centrado a la derecha"
+
+#: includes/view/backend/pages/button.php:48
+msgid "Middle Left"
+msgstr "Centrado a la izquierda"
+
+#: includes/view/backend/pages/button.php:45
+msgid "Position"
+msgstr "Posición"
+
+#: includes/view/backend/pages/button.php:41
+msgid "Add rounded border to the button."
+msgstr "Añadir un borde redondeado al botón."
+
+#: includes/view/backend/pages/button.php:39
+msgid "Remove rounded border"
+msgstr "Quitar el borde redondeado"
+
+#: includes/view/backend/pages/button.php:38
+msgid "Add rounded border"
+msgstr "Añadir un borde redondeado"
+
+#: includes/view/backend/pages/button.php:35
+msgid "Rounded"
+msgstr "Redondeado"
+
+#: includes/view/backend/pages/button.php:12
+msgid "Switch to change the button layout."
+msgstr "Cambiar el diseño del botón."
+
+#: includes/view/backend/pages/button.php:10
+msgid "Bubble"
+msgstr "Burbuja"
+
+#: includes/view/backend/pages/button.php:6
+msgid "Layout"
+msgstr "Diseño"
+
+#: includes/notices.php:54
+msgid "Report a bug"
+msgstr "Informar de un fallo"
+
+#: includes/notices.php:51
+msgid "Yes, of course!"
+msgstr "¡Sí, por supuesto!"
+
+#: includes/notices.php:48
+msgid "Could you please give it a 5-star rating on WordPress? We know its a big favor, but we've worked very much and very hard to release this great product. Your feedback will boost our motivation and help us promote and continue to improve this product."
+msgstr "¿Podrías darle una calificación de 5 estrellas en WordPress? Sabemos que es un gran favor, pero hemos trabajado mucho y muy duro para lanzar este gran producto. Tus comentarios aumentarán nuestra motivación y nos ayudarán a promocionar y continuar mejorando este producto."
+
+#: includes/notices.php:46
+msgid "Hello! Thank you for choosing the %s plugin!"
+msgstr "¡Hola! ¡Gracias por elegir el plugin %s!"
+
+#: includes/view/backend/pages/box.php:49
+#: includes/view/backend/pages/button.php:151
+#: includes/view/backend/pages/display.php:126
+#: includes/view/backend/pages/modals/contact/panel-footer.php:3
+#: includes/view/backend/pages/scheme.php:74
+msgid "Save"
+msgstr "Guardar"
+
+#: includes/view/backend/pages/button.php:91
+#: includes/view/backend/pages/contacts.php:21
+#: includes/view/backend/pages/modals/contact/panel-contact-chat.php:3
+#: includes/view/backend/pages/scheme.php:50
+msgid "Message"
+msgstr "Mensaje"
+
+#: includes/view/backend/pages/modals/contact/panel-contact-chat.php:18
+msgid "Disabled"
+msgstr "Desactivado"
+
+#: includes/view/backend/pages/modals/contact/panel-contact-chat.php:16
+msgid "Enabled"
+msgstr "Activado"
+
+#: includes/view/backend/pages/contacts.php:20
+#: includes/view/backend/pages/modals/contact/panel-contact-chat.php:14
+msgid "Chat"
+msgstr "Chat"
+
+#: includes/view/backend/pages/contacts.php:19
+#: includes/view/backend/pages/modals/contact/panel-contact.php:30
+#: includes/view/backend/pages/scheme.php:57
+msgid "Label"
+msgstr "Etiqueta"
+
+#: includes/view/backend/pages/button.php:84
+#: includes/view/backend/pages/contacts.php:17
+#: includes/view/backend/pages/modals/contact/panel-contact.php:23
+msgid "Phone"
+msgstr "Teléfono"
+
+#: includes/view/backend/pages/modals/contact/panel-contact.php:14
+msgid "Lastname"
+msgstr "Apellidos"
+
+#: includes/view/backend/pages/modals/contact/panel-contact.php:7
+msgid "Firstname"
+msgstr "Nombre"
+
+#: includes/view/backend/pages/modals/contact/panel-info.php:16
+msgid "Upload"
+msgstr "Subir"
+
+#. Author of the plugin
+#: includes/quadlayers/widget.php:85
+#: includes/view/backend/pages/parts/header.php:26
+msgid "QuadLayers"
+msgstr "QuadLayers"
+
+#: includes/view/backend/pages/parts/header.php:5
+msgid "Thanks for using %s! We will do our best to offer you the best and improved communication experience with your users."
+msgstr "¡Gracias por utilizar %s! Haremos todo lo posible para ofrecerte la mejor experiencia de comunicación con tus usuarios."
+
+#: includes/controllers/DisplayController.php:12
+msgid "Display"
+msgstr "Mostrar"
+
+#: includes/controllers/BoxController.php:12
+#: includes/view/backend/pages/button.php:16
+msgid "Box"
+msgstr "Caja"
+
+#: includes/controllers/ButtonController.php:12
+#: includes/view/backend/pages/button.php:9
+msgid "Button"
+msgstr "Botón"
+
+#: includes/controllers/WelcomeController.php:10
+msgid "Welcome"
+msgstr "Bienvenido"
+
+#: includes/notices.php:86
+msgid "Settings"
+msgstr "Ajustes"
+
+#: includes/controllers/PremiumController.php:8 includes/notices.php:85
+#: includes/view/backend/pages/modals/contact/panel-info.php:23
+#: includes/view/backend/pages/premium.php:5
+#: includes/view/backend/pages/premium.php:34
+#: includes/view/backend/pages/welcome.php:12
+msgid "Premium"
+msgstr "Premium"
+
+#: includes/models/Contact.php:26 includes/view/backend/pages/welcome.php:33
+msgid "Support"
+msgstr "Soporte"
+
+#: includes/models/Box.php:18
+msgid "Write a response"
+msgstr "Escribe una respuesta"
+
+#: includes/models/Button.php:17
+msgid "How can I help you?"
+msgstr "¿Cómo puedo ayudarte?"
+
+#. Author URI of the plugin
+msgid "https://quadlayers.com"
+msgstr "https://quadlayers.com"
+
+#. Description of the plugin
+msgid "Social Chat allows your visitors to contact you or your team through WhatsApp chat with a single click."
+msgstr "Social Chat permite a tus visitantes contactar contigo o con tu equipo a través de WhatsApp con un solo clic."
+
+#. Plugin URI of the plugin
+msgid "https://quadlayers.com/portfolio/whatsapp-chat/"
+msgstr "https://quadlayers.com/portfolio/whatsapp-chat/"

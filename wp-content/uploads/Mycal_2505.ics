@@ -1,0 +1,12 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:calendar-links
+BEGIN:VEVENT
+UID:281a3a6ceb2ee06cc066584829f35f20
+DTSTAMP;TZID=UTC:20210911T142329
+SUMMARY:mpj_one - 15 Sep 2021 09:00
+DTSTART;TZID=+00:00:20210915T090000
+DTEND;TZID=+00:00:20210915T093000
+DESCRIPTION:Salon name: mpj_one \n\nDirección del Salón:  \n\nSalon phone:  \n\nSalon email: orellanadennis12@gmail.com \n\nServicios Reservado:\nEvaluacion Optica: 09:00 ➝ 09:30\n\nNotas de la reserva:\nNinguno\n\nEstado de la reserva: Confirmado
+END:VEVENT
+END:VCALENDAR
