@@ -21,6 +21,7 @@
     include('template/pop-up-call.php');
     include('bloques/enqueue.php');
     include('procesos/save_info.php');
+    include('includes/mpj_list_table.php');
     
      //Hooks
     register_activation_hook(NEWSLETTER_MPJ_PLUGIN_URL, 'mpj_activate_plugin');

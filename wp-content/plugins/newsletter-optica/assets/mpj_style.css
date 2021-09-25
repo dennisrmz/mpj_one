@@ -1,0 +1,15 @@
+#sln-salon.sln-salon--m{
+    max-width: 100%!important;
+}
+#sln-step-submit{
+    background-color: #82326f!important;
+}
+.sln-summary__discount{
+    display: none!important;
+}
+.sln-alert--wait{
+    background-color: #82326f!important;
+}
+.sln-input--action, .sln-btn--emphasis{
+    background-color: #82326f!important;
+}

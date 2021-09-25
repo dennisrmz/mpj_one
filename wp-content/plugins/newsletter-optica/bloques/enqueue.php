@@ -2,6 +2,9 @@
 
 function mpj_enqueue_scripts(){
 
+    wp_register_style('mpj_style',plugins_url('assets/mpj_style.css', NEWSLETTER_MPJ_PLUGIN_URL));
+    wp_enqueue_style('mpj_style');
+    
     wp_register_script(
         'mpj_main', 
         plugins_url( '/assets/main.js', NEWSLETTER_MPJ_PLUGIN_URL ), 
