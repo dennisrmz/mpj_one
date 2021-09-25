@@ -35,7 +35,6 @@ class SLN_Helper_HoursBefore
         if($diff > 0)
             $now->modify('+'.( $i - $diff).' minutes');
         $this->fromDate = $now;
-        //$now->setTime($now->format('H'), $minutes);
         $this->toDate = $now2 = clone $now;
         if ($this->from) {
             $now->modify($this->from);

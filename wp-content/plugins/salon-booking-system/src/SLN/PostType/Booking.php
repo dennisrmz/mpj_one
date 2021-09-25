@@ -6,7 +6,6 @@ class SLN_PostType_Booking extends SLN_PostType_Abstract
     public function init()
     {
         parent::init();
-//        add_filter('wp_insert_post_data', array($this, 'insert_post_data'), '99', 2);
 
         if (is_admin()) {
             add_action('manage_'.$this->getPostType().'_posts_custom_column', array($this, 'manage_column'), 10, 2);
@@ -159,16 +158,6 @@ class SLN_PostType_Booking extends SLN_PostType_Abstract
             return $months;
     }
 
-
-//    public function insert_post_data($data, $postarr)
-//    {
-//        if ($data['post_type'] == $this->getPostType()) {
-//            $data['post_title'] = 'Booking #' . $postarr['ID'];
-//        }
-//
-//        return $data;
-//    }
-
     public function post_row_actions($actions, $post) {
         if ($post && $post->post_type === SLN_Plugin::POST_TYPE_BOOKING) {
             unset($actions['inline hide-if-no-js']);
@@ -185,7 +174,6 @@ class SLN_PostType_Booking extends SLN_PostType_Abstract
             'booking_status' => __('Status', 'salon-booking-system'),
             'myauthor' => __('User name', 'salon-booking-system'),
             'booking_attendant' => __('Attendant', 'salon-booking-system'),
-//            'date' => __('Submitted', 'salon-booking-system'),
             'booking_price' => __('Booking Price', 'salon-booking-system'),
             'booking_services' => __('Booking Services', 'salon-booking-system'),
             'booking_review' => __('Booking Review', 'salon-booking-system'),
@@ -375,7 +363,6 @@ class SLN_PostType_Booking extends SLN_PostType_Abstract
             $p = $this->getPlugin();
             $booking = $p->createBooking($post);
             $p->messages()->sendByStatus($booking, $new_status);
-            //$ret = $GLOBALS['sln_googlescope']->create_event_from_booking($booking);
         }
     }
 
@@ -396,7 +383,7 @@ class SLN_PostType_Booking extends SLN_PostType_Abstract
         if ($post && $post->post_type == SLN_Plugin::POST_TYPE_BOOKING) {
             ?>
             <script type="text/javascript">
-                jQuery(document).ready(function ($) {
+                jQuery(function ($) {
                     $('#save-post').attr('value', '<?php echo __(
                         $isNew ? "Add booking" : 'Update booking',
                         'salon-booking-system'

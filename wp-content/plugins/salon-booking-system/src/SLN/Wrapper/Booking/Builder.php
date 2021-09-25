@@ -66,7 +66,6 @@ class SLN_Wrapper_Booking_Builder
             'date' => $d->format('Y-m-d'),
             'time' => $d->format('H:i'),
             'services' => array(),
-//            'attendants' => array(),
         );
     }
 

@@ -6,20 +6,10 @@ class SLN_TimeFunc
 
     public static function startRealTimezone()
     {
-        /*if ( ( $timezone = self::getTimezoneWpSettingsOption() ) ) {
-            date_default_timezone_set($timezone);
-        }
-	   return $timezone;
-       */
     }
 
     public static function endRealTimezone()
     {
-        /*if ( ( $timezone = self::getTimezoneWpSettingsOption() ) ) {
-            date_default_timezone_set('UTC');
-        }
-        return $timezone;
-        */
     }
 
     public static function getWpTimezone() {

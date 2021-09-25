@@ -142,12 +142,6 @@ class SLN_PostType_Service extends SLN_PostType_Abstract
             'sln_days_off' => __('Availability', 'salon-booking-system'),
         );
 
-//        return array_merge(
-//            $columns, array(
-//            'service_duration' => __('Duration', 'salon-booking-system'),
-//            'service_price' => __('Price', 'salon-booking-system')
-//            )
-//        );
         return $new_columns;
     }
 

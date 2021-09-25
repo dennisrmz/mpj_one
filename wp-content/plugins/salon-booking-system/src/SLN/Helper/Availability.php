@@ -205,7 +205,7 @@ class SLN_Helper_Availability
         $endAt->modify('+'. $durationMinutes .'minutes');
 
         $times = SLN_Func::filterTimes($this->getMinutesIntervals(), $startAt, $endAt);
-        if($duration && $attendant->isNotAvailableOnDateDuration($times[0], $duration)) {
+        if($duration && $times && $attendant->isNotAvailableOnDateDuration($times[0], $duration)) {
             return SLN_Helper_Availability_ErrorHelper::doAttendantNotAvailable($attendant, $times[0]);
         }
         foreach ($times as $time) {
@@ -686,10 +686,10 @@ class SLN_Helper_Availability
                 = $availAttsForCurrentService = $this->getAvailableAttsIdsForBookingService($bookingService);
             if (empty($availAttsForCurrentService)) {
                 throw new SLN_Exception(
-                    sprintf(
+                    esc_html(sprintf(
                         __('No one of the attendants isn\'t available for %s service', 'salon-booking-system'),
                         $service->getName()
-                    )
+                    ))
                 );
             }
 
@@ -698,7 +698,7 @@ class SLN_Helper_Availability
                 if (!in_array($selectedAttId, $availAttsForCurrentService)) {
                     throw new SLN_Exception(
                         sprintf(
-                            __('Attendant %s isn\'t available for %s service', 'salon-booking-system'),
+                            esc_html__('Attendant %s isn\'t available for %s service', 'salon-booking-system'),
                             $bookingService->getAttendant()->getName(),
                             $service->getName()
                         )

@@ -11,7 +11,7 @@ $ajaxEnabled = $plugin->getSettings()->isAjaxEnabled();
 
     <div class="col-xs-12 field-phone">
        <?php $label = SLN_Enum_CheckoutFields::getField('phone')->label();?>
-		<label for="login_phone"><?php echo __($label,'salon-booking-system'); ?></label>
+		<label for="login_phone"><?php echo esc_html__($label,'salon-booking-system'); ?></label>
                 <?php if (($prefix = $plugin->getSettings()->get('sms_prefix'))): ?>
                     <div class="input-group sln-input-group">
                         <span class="input-group-addon sln-input--addon"><?php echo $prefix ?></span>

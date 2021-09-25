@@ -15,6 +15,7 @@ return array(
         'gen_phone'        => '',
         'gen_address'      => '',
         'gen_timetable'    => 'In case of delay we\'ll keep your "seat" for 15 minutes, after that you\'ll loose your priority.',
+        'last_step_note'   => 'You will receive a booking confirmation by email.If you do not receive an email in 5 minutes, check your Junk Mail or Spam Folder. If you need to change your reservation, please call <strong>[SALON PHONE]</strong> or send an e-mail to <strong>[SALON PHONE]</strong>.',
         'soc_facebook'     => 'http://www.facebook.com',
         'soc_twitter'      => 'http://www.twitter.com',
         'soc_google'       => 'http://www.google.it',
@@ -49,9 +50,6 @@ return array(
         'pay_paypal_test'  => true,
         'pay_stripe_method' => 'card',
         'parallels_hour'   => 1,
-//        'confirmation'     => true,
-//        'pay_enabled'      => true,
-//        'pay_cash'         => true
         'sln_db_version' => SLN_VERSION,
         'onesignal_notification_message' => SLN_Admin_SettingTabs_GeneralTab::getDefaultOnesignalNotificationMessage(),
 	'enable_discount_system' => true,

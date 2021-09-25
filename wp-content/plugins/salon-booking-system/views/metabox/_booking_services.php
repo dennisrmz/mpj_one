@@ -28,6 +28,7 @@ foreach ($allAttendants as $attendant) {
             <?php else: ?>
             <h4 class="sln-box-title--nu--sec"><?php _e('Services', 'salon-booking-system');?></h4>
             <?php endif?>
+                <span id="sln-alert-noservices" class="sln-alert sln-alert--warning sln-alert--inline"><?php echo __('No services addded yet', 'salon-booking-system') ?></span>
         </div>
 
         <?php ob_start();?>
@@ -98,6 +99,7 @@ foreach ($allAttendants as $attendant) {
             </div>
             <?php endif?>
             <div class="col-xs-12 col-sm-1">
+                <span class="sln-alert sln-alert--fadeout sln-alert--ok sln-alert--onremove"><?php echo __('Service addded', 'salon-booking-system') ?></span>
                     <button class="sln-btn sln-btn--big sln-btn--icon sln-btn--icon--left--alt sln-icon--times sln-btn--textonly sln-btn--textonly--emph" data-collection="remove"><?php echo __('Remove', 'salon-booking-system') ?></button>
             </div>
         </div>
@@ -207,6 +209,7 @@ $servicesData[$serviceId] = array(
             </div>
             <?php endif?>
             <div class="col-xs-12 col-sm-1">
+                    <span class="sln-alert sln-alert--fadeout sln-alert--ok sln-alert--onremove"><?php echo __('Service addded', 'salon-booking-system') ?></span>
                     <button class="sln-btn sln-btn--big sln-btn--icon sln-btn--icon--left--alt sln-icon--times sln-btn--textonly sln-btn--textonly--emph" data-collection="remove"><?php echo __('Remove', 'salon-booking-system') ?></button>
             </div>
 
@@ -255,17 +258,6 @@ foreach ($allServices as $service) {
                     <option value=""><?php _e('Select an assistant', 'salon-booking-system')?></option>
                 </select>
             </div>
-                <?php /*
-<?php elseif($isAttendants) : ?>
-<div class="col-xs-12 col-sm-3 col-md-3 sln-select">
-<?php SLN_Form::fieldSelect(
-'_sln_booking[attendant]',
-$attendantsData,
-$booking->getAttendant() ? $booking->getAttendant()->getId() : '',
-array('empty_value' => __('Select an assistant','salon-booking-system')),
-true
-) ?>
-</div> */?>
             <?php endif?>
         </div>
         <div class="row">
@@ -274,7 +266,7 @@ true
             <?php else: ?>
                 <div class="col-xs-12 col-sm-5 col-lg-6 sln-booking-service-action__btns">
             <?php endif;?>
-                <button id="sln-addservice" data-collection="addnewserviceline" class="sln-btn sln-btn--big sln-btn--icon sln-btn--icon--left--alt sln-icon--plus sln-btn--textonly sln-btn--textonly--emph sln-btn--disabled" disabled>
+                <button id="sln-addservice" data-collection="addnewserviceline" class="sln-btn sln-btn--big sln-btn--icon sln-btn--icon--left--alt sln-icon--plus sln-btn--nu--highemph sln-btn--disabled sln-btn--hidden" disabled>
                     <?php _e('Add this service', 'salon-booking-system')?>
                 </button>
             </div>

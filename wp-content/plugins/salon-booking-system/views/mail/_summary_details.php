@@ -63,7 +63,7 @@ $depositText = ($booking->getDeposit() && $booking->hasStatus(SLN_Enum_BookingSt
 					<?php if ($bookingService->getService()->getServiceCategory()): ?>
                                             <tr>
                                                 <td align="left" valign="top" style="font-size:16px;line-height:18px;color:#979797;font-family: 'Avenir-Medium',sans-serif,arial;">
-                                                    <?php echo __($bookingService->getService()->getServiceCategory()->getName(),'salon-booking-system'); ?>
+                                                    <?php echo esc_html__($bookingService->getService()->getServiceCategory()->getName(),'salon-booking-system'); ?>
                                                 </td>
                                             </tr>
                                         <?php endif; ?>

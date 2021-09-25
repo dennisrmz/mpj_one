@@ -258,22 +258,5 @@ echo SLN_Enum_SmsProvider::getService($k, $plugin)->renderSettingsFields(array('
         </p>
     </div>
 </div>
-
-<!--
-THIS BOX MUST BE HIDDEN IF NOT IN USE
-<div class="sln-box-info">
-    <div class="sln-box-info-trigger">
-        <button class="sln-btn sln-btn--main sln-btn--small sln-btn--icon sln-icon--info">info</button>
-    </div>
-    <div class="sln-box-info-content row">
-        <div class="col-xs-12 col-sm-8 col-md-4">
-            <h5><?php _e('-', 'salon-booking-system')?></h5>
-        </div>
-    </div>
-    <div class="sln-box-info-trigger">
-        <button class="sln-btn sln-btn--main sln-btn--small sln-btn--icon sln-icon--close">info</button>
-    </div>
-</div>
--->
 </div>
 </div>

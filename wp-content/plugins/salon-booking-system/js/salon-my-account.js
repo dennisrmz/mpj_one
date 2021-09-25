@@ -1,6 +1,8 @@
 // algolplus
 
-var slnMyAccount = {
+"use strict";
+
+var sln_myAccount = {
     cancelBooking: function (id) {
         if (!confirm(salon.confirm_cancellation_text)) {
             return;
@@ -22,7 +24,7 @@ var slnMyAccount = {
                     alert('error');
                     console.log(data);
                 } else {
-                    slnMyAccount.loadContent('cancelled');
+                    sln_myAccount.loadContent('cancelled');
                 }
             },
             error: function(data){alert('error'); console.log(data);}
@@ -48,18 +50,18 @@ var slnMyAccount = {
                     sln_createRatings(true, 'circle');
                     jQuery("[data-toggle='tooltip']").tooltip();
 
-                    if( slnMyAccount.feedback_id ) {
-                        slnMyAccount.showRateForm( slnMyAccount.feedback_id  );
+                    if( sln_myAccount.feedback_id ) {
+                        sln_myAccount.showRateForm( sln_myAccount.feedback_id  );
                     }
-                    slnMyAccount.setActiveTab();
-                    jQuery('.nav-tabs a').on('show.bs.tab', slnMyAccount.setActiveHash);
+                    sln_myAccount.setActiveTab();
+                    jQuery('.nav-tabs a').on('show.bs.tab', sln_myAccount.setActiveHash);
                     jQuery('#salon-my-account-profile-form input[name="action"]').val('salon');
-                    jQuery('#salon-my-account-profile-form').on('submit', slnMyAccount.updateProfile);
+                    jQuery('#salon-my-account-profile-form').on('submit', sln_myAccount.updateProfile);
 
 		    var items = {intervals: {}};
 
-		    initDatepickers(jQuery);
-		    initTimepickers(jQuery, items);
+		    sln_initDatepickers(jQuery);
+		    sln_initTimepickers(jQuery, items);
 
 		    var doingFunc = null;
 
@@ -244,11 +246,11 @@ var slnMyAccount = {
 
                     jQuery('#ratingModal .close').delay(2000).queue(function () {
                         jQuery(this).trigger('click');
-                        slnMyAccount.loadContent();
+                        sln_myAccount.loadContent();
                         jQuery(this).dequeue();
                     });
 
-                    slnMyAccount.feedback_id = false;
+                    sln_myAccount.feedback_id = false;
                 }
             },
             error: function(data){alert('error'); console.log(data);}
@@ -275,7 +277,6 @@ var slnMyAccount = {
         statusContainer.parent().hide();
         statusContainer.html('');
         data += "&method=UpdateProfile";
-        //"&s=" + $('#sln-update-user-field').val() + "&security=" + salon.ajax_nonce;
         jQuery.ajax({
             url: salon.ajax_url,
             data: data,
@@ -301,13 +302,13 @@ var slnMyAccount = {
         if (jQuery('#sln-salon-my-account-content').length) {
             this.loadContent();
         }
-        else /*if (jQuery('[name=post_type]').val() == 'sln_booking')*/ {
+        else {
             sln_createRatings(true, 'star');
         }
     }
 };
 
-function addClassIfNarrow(element, narrowClass) {
+function sln_addClassIfNarrow(element, narrowClass) {
     if (element.length > 0) {
         jQuery(window).on("load resize",function(){
             var elementWidth = element.width();
@@ -320,7 +321,7 @@ function addClassIfNarrow(element, narrowClass) {
     }
 }
 
-jQuery(document).ready(function() {
-    slnMyAccount.init();
-    addClassIfNarrow(jQuery('#sln-salon-my-account'), 'mobile-version');
+jQuery(function() {
+    sln_myAccount.init();
+    sln_addClassIfNarrow(jQuery('#sln-salon-my-account'), 'mobile-version');
 });

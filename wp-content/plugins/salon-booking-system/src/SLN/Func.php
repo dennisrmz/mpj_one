@@ -77,8 +77,6 @@ class SLN_Func
         } elseif ($filter == 'date') {
             if (is_array($val)) {
                 $val = $val['year'] . '-' . $val['month'] . '-' . $val['day'];
-//            } elseif (strpos($val, ' ') !== false) {
-//                $val = SLN_TimeFunc::evalPickedDate($val);
             } else {
                 $val = SLN_TimeFunc::evalPickedDate($val);
             }
@@ -154,10 +152,6 @@ class SLN_Func
     public static function getIntervalItemsShort()
     {
         return array(
-//            '+10 minutes' => '10 '.__('minutes', 'salon-booking-system'),
-//            '+20 minutes' => '20 '.__('minutes', 'salon-booking-system'),
-//            '+30 minutes' => '30 '.__('minutes', 'salon-booking-system'),
-//            '+45 minutes' => '45 '.__('minutes', 'salon-booking-system'),
             '+1 hour' => '1 ' . __('hour', 'salon-booking-system'),
             '+2 hours' => '2 ' . __('hours', 'salon-booking-system'),
             '+3 hours' => '3 ' . __('hours', 'salon-booking-system'),

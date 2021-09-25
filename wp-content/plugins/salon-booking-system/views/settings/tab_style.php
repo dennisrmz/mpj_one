@@ -58,7 +58,6 @@ sum(
 	'style_colors_enabled',
 	'Custom colors',
 	array(
-		//'help' => __('customize colors of the salon shortcode.', 'salon-booking-system'),
 		'bigLabelOn' => __('Custom colors are enabled', 'salon-booking-system'),
 		'bigLabelOff' => __('Custom colors are disabled', 'salon-booking-system'),
 	)

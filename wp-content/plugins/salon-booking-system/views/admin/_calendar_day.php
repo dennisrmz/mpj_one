@@ -11,11 +11,10 @@ $minutes = ($hoursParts[0] * 60) + $hoursParts[1];
 <i class="sln-btn--icon sln-icon--checkmark <?php if (!$booking->getOnProcess()) {
 	echo "hide";
 }
-?>" <?php //if(!$booking->getOnProcess()) echo "style=\"display:none\""; ?>></i></span>
+?>" ></i></span>
 
 <span class="day-event-item__booking_id"><?php echo $booking->getId() ?></span>
 </div>
-<!--<div class="day-event-item__content "></div>-->
 
 <ul class='service_wrapper <?php echo 'duration-' . $minutes; ?>'>
     <?php
@@ -26,6 +25,5 @@ foreach ($booking->getBookingServices()->getItems() as $bookingService): ?>
             <span class='day-event-item__attendant'><span class="day-event-item__attendant_name"><?php echo $bookingService->getAttendant() ? $bookingService->getAttendant()->getName() . ': ' : '' ?></span>
             <span class='day-event-item__attendant_timing'><?php echo $format->time($bookingService->getStartsAt()) . ' &#8594; ' . $format->time($bookingService->getEndsAt()) ?></span> </span>
         </li>
-    <?php endforeach;
-//echo $sum;?>
+    <?php endforeach; ?>
 </ul>

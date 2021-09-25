@@ -1,3 +1,5 @@
+"use strict";
+
 jQuery(function ($) {
 
     // we create a copy of the WP inline edit post function

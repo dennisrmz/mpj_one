@@ -31,7 +31,6 @@ echo $plugin->loadView('settings/_tab_booking_availability');
 )?></span></h2>
                 <div class="row">
                     <div class="col-xs-12 form-group sln-select  sln-select--info-label">
-                        <!--<label for="salon_settings_parallels_hour">Customers per time/session</label>-->
                         <div class="row">
                             <div class="col-xs-4">
                                 <?php echo SLN_Form::fieldNumeric(
@@ -62,7 +61,6 @@ echo $plugin->loadView('settings/_tab_booking_availability');
 )?></span></h2>
                 <div class="row">
                     <div class="col-xs-12 form-group sln-select  sln-select--info-label">
-                        <!--<label for="salon_settings_parallels_hour">Customers per time/session</label>-->
                         <div class="row">
                             <div class="col-xs-4">
                                 <?php $field = "salon_settings[interval]";?>

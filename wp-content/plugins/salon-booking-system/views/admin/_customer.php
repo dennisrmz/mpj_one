@@ -44,7 +44,7 @@
 					
 					 ?>
 					 <div class="col-xs-12 col-md-<?php echo $width ?> form-group sln_meta_field sln-input--simple <?php echo 'sln-'.$field['type']; ?>">
-						<label for="<?php echo 'sln_customer_meta[_sln_'.$key.']' ?>"><?php echo __( $field['label'], 'salon-booking-system') ?></label>
+						<label for="<?php echo 'sln_customer_meta[_sln_'.$key.']' ?>"><?php echo esc_html__( $field['label'], 'salon-booking-system') ?></label>
                         <?php 
                             $additional_opts = array( 
                                 'sln_customer_meta['.'_sln_'.$key.']', $value, 

@@ -10,7 +10,6 @@ class SLN_Admin_Settings {
 	public function __construct(SLN_Plugin $plugin) {
 		$this->plugin = $plugin;
 		$this->tabs = apply_filters('sln.settings.tabs', array(
-			//'homepage' => __('Home', 'salon-booking-system'),
 			'general' => __('General', 'salon-booking-system'),
 			'booking' => __('Booking Rules', 'salon-booking-system'),
 			'checkout' => __('Checkout', 'salon-booking-system'),
@@ -71,9 +70,6 @@ class SLN_Admin_Settings {
                 <?php
 $tab->show();
 		wp_nonce_field(self::PAGE . $current);
-		if ($current != 'homepage') {
-			//submit_button(esc_attr__('Update Settings', 'salon-booking-system'), 'primary');
-		}
 		?>
             </form>
 

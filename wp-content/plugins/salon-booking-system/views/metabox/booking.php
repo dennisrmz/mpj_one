@@ -79,7 +79,7 @@ if ($width == 12) {
 		}
 		?> sln-input--simple <?php echo 'sln-' . $field['type']; ?> sln-booking-user-field">
                     <div class="form-group sln_meta_field">
-                        <label for="<?php echo $key ?>"><?php echo __($field['label'], 'salon-booking-system') ?></label>
+                        <label for="<?php echo $key ?>"><?php echo esc_html__($field['label'], 'salon-booking-system') ?></label>
                         <?php
 $additional_opts = array($is_customer_field && $field->isAdditional() ? '_sln_' . $key :
 			$helper->getFieldName($postType, $key), $value,
@@ -154,7 +154,7 @@ class="sln-box sln-box--main"
 
 	<?php if ($mode === 'sln_editor'): ?>
 	    <script>
-		jQuery(document).ready(function () {
+		jQuery(function () {
 		    parent.jQuery('#sln-booking-editor-modal .booking-last-edit-div').html(jQuery('.booking-last-edit').html())
 		});
 	    </script>
@@ -259,7 +259,7 @@ $customer = $booking->getCustomer();
 			?>
                 <div class="col-xs-12 col-md-<?php echo $width ?> sln-input--simple <?php echo 'sln-' . $field['type']; ?> sln-booking-user-field">
                     <div class="form-group sln_meta_field">
-                        <label for="<?php echo $key ?>"><?php echo __($field['label'], 'salon-booking-system') ?></label>
+                        <label for="<?php echo $key ?>"><?php echo esc_html__($field['label'], 'salon-booking-system') ?></label>
                         <?php
 $additional_opts = array($is_customer_field && $field->isAdditional() ? '_sln_' . $key :
 				$helper->getFieldName($postType, $key), $value,
@@ -380,7 +380,6 @@ if ($enableDiscountSystem) {
 			array(
 				'map' => true,
 				'empty_value' => 'No Discounts',
-				//'attrs' => array('multiple' => 'multiple'),
 			)
 		);?>
 

@@ -65,9 +65,6 @@ $backBtn = ob_get_clean();
         </div>
         <div class="hidden-xs hidden-sm col-md-1 pull-right"></div>
         <?php endif ?>
-            <?php /* if ($currentNum > 1): ?>
-                <span class="sln-step-num"><?php echo sprintf(__('step %s of %s', 'salon-booking-system'), $currentNum, $count) ?></span>
-            <?php endif */ ?>
 </div>
 <?php
         // IF SIZE == 900 // END
@@ -84,9 +81,6 @@ $backBtn = ob_get_clean();
             <?php echo $backBtn ?>
         </div>
         <?php endif ?>
-            <?php /* if ($currentNum > 1): ?>
-                <span class="sln-step-num"><?php echo sprintf(__('step %s of %s', 'salon-booking-system'), $currentNum, $count) ?></span>
-            <?php endif */ ?>
 </div>
         <?php
         // IF SIZE == 600 // END
@@ -104,9 +98,6 @@ $backBtn = ob_get_clean();
         </div>
         <div class="col-xs-12 col-md-1 pull-right"></div>
         <?php endif ?>
-            <?php /* if ($currentNum > 1): ?>
-                <span class="sln-step-num"><?php echo sprintf(__('step %s of %s', 'salon-booking-system'), $currentNum, $count) ?></span>
-            <?php endif */ ?>
 </div>
         <?php
         // IF SIZE == 400 // END
@@ -124,9 +115,6 @@ $backBtn = ob_get_clean();
             <?php endif ?>
         </div>
         <div class="col-xs-12 col-md-1 pull-right"></div>
-            <?php /* if ($currentNum > 1): ?>
-                <span class="sln-step-num"><?php echo sprintf(__('step %s of %s', 'salon-booking-system'), $currentNum, $count) ?></span>
-            <?php endif */ ?>
 </div>
         <?php
         // IF SIZE ELSE // END

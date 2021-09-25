@@ -345,9 +345,7 @@ class SLN_Wrapper_Booking extends SLN_Wrapper_Abstract
     function getEndsAt( $timezone='' )
     {
         $start = $this->getStartsAt( $timezone );
-        //SLN_Plugin::addLog($this->getId().' duration '.$this->getDuration()->format('H:i'));
         $minutes = SLN_Func::getMinutesFromDuration($this->getDuration());
-        //SLN_Plugin::addLog($this->getId().' duration '.$minutes.' minutes');
         if ($minutes == 0) {
             $minutes = 60;
         }

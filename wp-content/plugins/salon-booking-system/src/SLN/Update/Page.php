@@ -22,7 +22,7 @@ class SLN_Update_Page
             $licenseUrl = admin_url('/plugins.php?page='.$this->pageSlug);
             ?>
             <div id="sln-setting-error" class="updated error">
-                <h3><?php echo $this->updater->get('name').__(' needs a valid license', 'salon-booking-system') ?></h3>
+                <h3><?php echo esc_html($this->updater->get('name')).__(' needs a valid license', 'salon-booking-system') ?></h3>
                 <p><a href="<?php echo $licenseUrl ?>"><?php _e('<p>Please insert your license key', 'salon-booking-system'); ?></a>
                 </p>
             </div>

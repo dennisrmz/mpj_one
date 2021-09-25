@@ -169,7 +169,16 @@ class Discounts_Controller extends REST_Controller
             'services'       => $discount->getServicesIds(),
             'discount_type'  => $discount->getDiscountType(),
             'discount_code'  => $discount->getCouponCode(),
-            'discount_rules' => $discount->getDiscountRules(),
+            'discount_rules' => array_map(function ($item) {
+                return array(
+                    'mode'            => $item['mode'],
+                    'bookings_number' => (int)$item['bookings_number'],
+                    'amount_number'   => (int)$item['amount_number'],
+                    'daterange_from'  => $item['daterange_from'],
+                    'daterange_to'    => $item['daterange_to'],
+                    'weekdays'        => $item['weekdays'],
+                );
+            }, $discount->getDiscountRules()),
         );
     }
 

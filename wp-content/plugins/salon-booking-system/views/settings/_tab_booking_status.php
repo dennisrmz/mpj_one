@@ -11,10 +11,6 @@ $disabledMessage = $plugin->getSettings()->get('disabled_message');
 <div class="row">
     <div class="col-xs-12 col-sm-6 sln-switch sln-switch--inverted sln-moremargin--bottom">
         <h6 class="sln-fake-label"><?php _e('Online Booking Status', 'salon-booking-system');?></h6>
-        <!--<input type="checkbox" name="salon_settings[disabled]" id="salon_settings_disabled" value="1">
-            <label class="sln-switch-btn" for="salon_settings_disabled"  data-on="On" data-off="Off"></label>
-            <label class="sln-switch-text"  for="salon_settings_disabled" data-on="Online Booking is active"
-            data-off="Online Booking is paused"></label>-->
         <?php SLN_Form::fieldCheckboxSwitch(
 	"salon_settings[disabled]",
 	$disabled,

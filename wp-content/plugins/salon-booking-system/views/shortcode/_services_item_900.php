@@ -2,10 +2,6 @@
 	<div class="col-xs-12 sln-service__header">
         <div class="row sln-steps-info sln-service-info">
             <div class="col-xs-2 col-sm-1 col-xs-push-10 col-sm-push-0 sln-checkbox sln-steps-check sln-service-check">
-                <?php /*
-                        <span class="service-checkbox <?php echo  $bb->hasService($service) ? 'is-checked' : '' ?>">
-                        </span>
-                        */ ?>
                 <div class="sln-checkbox">
                     <?php SLN_Form::fieldCheckbox(
                         'sln[services][' . $service->getId() . ']',
@@ -59,8 +55,6 @@
     </div>
     <div class="col-xs-12">
         <div class="row sln-steps-description sln-service-description">
-            <!--<div class="col-xs-12"><hr></div>
-            <div class="col-xs-12 col-sm-1 col-md-1 hidden-xs hidden-sm">&nbsp;</div>-->
             <div class="col-xs-12 col-md-9 col-sm-offset-1">
                     <p><?php echo $service->getContent() ?></p>
                     <?php if ($service->getDuration()->format('H:i') != '00:00'): ?>

@@ -17,7 +17,7 @@ class SLN_Action_InitComments
             if ($post->post_type == 'sln_booking') {
                 $rating = get_post_meta($post->ID, '_sln_booking_rating', true);
 
-                return '<script> jQuery(document).ready(function() { sln_createRatings(); }); </script>
+                return '<script> jQuery(function() { sln_createRatings(); }); </script>
                             <div><input type="hidden" name="sln-rating" value="'.$rating.'"/>
                             <div class="rating" style="display: none;"></div></div>'.$comment_text;
             }

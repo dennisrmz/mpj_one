@@ -1,7 +1,7 @@
+"use strict";
+
 jQuery(function($) {
     $("#color-background").colorpicker({
-        //color: 'transparent',
-        //color: 'rgba(0, 66, 88, 1)',
         format: "rgba",
         customClass: "sln-colorpicker-widget",
         sliders: {
@@ -23,8 +23,6 @@ jQuery(function($) {
         }
     });
     $("#color-main").colorpicker({
-        //color: 'transparent',
-        //color: 'rgba(0, 66, 88, 1)',
         format: "rgb",
         customClass: "sln-colorpicker-widget",
         sliders: {
@@ -44,8 +42,6 @@ jQuery(function($) {
         }
     });
     $("#color-text").colorpicker({
-        //color: 'transparent',
-        //color: 'rgba(0, 66, 88, 1)',
         format: "rgb",
         customClass: "sln-colorpicker-widget",
         sliders: {
@@ -177,10 +173,8 @@ jQuery(function($) {
             $("#color-main-c").val(mainShadeC);
             $(".sln-colors-sample h1")[0].style.color = e.color;
             $(".sln-colors-sample button")[0].style.backgroundColor = e.color;
-            //$('.sln-colors-sample label')[0].style.color = e.color;
             $(".sln-colors-sample label").css("color", mainShadeB);
             $(".sln-colors-sample input")[0].style.borderColor = e.color;
-            //$('.sln-colors-sample input').css('border-color', shadeB);
             $(".sln-colors-sample input")[0].style.color = e.color;
         });
     $("#color-text")

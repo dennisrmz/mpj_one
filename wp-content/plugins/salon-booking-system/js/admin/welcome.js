@@ -1,4 +1,6 @@
-jQuery(document).ready(function () {
+"use strict";
+
+jQuery(function () {
 
     var $animation_elements = jQuery('.animated');
     var $window = jQuery(window);

@@ -20,15 +20,9 @@ class SLN_Action_Sms_Plivo extends SLN_Action_Sms_Abstract
             $tmp = array_values($response);
             if (array_shift($tmp) != "202") {
                 $this->createException(__('Plivo: Please check your settings', 'salon-booking-system'));
-                //$this->createException('Plivo: Please ensure that From number is a valid and sms feature enabled Plivo DID number');
             }
         }catch(PlivoError $exception){
             $this->createException('Plivo: '.$exception->getMessage());
         }
     }
-/*
-    protected function processTo($to){
-        return str_replace('+','',parent::processTo($to));
-    }
-*/
 }

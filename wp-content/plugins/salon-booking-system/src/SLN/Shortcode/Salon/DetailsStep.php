@@ -213,7 +213,7 @@ class SLN_Shortcode_Salon_DetailsStep extends SLN_Shortcode_Salon_AbstractUserSt
         
         foreach ($fields as $key => $field) {
             if ($field->isRequiredNotHidden() && empty($values[$key])){
-                $this->addError(__($field['label'].' can\'t be empty', 'salon-booking-system'));
+                $this->addError(esc_html__($field['label'].' can\'t be empty', 'salon-booking-system'));
         }
         }
         

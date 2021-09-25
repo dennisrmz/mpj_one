@@ -85,8 +85,6 @@ class AvailabilityStats_Controller extends REST_Controller
                         if (!$b->hasStatus(
                             array(
                                 SLN_Enum_BookingStatus::CANCELED,
-//                                SLN_Enum_BookingStatus::PENDING,
-//                                SLN_Enum_BookingStatus::PENDING_PAYMENT,
                             )
                         )
                         ) {

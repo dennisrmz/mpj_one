@@ -3,11 +3,11 @@
 namespace Spatie\CalendarLinks;
 
 use DateTime;
-use Spatie\CalendarLinks\Generators\Ics;
-use Spatie\CalendarLinks\Generators\Yahoo;
-use Spatie\CalendarLinks\Generators\Google;
-use Spatie\CalendarLinks\Generators\WebOutlook;
 use Spatie\CalendarLinks\Exceptions\InvalidLink;
+use Spatie\CalendarLinks\Generators\Google;
+use Spatie\CalendarLinks\Generators\Ics;
+use Spatie\CalendarLinks\Generators\WebOutlook;
+use Spatie\CalendarLinks\Generators\Yahoo;
 
 /**
  * @property-read string $title
@@ -37,7 +37,7 @@ class Link
     /** @var string */
     protected $address;
 
-    public function __construct($title, DateTime $from, DateTime $to, $allDay = false)
+    public function __construct(string $title, DateTime $from, DateTime $to, bool $allDay = false)
     {
         $this->title = $title;
         $this->allDay = $allDay;
@@ -48,11 +48,6 @@ class Link
 
         $this->from = clone $from;
         $this->to = clone $to;
-
-        if ($this->allDay) {
-            $this->from = clone $from;
-            $this->to = clone $from;
-        }
     }
 
     /**
@@ -64,9 +59,25 @@ class Link
      * @return static
      * @throws InvalidLink
      */
-    public static function create($title, DateTime $from, DateTime $to, $allDay = false)
+    public static function create(string $title, DateTime $from, DateTime $to, bool $allDay = false)
     {
         return new static($title, $from, $to, $allDay);
+    }
+
+    /**
+     * @param string   $title
+     * @param DateTime $fromDate
+     * @param int      $numberOfDays
+     *
+     * @return Link
+     * @throws InvalidLink
+     */
+    public static function createAllDay(string $title, DateTime $fromDate, int $numberOfDays = 1): self
+    {
+        $from = (clone $fromDate)->modify('midnight');
+        $to = (clone $from)->modify("+$numberOfDays days");
+
+        return new self($title, $from, $to, true);
     }
 
     /**
@@ -74,7 +85,7 @@ class Link
      *
      * @return $this
      */
-    public function description($description)
+    public function description(string $description)
     {
         $this->description = $description;
 
@@ -86,31 +97,36 @@ class Link
      *
      * @return $this
      */
-    public function address($address)
+    public function address(string $address)
     {
         $this->address = $address;
 
         return $this;
     }
 
-    public function google()
+    public function formatWith(Generator $generator): string
     {
-        return (new Google())->generate($this);
+        return $generator->generate($this);
     }
 
-    public function ics()
+    public function google(): string
     {
-        return (new Ics())->generate($this);
+        return $this->formatWith(new Google());
     }
 
-    public function yahoo()
+    public function ics(): string
     {
-        return (new Yahoo())->generate($this);
+        return $this->formatWith(new Ics());
     }
 
-    public function webOutlook()
+    public function yahoo(): string
     {
-        return (new WebOutlook())->generate($this);
+        return $this->formatWith(new Yahoo());
+    }
+
+    public function webOutlook(): string
+    {
+        return $this->formatWith(new WebOutlook());
     }
 
     public function __get($property)

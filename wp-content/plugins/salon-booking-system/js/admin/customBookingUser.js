@@ -1,3 +1,5 @@
+"use strict";
+
 var sln_customer_fields;
 jQuery(function($) {
     if ($(".sln-booking-user-field").length) {
@@ -34,7 +36,7 @@ jQuery(function($) {
         sln_calculateTotal();
     });
 
-    customBookingUser($);
+    sln_customBookingUser($);
     sln_manageAddNewService($);
     sln_manageCheckServices($);
     if (sln_isShowOnlyBookingElements($)) {
@@ -63,10 +65,10 @@ jQuery(function($) {
     if ($("#collapseMoreDetails").length) {
         moreDetails();
     }
-    selectValueFormatting($);
+    sln_selectValueFormatting($);
 });
 
-function selectValueFormatting($) {
+function sln_selectValueFormatting($) {
     $(
         ".sln-booking-service-line .select2-container--sln .select2-selection__rendered"
     ).each(function() {
@@ -144,13 +146,6 @@ function sln_validateBooking() {
 
     $.each(toValidate, function(k, val) {
         if (val == "#_sln_booking_email" || val == "#_sln_email") {
-            /*
-            if (!sln_validateEmail($(val).val())) {
-                $(val).addClass('sln-invalid').parent().append('<div class="sln-error error">This field is not a valid email</div>');
-                if (!hasErrors) $(val).focus();
-                hasErrors = true;
-            }
-            */
         } else if (val == "#_sln_booking_service_select") {
             if (!$(".sln-booking-service-line").length) {
                 $(val)
@@ -159,7 +154,7 @@ function sln_validateBooking() {
                     .append(
                         '<div class="sln-error error">This field is required</div>'
                     );
-                if (!hasErrors) $(val).focus();
+                if (!hasErrors) $(val).trigger("focus");
                 hasErrors = true;
             }
         } else if ($(val).attr("type") === "checkbox") {
@@ -170,7 +165,7 @@ function sln_validateBooking() {
                     .append(
                         '<div class="sln-error error">This field is required</div>'
                     );
-                if (!hasErrors) $(val).focus();
+                if (!hasErrors) $(val).trigger("focus");
                 hasErrors = true;
             }
         } else if ($(val).prop("tagName") === "SELECT") {
@@ -181,7 +176,7 @@ function sln_validateBooking() {
                     .append(
                         '<div class="sln-error error">This field is required</div>'
                     );
-                if (!hasErrors) $(val).focus();
+                if (!hasErrors) $(val).trigger("focus");
                 hasErrors = true;
             }
         } else if (!$(val).val()) {
@@ -191,14 +186,14 @@ function sln_validateBooking() {
                 .append(
                     '<div class="sln-error error">This field is required</div>'
                 );
-            if (!hasErrors) $(val).focus();
+            if (!hasErrors) $(val).trigger("focus");
             hasErrors = true;
         }
     });
     return !hasErrors;
 }
 
-function customBookingUser($) {
+function sln_customBookingUser($) {
     $("#sln-update-user-field").select2({
         containerCssClass: "sln-select-rendered",
         dropdownCssClass: "sln-select-dropdown",
@@ -462,8 +457,6 @@ function sln_adminDate($) {
     function bindIntervals(intervals) {
         items = intervals;
         func();
-        //putOptions($('#_sln_booking_date'), intervals.suggestedDate);
-        //putOptions($('#_sln_booking_time'), intervals.suggestedTime);
     }
 
     function putOptions(selectElem, value) {
@@ -474,8 +467,8 @@ function sln_adminDate($) {
         validate(this);
     });
     validate($("#_sln_booking_date"));
-    initDatepickers($);
-    initTimepickers($);
+    sln_initDatepickers($);
+    sln_initTimepickers($);
     sln_initResendNotification();
     sln_initResendPaymentSubmit();
 }
@@ -572,7 +565,7 @@ function sln_manageAddNewService($) {
             .html(selectHtml)
             .trigger("change");
 
-        if ($("#salon-step-date").data("isnew")) sln_calculateTotal();
+        sln_calculateTotal();
 
         sln_createServiceLineSelect2();
         sln_bindRemoveBookingsServices();
@@ -583,12 +576,15 @@ function sln_manageAddNewService($) {
             .trigger("change");
         $(this)
             .addClass("sln-btn--disabled")
+            .removeClass("sln-btn--blink")
             .prop("disabled", true);
-        selectValueFormatting($);
+        sln_selectValueFormatting($);
         return false;
     });
 }
-
+if (jQuery(".sln-booking-service-line").length) {
+    jQuery("#sln-alert-noservices").fadeOut();
+}
 function sln_checkServices($) {
     var form = $("#post");
     var data =
@@ -611,6 +607,11 @@ function sln_checkServices($) {
                     .find(".alert")
                     .remove();
                 sln_processServices($, data.services);
+                if (!$(".sln-booking-service-line").length) {
+                    $("#sln-alert-noservices").fadeIn();
+                } else {
+                    $("#sln-alert-noservices").fadeOut();
+                }
             }
         },
     });
@@ -830,18 +831,21 @@ function sln_manageCheckServices($) {
             ) {
                 $("#sln-addservice")
                     .removeClass("sln-btn--disabled")
+                    .removeClass("sln-btn--hidden")
+                    .addClass("sln-btn--blink")
                     .prop("disabled", false);
+                $("#save-post").prop("disabled", false);
             } else {
                 $("#sln-addservice")
                     .addClass("sln-btn--disabled")
+                    .removeClass("sln-btn--blink")
                     .prop("disabled", true);
+                $("#save-post").prop("disabled", true);
             }
         });
         $("#_sln_booking_attendant_select").on("select2:select", function(e) {
             var data = e.params.data;
-            //console.log(data);
             if (data.id) {
-                //console.log(data.id);
                 $(this).addClass("filled");
             } else {
                 $(this).removeClass("filled");
@@ -852,28 +856,37 @@ function sln_manageCheckServices($) {
             ) {
                 $("#sln-addservice")
                     .removeClass("sln-btn--disabled")
+                    .removeClass("sln-btn--hidden")
+                    .addClass("sln-btn--blink")
                     .prop("disabled", false);
+                $("#save-post").prop("disabled", false);
             } else {
                 $("#sln-addservice")
                     .addClass("sln-btn--disabled")
+                    .removeClass("sln-btn--blink")
                     .prop("disabled", true);
+                $("#save-post").prop("disabled", true);
             }
         });
     } else {
         $("#_sln_booking_service_select").on("select2:select", function(e) {
             var data = e.params.data;
-            //console.log(data);
             if (data.id) {
                 console.log(data.id);
                 $(this).addClass("filled");
                 $("#sln-addservice")
                     .removeClass("sln-btn--disabled")
+                    .removeClass("sln-btn--hidden")
+                    .addClass("sln-btn--blink")
                     .prop("disabled", false);
+                $("#save-post").prop("disabled", false);
             } else {
                 $(this).removeClass("filled");
                 $("#sln-addservice")
                     .addClass("sln-btn--disabled")
+                    .removeClass("sln-btn--blink")
                     .prop("disabled", true);
+                $("#save-post").prop("disabled", true);
             }
         });
     }
@@ -884,14 +897,14 @@ function sln_manageCheckServices($) {
 
 function sln_bindRemoveBookingsServices() {
     function sln_bindRemoveBookingsServicesFunction() {
-        if (jQuery("#salon-step-date").data("isnew")) sln_calculateTotal();
+        sln_calculateTotal();
         if (jQuery("#_sln_booking_service_select").length) {
             sln_checkServices(jQuery);
         }
         return false;
     }
 
-    bindRemove();
+    sln_bindRemove();
     jQuery('button[data-collection="remove"]')
         .off("click", sln_bindRemoveBookingsServicesFunction)
         .on("click", sln_bindRemoveBookingsServicesFunction);

@@ -11,6 +11,7 @@ class SLN_Admin_SettingTabs_CheckoutTab extends SLN_Admin_SettingTabs_AbstractTa
 		'enable_discount_system',
 		'checkout_fields',
 		'gen_timetable',
+		'last_step_note',
 	);
 
     function postProcess()

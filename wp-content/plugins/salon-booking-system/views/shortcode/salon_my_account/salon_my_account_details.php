@@ -1,4 +1,4 @@
-<h3 class="text sln-salon-title"><?php echo sprintf(__('Welcome back %s!', 'salon-booking-system'), $data['user_name']); ?>
+<h3 class="text sln-salon-title"><?php echo esc_html(sprintf(__('Welcome back %s!', 'salon-booking-system'), $data['user_name'])); ?>
 
 </h3>
 <!-- Nav tabs -->
@@ -66,7 +66,7 @@ unset($data['table_data']);
 
 			<div class="row">
 				<div class="col-xs-1 col-sm-1 col-md-1 pull-right">
-					<a id="next_history_page_btn" href="load_more" onclick="slnMyAccount.loadNextHistoryPage(); return false;" style="color: #b6b6b6"><div class="glyphicon-ring"><span class="glyphicon glyphicon-plus glyphicon-bordered" aria-hidden="true"></span></div></a>
+					<a id="next_history_page_btn" href="load_more" onclick="sln_myAccount.loadNextHistoryPage(); return false;" style="color: #b6b6b6"><div class="glyphicon-ring"><span class="glyphicon glyphicon-plus glyphicon-bordered" aria-hidden="true"></span></div></a>
 				</div>
 			</div>
 		<?php else: ?>
@@ -102,7 +102,7 @@ unset($data['table_data']);
 						<span><?php _e('Rate our service (required)', 'salon-booking-system');?></span>
 						</p>
 						<p>
-							<button type="button" class="btn btn-primary" onclick="slnMyAccount.sendRate();"><?php _e('Send your review', 'salon-booking-system');?></button>
+							<button type="button" class="btn btn-primary" onclick="sln_myAccount.sendRate();"><?php _e('Send your review', 'salon-booking-system');?></button>
 							<button type="button" class="btn btn-default" data-dismiss="modal"><?php _e('Cancel', 'salon-booking-system');?></button>
 						</p>
 					</div>

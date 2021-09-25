@@ -143,7 +143,7 @@ class AvailabilityAssistants_Controller extends REST_Controller
                     'assistant_name' => $attendant->getName(),
                     'available'      => false,
                     'selected'       => false,
-                    'error'          => sprintf(
+                    'error'          => esc_html(sprintf(
                         __("Attendant %s isn't available for %s service at %s", 'salon-booking-system'),
                         $attendant->getName(),
                         $service->getName(),
@@ -151,7 +151,7 @@ class AvailabilityAssistants_Controller extends REST_Controller
                             $bookingService->getStartsAt()->format('H'),
                             $bookingService->getStartsAt()->format('i')
                         )
-                    ),
+                    )),
                 );
 
                 $isValid = false;

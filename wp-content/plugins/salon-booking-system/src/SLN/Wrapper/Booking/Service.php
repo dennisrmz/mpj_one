@@ -147,60 +147,18 @@ final class SLN_Wrapper_Booking_Service
 
             $breakWithOffsetEndsAt = clone $breakEndsAt;
             $breakWithOffsetEndsAt->modify('-'.$bookingOffset.' minutes');
-
-//            $durationBeforeBreak = new SLN_DateTime('1970-1-1 '.SLN_Func::convertToHoursMins($busyPart));
-//            $durationAfterBreak  = new SLN_DateTime('1970-1-1 '.SLN_Func::convertToHoursMins($busyPart));
-//
-//            $break = true;
         } else {
-//            $break = false;
             $breakStartsAt           = clone $this->getStartsAt();
             $breakWithOffsetStartsAt = clone $this->getStartsAt();
             $breakEndsAt             = clone $this->getStartsAt();
             $breakWithOffsetEndsAt   = clone $this->getStartsAt();
-//            $durationBeforeBreak = clone $this->getDuration();
-//            $durationAfterBreak = clone $this->getDuration();
         }
-
-//        $this->break = $break;
         $this->breakStartsAt = $breakStartsAt;
         $this->breakEndsAt = $breakEndsAt;
         $this->breakWithOffsetStartsAt = $breakWithOffsetStartsAt;
         $this->breakWithOffsetEndsAt = $breakWithOffsetEndsAt;
-//        $this->durationBeforeBreak = $durationBeforeBreak;
-//        $this->durationAfterBreak = $durationAfterBreak;
         $this->breakProcessed = true;
     }
-
-//    /**
-//     * @return SLN_DateTime
-//     */
-//    public function isNoBreak()
-//    {
-//        $this->processBreakInfo();
-//
-//        return !$this->break;
-//    }
-//
-//    /**
-//     * @return SLN_DateTime
-//     */
-//    public function getDurationBeforeBreak()
-//    {
-//        $this->processBreakInfo();
-//
-//        return $this->durationBeforeBreak;
-//    }
-//
-//    /**
-//     * @return SLN_DateTime
-//     */
-//    public function getDurationAfterBreak()
-//    {
-//        $this->processBreakInfo();
-//
-//        return $this->durationAfterBreak;
-//    }
 
     /**
      * @return SLN_DateTime

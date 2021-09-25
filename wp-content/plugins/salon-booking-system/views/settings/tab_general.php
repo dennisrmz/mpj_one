@@ -42,7 +42,7 @@ $this->row_input_email(
 	array(
 		'help' => sprintf(
 			__('Leaving this field empty will cause the default site email  <strong>(%s)</strong> to be used', 'salon-booking-system'),
-			get_bloginfo('admin_email')
+			esc_html(get_bloginfo('admin_email'))
 		),
 	)
 );
@@ -92,22 +92,6 @@ $this->row_input_email(
             <p class="help-block"><?php _e('Use a transparent png file', 'salon-booking-system')?></p>
         </div>
     </div>
-    <!--
-THIS BOX MUST BE HIDDEN IF NOT IN USE
-<div class="sln-box-info">
-    <div class="sln-box-info-trigger">
-        <button class="sln-btn sln-btn--main sln-btn--small sln-btn--icon sln-icon--info">info</button>
-    </div>
-    <div class="sln-box-info-content row">
-        <div class="col-xs-12 col-sm-8 col-md-4">
-            <h5><?php _e('-', 'salon-booking-system')?></h5>
-        </div>
-    </div>
-    <div class="sln-box-info-trigger">
-        <button class="sln-btn sln-btn--main sln-btn--small sln-btn--icon sln-icon--close">info</button>
-    </div>
-</div>
--->
 </div>
 </div>
 <div id="sln-date_time_settings" class="sln-box sln-box--main  sln-box--haspanel">
@@ -380,17 +364,6 @@ THIS BOX MUST BE HIDDEN IF NOT IN USE
             </div>
         </div>
     </div>
-    <!--
-    <div class="sln-box-info">
-        <div class="sln-box-info-trigger"><button class="sln-btn sln-btn--main sln-btn--small sln-btn--icon sln-icon--info">info</button></div>
-        <div class="sln-box-info-content row">
-            <div class="col-xs-12 col-sm-8 col-md-4">
-                <h5><?php _e('-', 'salon-booking-system')?></h5>
-            </div>
-        </div>
-        <div class="sln-box-info-trigger"><button class="sln-btn sln-btn--main sln-btn--small sln-btn--icon sln-icon--close">info</button></div>
-    </div>
--->
 </div>
 </div>
 

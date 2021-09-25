@@ -38,7 +38,7 @@
 						<?php if(empty($item['rating'])): ?>
 							<div class="col-xs-12 col-sm-6 col-md-12">
 								<div class="sln-btn sln-btn--medium sln-btn--fullwidth sln-btn--borderonly sln-rate-service">
-									<button onclick="slnMyAccount.showRateForm(<?php echo $item['id']; ?>);">
+									<button onclick="sln_myAccount.showRateForm(<?php echo $item['id']; ?>);">
 										<?php _e('Leave a feedback','salon-booking-system');?>
 									</button>
 								</div>
@@ -85,14 +85,14 @@
 							<?php
 							if ($item['timestamp'] - (time()) > $data['seconds_before_cancellation']): ?>
 								<div class="sln-btn sln-btn--emphasis sln-btn--medium sln-btn--fullwidth sln-btn--borderonly">
-									<button onclick="slnMyAccount.cancelBooking(<?php echo $item['id']; ?>);">
+									<button onclick="sln_myAccount.cancelBooking(<?php echo $item['id']; ?>);">
 										<?php _e('Cancel booking','salon-booking-system');?>
 									</button>
 								</div>
 							<?php else: ?>
 								<div class="sln-btn sln-btn--emphasis sln-btn--medium sln-btn--fullwidth disabled">
 									<button data-toggle="tooltip" data-placement="top" style="cursor: not-allowed;"
-									        title="<?php echo sprintf(__('Sorry, you cannot cancel this booking online. Please call %s', 'salon-booking-system'),$data['gen_phone']); ?>">
+									        title="<?php echo esc_html(sprintf(__('Sorry, you cannot cancel this booking online. Please call %s', 'salon-booking-system'),$data['gen_phone'])); ?>">
 										<?php _e('Cancel booking','salon-booking-system');?>
 									</button>
 								</div>

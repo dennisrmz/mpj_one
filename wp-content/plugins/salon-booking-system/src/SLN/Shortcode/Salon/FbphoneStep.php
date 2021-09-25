@@ -27,20 +27,9 @@ class SLN_Shortcode_Salon_FbphoneStep extends SLN_Shortcode_Salon_Step{
 				$_SESSION['sln_sms_dontcheck'] = true;
 			}
 		}
-		return true;
-
-
-
-
-		
-		 
-			
-			
-			
-			
-			
-		
+		return true;				
 	}
+	
 	function isValid(){
 		return $this->dispatchForm();
 }

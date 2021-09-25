@@ -56,8 +56,6 @@ class SLN_TaxonomyType_ServiceCategory extends SLN_TaxonomyType_Abstract
 	$tax_name = $this->taxonomyType;
         $taxonomy = get_taxonomy($tax_name);
         foreach ($taxonomy->object_type as $pt) {
-            # Remove default metabox
-//			remove_meta_box( "{$tax_name}div", $pt, 'side' );
             # Add our own
             add_meta_box("unique-{$tax_name}-div", $taxonomy->labels->singular_name, array($this, 'unique_taxonomies_metabox'), $pt, 'side', 'low', array('taxonomy' => $tax_name));
         }
@@ -132,7 +130,7 @@ class SLN_TaxonomyType_ServiceCategory extends SLN_TaxonomyType_Abstract
             $output .= "<li class='selectit'>";
             $output .= "<label>";
             $output .= "<input type='radio' name='{$name}[]' value='". esc_attr($term->getName()) . "' " . checked(in_array($term->getId(), $nu_post_terms), true, false) . "/>";
-            $output .= " ".__($term->getName(),'salon-booking-system')."</label>";
+            $output .= " ".esc_html__($term->getName(),'salon-booking-system')."</label>";
             $output .= "</li>";
         }
         $output .= "<li class='selectit'><label><input type='radio' name='{$name}[]' value='' " . checked(empty($nu_post_terms), true, false) . "/>" . __('Not defined', 'salon-booking-system') . "</label></li>";

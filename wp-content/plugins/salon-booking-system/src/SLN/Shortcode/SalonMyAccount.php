@@ -59,7 +59,7 @@ class SLN_Shortcode_SalonMyAccount
                 exit();
             }
         }
-        wp_add_inline_script( 'salon-my-account', 'slnMyAccount.feedback_id = ' . json_encode( $feedback_id ) . ';' );
+        wp_add_inline_script( 'salon-my-account', 'sln_myAccount.feedback_id = ' . json_encode( $feedback_id ) . ';' );
 
         return $this->render($data);
     }

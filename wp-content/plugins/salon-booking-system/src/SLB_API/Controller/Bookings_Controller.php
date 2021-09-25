@@ -9,6 +9,7 @@ use WP_Query;
 use WP_User;
 use SLN_Enum_BookingStatus;
 use SLN_Wrapper_Booking_Builder;
+use SLN_Metabox_Helper;
 
 class Bookings_Controller extends REST_Controller
 {
@@ -658,14 +659,19 @@ class Bookings_Controller extends REST_Controller
 
 	    $customer_id = $request->get_param('customer_id');
 
-	    if ( ! $customer_id ) {
+	    if ( ! $customer_id && $request->get_param('customer_email') ) {
 		$customer_id = $this->create_new_customer($request);
 	    }
 
-            $customer_data  = $this->get_customer_data_by_id($customer_id);
+            if ( $customer_id ) {
+                $customer_data  = $this->get_customer_data_by_id($customer_id);
+            }
 
             $cloned_request = clone $request;
-            $cloned_request->set_default_params(array_merge($cloned_request->get_default_params(), $customer_data));
+
+            if ( ! empty( $customer_data ) ) {
+                $cloned_request->set_default_params(array_merge($cloned_request->get_default_params(), $customer_data));
+            }
 
             $data = $this->create_item_post($cloned_request, $customer_id);
 
@@ -904,6 +910,34 @@ class Bookings_Controller extends REST_Controller
 
         remove_filter( 'sln.repository.booking.processCriteria', array( $this, 'process_bookings_criteria' ));
 
+        $booking = $this->prepare_item_for_response($id, $request);
+
+        $prev_status = $booking->getStatus();
+        $old_booking_services = $booking->getMeta('services');
+
+        $h = new SLN_Metabox_Helper();
+        $is_modified = false;
+        $m = SLN_Plugin::getInstance()->messages();
+
+        $meta = array(
+            '_sln_booking_date'      => $request->get_param('date'),
+            '_sln_booking_time'      => $request->get_param('time'),
+            '_sln_booking_firstname' => $request->get_param('customer_first_name'),
+            '_sln_booking_lastname'  => $request->get_param('customer_last_name'),
+            '_sln_booking_email'     => $request->get_param('customer_email'),
+            '_sln_booking_phone'     => $request->get_param('customer_phone'),
+            '_sln_booking_address'   => $request->get_param('customer_address'),
+            '_sln_booking_services'  => $bb->getBookingServices()->toArrayRecursive(),
+            '_sln_booking_discounts' => $request->get_param('discounts'),
+            '_sln_booking_note'      => $request->get_param('note'),
+            '_sln_booking_transaction_id' => $request->get_param('transaction_id'),
+            '_sln_booking_admin_note'   => $request->get_param('admin_note'),
+        );
+
+        if($h->isMetaNewForPost($id, $meta) && $prev_status != 'auto-draft') {
+            $is_modified = true;
+        }
+
         $name      = $request->get_param('customer_first_name').' '.$request->get_param('customer_last_name');
         $datetime  = SLN_Plugin::getInstance()->format()->datetime($bb->getDateTime());
 
@@ -911,21 +945,8 @@ class Bookings_Controller extends REST_Controller
             'ID'          => $id,
             'post_title'  => $name.' - '.$datetime,
             'post_type'   => self::POST_TYPE,
-            'post_author' => $customer_id,
-            'meta_input'  => array(
-                '_sln_booking_date'      => $request->get_param('date'),
-                '_sln_booking_time'      => $request->get_param('time'),
-                '_sln_booking_firstname' => $request->get_param('customer_first_name'),
-                '_sln_booking_lastname'  => $request->get_param('customer_last_name'),
-                '_sln_booking_email'     => $request->get_param('customer_email'),
-                '_sln_booking_phone'     => $request->get_param('customer_phone'),
-                '_sln_booking_address'   => $request->get_param('customer_address'),
-                '_sln_booking_services'  => $bb->getBookingServices()->toArrayRecursive(),
-                '_sln_booking_discounts' => $request->get_param('discounts'),
-                '_sln_booking_note'      => $request->get_param('note'),
-                '_sln_booking_transaction_id' => $request->get_param('transaction_id'),
-                '_sln_booking_admin_note'   => $request->get_param('admin_note'),
-            ),
+            'post_author' => (int)$customer_id,
+            'meta_input'  => $meta,
         );
 
         $id = wp_update_post($args);
@@ -940,6 +961,26 @@ class Bookings_Controller extends REST_Controller
         $booking->evalTotal();
         $booking->evalDuration();
         $booking->setStatus($request->get_param('status'));
+
+        if(!$is_modified) {
+            if($prev_status != 'auto-draft' &&
+            $old_booking_services != $booking->getMeta('services')) {
+                $is_modified = true;
+            }
+        }
+
+        if ($prev_status != $booking->getStatus()) {
+            if($prev_status != 'auto-draft' && in_array($booking->getStatus(), $m->getStatusForSummary())) {
+                $is_modified = true; //if booking status was changed to PAID or PAY_LATER from backend, send booking modified notification
+            } else {
+                $is_modified = false; //status changed email was sent, no need to send booking modified email
+            }
+        }
+
+        if($is_modified) {
+            $m->setDisabled(false);
+            $m->sendBookingModified($booking);
+        }
 
 	do_action('sln_api_bookings_update_item_post', $id, $bb);
 
@@ -968,7 +1009,7 @@ class Bookings_Controller extends REST_Controller
 
     public function get_booking_create_get_post_args($args)
     {
-	$args['post_author'] = $this->customer_id;
+	$args['post_author'] = (int)$this->customer_id;
 
 	return $args;
     }
@@ -1076,6 +1117,8 @@ class Bookings_Controller extends REST_Controller
                     'context'     => array( 'view', 'edit' ),
                     'arg_options' => array(
                         'sanitize_callback' => 'sanitize_text_field',
+                        'default'           => '',
+                        'validate_callback' => array($this, 'rest_validate_empty_string')
                     ),
                 ),
                 'customer_phone' => array(

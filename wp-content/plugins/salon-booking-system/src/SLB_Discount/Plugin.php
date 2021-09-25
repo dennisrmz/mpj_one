@@ -159,12 +159,14 @@ class SLB_Discount_Plugin {
 					$service = new SLN_Wrapper_Service($sId);
 					$price       = $service->getPrice();
 				}
-				else $price      = isset($items[$sId]['price']) ? $items[$sId]['price'] : $bookingServices->findByService($sId)->getPrice();
+				else $price      = isset($items[$sId]['price']) ? $items[$sId]['price'] : ($bookingServices->findByService($sId) ? $bookingServices->findByService($sId)->getPrice() : '');
 
 				$items[$sId] = array_merge($atId,array(
 					'price'     => $price - $discountValues[$sId]
 				));
-				$bookingServices->findByService($sId)->setPrice($items[$sId]['price']);
+                                if ($bookingServices->findByService($sId)) {
+                                    $bookingServices->findByService($sId)->setPrice($items[$sId]['price']);
+                                }
 			}
 			if(in_array($discountId,$discounts_to_increment)){
 					$discount->incrementUsagesNumber($booking->getUserId());

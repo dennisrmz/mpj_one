@@ -20,9 +20,6 @@ class SLN_Helper_AvailabilityItem
 			for ( $i = 0; $i <= 1; $i ++ ) {
                 if(!isset($data['from'][ $i ],$data['to'][ $i ])) continue;
 				if ( $data['from'][ $i ] != '00:00' ) {
-//					if ( $data['to'][ $i ] == '24:00' ) {
-//						$data['to'][ $i ] = '23:59';
-//					}
 					$this->times[] = new TimeInterval(
 						new Time( $data['from'][ $i ] ),
 						new Time( $data['to'][ $i ] )
@@ -81,16 +78,12 @@ class SLN_Helper_AvailabilityItem
      */
     public function isValidTime(Time $time)
     {
-        //#SBP-470
-//        $time2 = $time->isMidnight() ? new Time('23:59') : null;
         foreach ($this->times as $t) {
             if ($t->containsTime($time)) {
                 return true;
             }
         }
         return false;
-        //#SBP-470
-//        return $time2 ? $this->isValidTime($time2) : false;
     }
 
     /**

@@ -1,4 +1,6 @@
-function initDatepickers($) {
+"use strict";
+
+function sln_initDatepickers($) {
     $('.sln_datepicker input').each(function () {
         var $this = $(this);
         $this.on('focusin', function() {
@@ -37,7 +39,7 @@ function initDatepickers($) {
     });
 }
 
-function initTimepickers($) {
+function sln_initTimepickers($) {
     $('.sln_timepicker input').each(function () {
         var $this = $(this);
         $this.on('focusin', function() {
@@ -70,6 +72,6 @@ function initTimepickers($) {
 }
 
 jQuery(function($){
-    initDatepickers($);
-    initTimepickers($);
+    sln_initDatepickers($);
+    sln_initTimepickers($);
 });

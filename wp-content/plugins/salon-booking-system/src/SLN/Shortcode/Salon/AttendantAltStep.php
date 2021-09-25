@@ -21,7 +21,7 @@ class SLN_Shortcode_Salon_AttendantAltStep extends SLN_Shortcode_Salon_Attendant
             if (empty($tmp)) {
                 $this->addError(
                     sprintf(
-                        __('No one of the attendants isn\'t available for %s service', 'salon-booking-system'),
+                        esc_html__('No one of the attendants isn\'t available for %s service', 'salon-booking-system'),
                         $service->getName()
                     )
                 );

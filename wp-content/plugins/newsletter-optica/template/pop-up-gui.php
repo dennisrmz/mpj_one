@@ -19,17 +19,17 @@
             </div>
             <div>
               <span class="input-group-text" id="inputGroup-sizing-lg">Digita tu Correo Electronico</span> <br>
-                <input type="email" class="form-control" aria-label="Large" aria-describedby="inputGroup-sizing-sm" style="width:100%;border: 1px solid #7d5593;">
+                <input id="input-email" type="email" class="form-control" aria-label="Large" aria-describedby="inputGroup-sizing-sm" style="width:100%;border: 1px solid #7d5593;">
             </div>
             <br>
               <div>
                 <span class="input-group-text" id="inputGroup-sizing-lg">Digita tu Celular</span> <br>
-                  <input type="email" class="form-control" aria-label="Large" aria-describedby="inputGroup-sizing-sm" style="width:100%;border: 1px solid #7d5593;">
+                  <input id="input-phone" type="number" class="form-control" aria-label="Large" aria-describedby="inputGroup-sizing-sm" style="width:100%;border: 1px solid #7d5593;">
               </div>
             <br>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-primary">Suscribirse</button>
+        <button id="button-subscribe-news" type="button" class="btn btn-primary">Suscribirse</button>
       </div>
     </div>
   </div>

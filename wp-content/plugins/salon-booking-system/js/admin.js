@@ -1,14 +1,10 @@
+"use strict";
 if (jQuery("#toplevel_page_salon").hasClass("wp-menu-open")) {
     jQuery("#wpbody-content .wrap").addClass("sln-bootstrap");
     jQuery("#wpbody-content .wrap").attr("id", "sln-salon--admin");
 }
 
 jQuery(function($) {
-    /*
-    $('#booking-accept, #booking-refuse').click(function(){
-       $('#post_status').val($(this).data('status'));
-       $('#save-post').trigger('click');
-*/
     if (window.frameElement) {
         $("html").addClass("in-iframe");
     }
@@ -42,13 +38,6 @@ jQuery(function($) {
         event.preventDefault();
     });
     if ($(".sln-admin-sidebar").length) {
-        /*
-        var topDistance = $(
-            ".sln-inpage_navbar_wrapper + .sln-box--main"
-        ).offset().top;
-        $(".sln-admin-sidebar:not(.affix)").css("top", topDistance - 40);
-        console.log("ss" + topDistance);
-         */
         $(".sln-admin-sidebar").affix({
             offset: {
                 top: $(".sln-admin-sidebar").offset().top - 96,
@@ -93,9 +82,6 @@ jQuery(function($) {
                 .addClass("sln-radiobox__wrapper--checked");
         });
     });
-    //$( document ).ajaxComplete(function( event, request, settings ) {
-    //  alert('test al');
-    //});
     function premiumVersionBanner() {
         $(".sln-admin-banner--trigger, .sln-admin-banner--close").on(
             "click",
@@ -122,13 +108,13 @@ jQuery(function($) {
     }
 
     if ($("#import-customers-drag").length > 0) {
-        initImporter($("#import-customers-drag"), "Customers");
+        sln_initImporter($("#import-customers-drag"), "Customers");
     }
     if ($("#import-services-drag").length > 0) {
-        initImporter($("#import-services-drag"), "Services");
+        sln_initImporter($("#import-services-drag"), "Services");
     }
     if ($("#import-assistants-drag").length > 0) {
-        initImporter($("#import-assistants-drag"), "Assistants");
+        sln_initImporter($("#import-assistants-drag"), "Assistants");
     }
 
     $("#_sln_service_price")
@@ -224,8 +210,6 @@ jQuery(function($) {
                     "hide"
                 );
                 target.collapse("toggle");
-                //$(this).parent().addClass("sln-box--haspanel--open");
-                //trigger.addClass("sln-box__paneltitle--open");
             });
             target.on("hidden.bs.collapse", function() {
                 var parentID = $(this)
@@ -343,8 +327,8 @@ jQuery(function($) {
     });
 });
 
-var importRows;
-function initImporter($item, mode) {
+var sln_importRows;
+function sln_initImporter($item, mode) {
     var $importArea = $item;
 
     $importArea[0].ondragover = function() {
@@ -403,7 +387,7 @@ function initImporter($item, mode) {
                 $importBtn.button("reset");
                 if (response.success) {
                     console.log(response);
-                    importRows = response.data.rows;
+                    sln_importRows = response.data.rows;
 
                     var $modal = jQuery("#import-matching-modal");
 
@@ -419,15 +403,15 @@ function initImporter($item, mode) {
                         backdrop: true,
                     });
                     sln_createSelect2Full(jQuery);
-                    validImportMatching();
+                    sln_validImportMatching();
                     $modal
                         .find("[data-action=sln_import_matching_select]")
-                        .on("change", changeImportMatching);
+                        .on("change", sln_changeImportMatching);
 
                     jQuery("[data-action=sln_import_matching]")
                         .off("click")
                         .on("click", function() {
-                            if (!validImportMatching()) {
+                            if (!sln_validImportMatching()) {
                                 return false;
                             }
                             $modalBtn.button("loading");
@@ -567,7 +551,7 @@ function initImporter($item, mode) {
     }
 }
 
-function changeImportMatching() {
+function sln_changeImportMatching() {
     var $select = jQuery(this);
     var field = $select.val();
     var col = $select.attr("data-col");
@@ -580,13 +564,13 @@ function changeImportMatching() {
 
             var text;
             if (
-                importRows[index] !== undefined &&
-                importRows[index][field] !== undefined
+                sln_importRows[index] !== undefined &&
+                sln_importRows[index][field] !== undefined
             ) {
                 $cell
                     .addClass("pull-left")
                     .removeClass("half-opacity")
-                    .html(importRows[index][field]);
+                    .html(sln_importRows[index][field]);
             } else {
                 $cell
                     .removeClass("pull-left")
@@ -595,10 +579,10 @@ function changeImportMatching() {
             }
         });
 
-    validImportMatching();
+        sln_validImportMatching();
 }
 
-function validImportMatching() {
+function sln_validImportMatching() {
     var $modal = jQuery("#import-matching-modal");
 
     var valid = true;

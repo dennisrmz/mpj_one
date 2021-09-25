@@ -300,7 +300,7 @@ class SLN_Action_InitScripts {
 
 		wp_enqueue_script('salon-admin-js', SLN_PLUGIN_URL . '/js/admin.js', array('jquery'), self::ASSETS_VERSION, true);
 		wp_localize_script('salon-admin-js', 'salon_admin', array(
-			'i18n_mon_decimal_error' => sprintf(__('Please enter in monetary decimal (%s) format without thousand separators and currency symbols.', 'salon-booking-system'), SLN_Plugin::getInstance()->getSettings()->get('pay_decimal_separator')),
+			'i18n_mon_decimal_error' => sprintf(esc_html__('Please enter in monetary decimal (%s) format without thousand separators and currency symbols.', 'salon-booking-system'), SLN_Plugin::getInstance()->getSettings()->get('pay_decimal_separator')),
 			'mon_decimal_point' => SLN_Plugin::getInstance()->getSettings()->get('pay_decimal_separator'),
 
 		));
@@ -311,7 +311,6 @@ class SLN_Action_InitScripts {
 			(is_plugin_active('wordpress-seo/wp-seo.php') || is_plugin_active('wordpress-seo-premium/wp-seo-premium.php'))
 			&& SLN_Func::isSalonPage()
 		) {
-			//if(isdefined('WPSEO_VERSION') && SLN_Func::isSalonPage()) {
 			self::dequeueYoast();
 		}
 	}

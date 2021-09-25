@@ -306,39 +306,70 @@ foreach (['label', 'type', 'width', 'options', 'additional', 'default_value'] as
     </div>
 </div>
 </div>
-<div id="sln-booking_notes" class="sln-box sln-box--main sln-box--haspanel">
-    <h2 class="sln-box-title sln-box__paneltitle"><?php _e('Booking notes', 'salon-booking-system')?></h2>
-    <div class="collapse sln-box__panelcollapse">
-        <div class="row">
-        <div class="col-xs-12 col-sm-8  sln-input--simple">
-            <?php $this->row_input_textarea(
-	'gen_timetable',
-	__('Use this field to provide your customers important infos about terms and conditions of their reservation.', 'salon-booking-system'),
-	array(
-		'help' => __('Will be displayed on checkout page before booking completition.', 'salon-booking-system'),
-		'textarea' => array(
-			'attrs' => array(
-				'rows' => 5,
-				'placeholder' => __("e.g. In case of delay we will take your seat for 15 minutes, then your booking priority will be lost", 'salon-booking-system'),
-			),
-		),
-	)
-);?>
-        </div>
-        <div class="col-xs-12 col-sm-4  sln-box-maininfo align-top">
-            <p class="sln-input-help"><?php __('-', 'salon-booking-system')?></p>
-        </div>
+<div class="row">
+<div class="col-xs-12 col-sm-6">
+    <div id="sln-booking_notes" class="sln-box sln-box--main">
+	<h2 class="sln-box-title"><?php _e('Booking notes', 'salon-booking-system')?></h2>
+	<div>
+	    <div class="row">
+	    <div class="col-xs-12 col-sm-12 sln-input--simple">
+		<?php $this->row_input_textarea(
+	    'gen_timetable',
+	    __('Use this field to provide your customers important infos about terms and conditions of their reservation.', 'salon-booking-system'),
+	    array(
+		    'help' => __('Will be displayed on checkout page before booking completition.', 'salon-booking-system'),
+		    'textarea' => array(
+			    'attrs' => array(
+				    'rows' => 5,
+				    'placeholder' => __("e.g. In case of delay we will take your seat for 15 minutes, then your booking priority will be lost", 'salon-booking-system'),
+			    ),
+		    ),
+	    )
+    );?>
+	    </div>
+	    <div class="col-xs-12 col-sm-4  sln-box-maininfo align-top">
+		<p class="sln-input-help"><?php __('-', 'salon-booking-system')?></p>
+	    </div>
+	</div>
+	<!-- SE SERVONO MAGGIORI INFO
+	<div class="sln-box-info">
+	   <div class="sln-box-info-trigger"><button class="sln-btn sln-btn--main sln-btn--small sln-btn--icon sln-icon--info">info</button></div>
+	   <div class="sln-box-info-content row">
+	   <div class="col-xs-12 col-sm-8 col-md-4">
+	   <h5>Sed eget metus vitae enim suscipit scelerisque non sed neque. Mauris semper hendrerit erat, in consectetur arcu eleifend at. Donec orci lacus, euismod euismod luctus sed, rhoncus in tellus. Mauris tempus arcu ut luctus venenatis.</h5>
+	    </div>
+	    </div>
+	    <div class="sln-box-info-trigger"><button class="sln-btn sln-btn--main sln-btn--small sln-btn--icon sln-icon--close">info</button></div>
+	</div>
+	-->
     </div>
-    <!-- SE SERVONO MAGGIORI INFO
-    <div class="sln-box-info">
-       <div class="sln-box-info-trigger"><button class="sln-btn sln-btn--main sln-btn--small sln-btn--icon sln-icon--info">info</button></div>
-       <div class="sln-box-info-content row">
-       <div class="col-xs-12 col-sm-8 col-md-4">
-       <h5>Sed eget metus vitae enim suscipit scelerisque non sed neque. Mauris semper hendrerit erat, in consectetur arcu eleifend at. Donec orci lacus, euismod euismod luctus sed, rhoncus in tellus. Mauris tempus arcu ut luctus venenatis.</h5>
-        </div>
-        </div>
-        <div class="sln-box-info-trigger"><button class="sln-btn sln-btn--main sln-btn--small sln-btn--icon sln-icon--close">info</button></div>
     </div>
-    -->
+</div>
+<div class="col-xs-12 col-sm-6">
+    <div id="sln-last_step_note" class="sln-box sln-box--main">
+	<h2 class="sln-box-title"><?php _e('Last step note', 'salon-booking-system')?></h2>
+	<div>
+	    <div class="row">
+	    <div class="col-xs-12 col-sm-12  sln-input--simple">
+		<?php $this->row_input_textarea(
+	    'last_step_note',
+	    __('Use this field to provide your customers important infos about terms and conditions of their reservation.', 'salon-booking-system'),
+	    array(
+		    'help' => __('Will be displayed on thankyou page. You can use [SALON PHONE], [SALON EMAIL]', 'salon-booking-system'),
+		    'textarea' => array(
+			    'attrs' => array(
+				    'rows' => 5,
+				    'placeholder' => __("e.g. You will receive a booking confirmation by email.If you do not receive an email in 5 minutes, check your Junk Mail or Spam Folder. If you need to change your reservation, please call <strong>[SALON PHONE]</strong> or send an e-mail to <strong>[SALON EMAIL]</strong>", 'salon-booking-system'),
+			    ),
+		    ),
+	    )
+    );?>
+	    </div>
+	    <div class="col-xs-12 col-sm-4  sln-box-maininfo align-top">
+		<p class="sln-input-help"><?php __('-', 'salon-booking-system')?></p>
+	    </div>
+	</div>
+    </div>
+    </div>
 </div>
 </div>

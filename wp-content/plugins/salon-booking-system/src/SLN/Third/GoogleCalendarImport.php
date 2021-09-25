@@ -539,7 +539,7 @@ class SLN_Third_GoogleCalendarImport
         add_user_meta($user_id, '_sln_phone', $values['phone']);
         add_user_meta($user_id, '_sln_address', isset($values['address']) ? $values['address'] : '');
 
-        wp_new_user_notification($user_id, null, 'both');
+        //wp_new_user_notification($user_id, null, 'both');
 
         return $user_id;
     }

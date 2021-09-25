@@ -2,32 +2,35 @@
 
 namespace Spatie\CalendarLinks\Generators;
 
-use Spatie\CalendarLinks\Link;
 use Spatie\CalendarLinks\Generator;
+use Spatie\CalendarLinks\Link;
 
 /**
  * @see https://icalendar.org/RFC-Specifications/iCalendar-RFC-5545/
  */
 class Ics implements Generator
 {
-    public function generate(Link $link)
+    /** @var string {@see https://www.php.net/manual/en/function.date.php} */
+    protected $dateFormat = 'Ymd';
+    protected $dateTimeFormat = 'e:Ymd\THis';
+
+    /** {@inheritdoc} */
+    public function generate(Link $link): string
     {
         $url = [
             'BEGIN:VCALENDAR',
             'VERSION:2.0',
-            'PRODID:calendar-links',
             'BEGIN:VEVENT',
             'UID:'.$this->generateEventUid($link),
-            'DTSTAMP;TZID='.(new \DateTime())->format("e:Ymd\THis"),
-            'SUMMARY:'.$link->title,
+            'SUMMARY:'.$this->escapeString($link->title),
         ];
 
+        $dateTimeFormat = $link->allDay ? $this->dateFormat : $this->dateTimeFormat;
+
         if ($link->allDay) {
-            $dateTimeFormat = 'Ymd';
             $url[] = 'DTSTART:'.$link->from->format($dateTimeFormat);
             $url[] = 'DURATION:P1D';
         } else {
-            $dateTimeFormat = "e:Ymd\THis";
             $url[] = 'DTSTART;TZID='.$link->from->format($dateTimeFormat);
             $url[] = 'DTEND;TZID='.$link->to->format($dateTimeFormat);
         }
@@ -41,19 +44,19 @@ class Ics implements Generator
 
         $url[] = 'END:VEVENT';
         $url[] = 'END:VCALENDAR';
-        $redirectLink = implode('%0d%0a', $url);
+        $redirectLink = implode("\r\n", $url);
 
-        return 'data:text/calendar;charset=utf8,'.$redirectLink;
+        return 'data:text/calendar;charset=utf8;base64,'.base64_encode($redirectLink);
     }
 
     /** @see https://tools.ietf.org/html/rfc5545.html#section-3.3.11 */
-    protected function escapeString($field)
+    protected function escapeString(string $field): string
     {
-        return addcslashes($field, "\n,;");
+        return addcslashes($field, "\r\n,;");
     }
 
     /** @see https://tools.ietf.org/html/rfc5545#section-3.8.4.7 */
-    protected function generateEventUid(Link $link)
+    protected function generateEventUid(Link $link): string
     {
         return md5($link->from->format(\DateTime::ATOM).$link->to->format(\DateTime::ATOM).$link->title.$link->address);
     }

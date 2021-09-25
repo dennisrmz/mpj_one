@@ -56,31 +56,6 @@ abstract class SLN_Helper_Availability_AbstractDayBookings
         /** @var SLN_Repository_BookingRepository $repo */
         $repo = SLN_Plugin::getInstance()->getRepository(SLN_Plugin::POST_TYPE_BOOKING);
         $ret = $repo->getForAvailability($this->date, $this->currentBooking);
-//        $args = array(
-//            'post_type' => SLN_Plugin::POST_TYPE_BOOKING,
-//            'nopaging' => true,
-//            'meta_query' => array(
-//                array(
-//                    'key' => '_sln_booking_date',
-//                    'value' => $this->date->format('Y-m-d'),
-//                    'compare' => '=',
-//                ),
-//            ),
-//        );
-//        $query = new WP_Query($args);
-//        $ret = array();
-//        $noTimeStatuses = SLN_Enum_BookingStatus::$noTimeStatuses;
-//        foreach ($query->get_posts() as $p) {
-//            /** @var WP_Post $p */
-//            if (empty($this->currentBooking) || $p->ID != $this->currentBooking->getId()) {
-//                $tmp = SLN_Plugin::getInstance()->createBooking($p);
-//                if (!$tmp->hasStatus($noTimeStatuses)) {
-//                    $ret[] = $tmp;
-//                }
-//            }
-//        }
-//        wp_reset_query();
-//        wp_reset_postdata();
 
         SLN_Plugin::addLog(__CLASS__.' - buildBookings('.$this->date->format('Y-m-d').')');
         foreach ($ret as $b) {

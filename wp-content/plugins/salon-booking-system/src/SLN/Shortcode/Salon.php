@@ -103,12 +103,6 @@ class SLN_Shortcode_Salon
             $obj = new $class($this->plugin, $this, $step);
         }
         return $obj;
-
-//        if ($obj instanceof SLN_Shortcode_Salon_Step) {
-//            return $obj;
-//        } else {
-//            throw new Exception('bad object '.$class);
-//        }
     }
  
     protected function render($content)

@@ -21,7 +21,7 @@ $last_update = get_user_meta(get_current_user_id(), '_sln_last_update', true);
                 $width = $field['width'];
             ?>
                 <div class="col-xs-12 col-md-<?php echo $width ?> <?php echo 'field-' . $key ?> <?php if ($type !== 'checkbox') {echo 'sln-input sln-input--simple';}?> <?php echo $type ? 'sln-' . $type : '' ?>">
-                        <label for="<?php echo SLN_Form::makeID('sln[' . $key . ']') ?>"><?php echo __( $field['label'], 'salon-booking-system') ?></label>
+                        <label for="<?php echo SLN_Form::makeID('sln[' . $key . ']') ?>"><?php echo esc_html__( $field['label'], 'salon-booking-system') ?></label>
                         <?php if (($key == 'phone') && ($prefix = $plugin->getSettings()->get('sms_prefix'))): ?>
                             <div class="input-group sln-input-group">
                                     <span class="input-group-addon sln-input--addon"><?php echo $prefix ?></span>

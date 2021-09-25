@@ -1,6 +1,8 @@
+"use strict";
+
 jQuery(function($) {});
 
-function applyDiscountCode() {
+function sln_applyDiscountCode() {
     var $ = jQuery;
     var code = $("#sln_discount").val();
 

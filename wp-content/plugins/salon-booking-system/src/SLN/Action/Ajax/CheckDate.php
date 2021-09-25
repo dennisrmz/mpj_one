@@ -55,7 +55,6 @@ class SLN_Action_Ajax_CheckDate extends SLN_Action_Ajax_Abstract
 
         $plugin = $this->plugin;
         $date   = $this->getDateTime();
-//        $this->addError($plugin->format()->datetime($date));
         $ah   = $plugin->getAvailabilityHelper();
         $hb   = $ah->getHoursBeforeHelper();
         $from = $hb->getFromDate();

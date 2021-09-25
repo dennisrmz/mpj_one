@@ -20,6 +20,7 @@
     include('template/mpj-templater.php');
     include('template/pop-up-call.php');
     include('bloques/enqueue.php');
+    include('procesos/save_info.php');
     
      //Hooks
     register_activation_hook(NEWSLETTER_MPJ_PLUGIN_URL, 'mpj_activate_plugin');
@@ -29,3 +30,8 @@
 
      //Para Cargar JS del lado del publico de wordpress
     add_action('wp_enqueue_scripts', 'mpj_enqueue_scripts');
+
+
+    //Ajax
+    add_action('wp_ajax_mpj_send_data_news','mpj_save_info');
+    add_action('wp_ajax_nopriv_mpj_send_data_news','mpj_save_info');

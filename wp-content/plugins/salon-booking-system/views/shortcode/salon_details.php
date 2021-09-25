@@ -183,7 +183,7 @@ $fieldPassword = ob_get_clean();
 		                    <?php if($key === 'password') do_action('sln.template.details.before_password', $bb, $size); ?>
                             <?php if($key === 'password') echo '</div><div class="row">'; // close previous row & open next ?>
                             <div class="col-xs-12 col-sm-<?php echo $key == 'address' ? 12 : $width ?> <?php echo 'field-'.$key ?> <?php if($type !== 'checkbox'){ echo 'sln-input sln-input--simple'; } ?> <?php echo $type ? 'sln-'.$type  : '' ?> <?php echo $field->isCustomer() && $field->isAdditional() ? 'sln-customer-fields' : '' ?>">
-                                    <label for="<?php echo SLN_Form::makeID('sln[' . $key . ']') ?>"><?php echo __( $field['label'], 'salon-booking-system') ?></label>
+                                    <label for="<?php echo SLN_Form::makeID('sln[' . $key . ']') ?>"><?php echo esc_html__( $field['label'], 'salon-booking-system') ?></label>
                                     <?php if(($key == 'phone') && ($prefix = $plugin->getSettings()->get('sms_prefix'))): ?>
                         <div class="input-group sln-input-group">
                             <span class="input-group-addon sln-input--addon"><?php echo $prefix?></span>
@@ -250,7 +250,7 @@ call_user_func_array(array('SLN_Form',$method_name), $additional_opts );
                         <?php if($key === 'password') echo '</div><div class="row">'; // close previous row & open next ?>
 		                <?php if($key === 'password') do_action('sln.template.details.before_password', $bb, $size); ?>
                         <div class="col-xs-12 col-sm-6 col-md-<?php echo $key == 'address' ? 12 :  $width ?> <?php echo 'field-'.$key ?> <?php if($type !== 'checkbox'){ echo 'sln-input sln-input--simple'; } ?> <?php echo $type ? 'sln-'.$type  : '' ?>  <?php echo  $field->isCustomer() && $field->isAdditional() ? 'sln-customer-fields' : '' ?>">
-                                <label for="<?php echo SLN_Form::makeID('sln[' . $key . ']') ?>"><?php echo __( $field['label'], 'salon-booking-system') ?></label>
+                                <label for="<?php echo SLN_Form::makeID('sln[' . $key . ']') ?>"><?php echo esc_html__( $field['label'], 'salon-booking-system') ?></label>
                                 <?php if(($key == 'phone') && ($prefix = $plugin->getSettings()->get('sms_prefix'))): ?>
                         <div class="input-group sln-input-group">
                             <span class="input-group-addon sln-input--addon"><?php echo $prefix?></span>
@@ -316,7 +316,7 @@ call_user_func_array(array('SLN_Form',$method_name), $additional_opts );
                         <?php if($key === 'password') echo '</div><div class="row">'; // close previous row & open next ?>
 		                <?php if($key === 'password') do_action('sln.template.details.before_password', $bb, $size); ?>
                         <div class="col-xs-12 <?php echo 'field-'.$key ?> <?php if($type !== 'checkbox'){ echo 'sln-input sln-input--simple'; } ?> <?php echo $type ? 'sln-'.$type  : '' ?><?php echo $field->isCustomer() && $field->isAdditional() ? 'sln-customer-fields' : '' ?>">
-                                <label for="<?php echo SLN_Form::makeID('sln[' . $key . ']') ?>"><?php echo __( $field['label'], 'salon-booking-system') ?></label>
+                                <label for="<?php echo SLN_Form::makeID('sln[' . $key . ']') ?>"><?php echo esc_html__( $field['label'], 'salon-booking-system') ?></label>
                                 <?php if(($key == 'phone') && ($prefix = $plugin->getSettings()->get('sms_prefix'))): ?>
                         <div class="input-group sln-input-group">
                             <span class="input-group-addon sln-input--addon"><?php echo $prefix?></span>
@@ -400,7 +400,7 @@ call_user_func_array(array('SLN_Form',$method_name), $additional_opts );
                             $width = $field['width']; 
                 ?>
                             <div class="col-xs-12 col-sm-6 col-md-<?php echo $key == 'address' ? 12 : $width ?> <?php echo 'field-'.$key ?> <?php if($type !== 'checkbox'){ echo 'sln-input sln-input--simple'; } ?> <?php echo $type ? 'sln-'.$type  : '' ?>">
-                                    <label for="<?php echo SLN_Form::makeID('sln[' . $key . ']') ?>"><?php echo __( $field['label'], 'salon-booking-system') ?></label>
+                                    <label for="<?php echo SLN_Form::makeID('sln[' . $key . ']') ?>"><?php echo esc_html__( $field['label'], 'salon-booking-system') ?></label>
                                     <?php if(($key == 'phone') && ($prefix = $plugin->getSettings()->get('sms_prefix'))): ?>
                         <div class="input-group sln-input-group">
                             <span class="input-group-addon sln-input--addon"><?php echo $prefix?></span>
@@ -462,7 +462,7 @@ call_user_func_array(array('SLN_Form',$method_name), $additional_opts );
                     $width = $field['width'];
                 ?>
                     <div class="col-xs-12 col-sm-6 col-md-<?php echo $key == 'address' ? 12 : $width ?> <?php echo 'field-'.$key ?> <?php if($type !== 'checkbox'){ echo 'sln-input sln-input--simple'; } ?> <?php echo $type ? 'sln-'.$type  : '' ?>">
-                            <label for="<?php echo SLN_Form::makeID('sln[' . $key . ']') ?>"><?php echo __( $field['label'], 'salon-booking-system') ?></label>
+                            <label for="<?php echo SLN_Form::makeID('sln[' . $key . ']') ?>"><?php echo esc_html__( $field['label'], 'salon-booking-system') ?></label>
                             <?php if(($key == 'phone') && ($prefix = $plugin->getSettings()->get('sms_prefix'))): ?>
                         <div class="input-group sln-input-group">
                             <span class="input-group-addon sln-input--addon"><?php echo $prefix?></span>
@@ -519,7 +519,7 @@ call_user_func_array(array('SLN_Form',$method_name), $additional_opts );
                     <?php 
                     $type = $field['type']; ?>
                     <div class="col-xs-12 <?php echo 'field-'.$key ?> <?php if($type !== 'checkbox'){ echo 'sln-input sln-input--simple'; } ?> <?php echo $type ? 'sln-'.$type  : '' ?>">
-                            <label for="<?php echo SLN_Form::makeID('sln[' . $key . ']') ?>"><?php echo __( $field['label'], 'salon-booking-system') ?></label>
+                            <label for="<?php echo SLN_Form::makeID('sln[' . $key . ']') ?>"><?php echo esc_html__( $field['label'], 'salon-booking-system') ?></label>
                             <?php if(($key == 'phone') && ($prefix = $plugin->getSettings()->get('sms_prefix'))): ?>
                         <div class="input-group sln-input-group">
                             <span class="input-group-addon sln-input--addon"><?php echo $prefix?></span>
@@ -576,7 +576,7 @@ call_user_func_array(array('SLN_Form',$method_name), $additional_opts );
                             $type = $field['type']; 
                              $width = $field['width']; ?>
                             <div class="col-xs-12 col-md-<?php echo $key == 'address' ? 12 : $width ?> <?php echo 'field-'.$key ?> <?php if($type !== 'checkbox'){ echo 'sln-input sln-input--simple'; } ?> <?php echo $type ? 'sln-'.$type  : '' ?>">
-                                    <label for="<?php echo SLN_Form::makeID('sln[' . $key . ']') ?>"><?php echo __( $field['label'], 'salon-booking-system') ?></label>
+                                    <label for="<?php echo SLN_Form::makeID('sln[' . $key . ']') ?>"><?php echo esc_html__( $field['label'], 'salon-booking-system') ?></label>
                                     <?php if(($key == 'phone') && ($prefix = $plugin->getSettings()->get('sms_prefix'))): ?>
                         <div class="input-group sln-input-group">
                             <span class="input-group-addon sln-input--addon"><?php echo $prefix?></span>

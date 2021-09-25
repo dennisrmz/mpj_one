@@ -36,7 +36,7 @@ $day_calendar_columns = $plugin->getSettings()->get('parallels_hour') * 2 + 1;
 
 <?php $today = new DateTime()?>
 jQuery(function($){
-    initSalonCalendar(
+    sln_initSalonCalendar(
         $,
         salon.ajax_url+"&action=salon&method=calendar&security="+salon.ajax_nonce+'<?php echo $addAjax ?>',
 //        '<?php echo SLN_PLUGIN_URL ?>/js/events.json.php',
@@ -154,14 +154,6 @@ jQuery(function($){
     z-index: 998;
 }
 .cal-day-hour-part.active .block_date,.cal-day-hour-part.active [data-action=add-event-by-date] {
-    /*
-    display: block;
-    margin: 0 auto;
-    position: absolute;
-    top: 0;
-    left: 50%;
-    transform: translate(-105%, -50%);
-    */
     display: inline-block;
     z-index: 999;
 }
@@ -175,10 +167,6 @@ jQuery(function($){
     width: auto;
 }
 
-
-/* .sln-calendar--wrapper .sln-calendar-view .cal-day-hour-part.active {
-    background-color: rgba(122, 158, 208, 0.76);
-} */
 </style>
 <div class="wrap sln-bootstrap sln-calendar-plugin-update-notice--wrapper">
      <?php if (!defined("SLN_VERSION_PAY")): ?>
@@ -251,13 +239,6 @@ $license_url = admin_url('/plugins.php?page=' . $page_slug);
 <div class="clearfix"></div>
 <div class="container-fluid sln-calendar--wrapper sln-calendar--wrapper--loading">
 <div class="sln-calendar--wrapper--sub" style="opacity: 0;">
-    <!--<div class="row">
-        <div class="col-xs-11">
-            <div class="page-header pull-left">
-                <h3 class="current-view--title"></h3>
-            </div>
-        </div>
-    </div>-->
 
 <div class="row">
     <div class="col-xs-12 col-md-3 col-md-push-9 btn-group">
@@ -400,7 +381,7 @@ SLN_Form::fieldText(
 	</div>
     </div>
     <script>
-	jQuery(document).ready(function() {
+	jQuery(function() {
 	    setTimeout(function () {
 		jQuery('#sln-calendar-modal').modal();
 	    }, 0);
@@ -412,25 +393,25 @@ SLN_Form::fieldText(
 		});
 	});
 	/**
- 
+
 	* @author       Rob W <gwnRob@gmail.com>
- 
+
 	* @website      https://stackoverflow.com/a/7513356/938089
- 
+
 	* @version      20190409
- 
+
 	* @description  Executes function on a framed YouTube video (see website link)
- 
+
 	*               For a full list of possible functions, see:
- 
+
 	*               https://developers.google.com/youtube/js_api_reference
- 
+
 	* @param String frame_id The id of (the div containing) the frame
- 
+
 	* @param String func     Desired function to call, eg. "playVideo"
- 
+
 	*        (Function)      Function to call when the player is ready.
- 
+
 	* @param Array  args     (optional) List of arguments to pass to function func*/
 
 	function callPlayer(frame_id, func, args) {
@@ -515,9 +496,9 @@ SLN_Form::fieldText(
 }
     </script>
 
-    <?php update_option('sln_calendar_page_show', 1) ?>
+    <?php update_option('sln_calendar_page_show', 1)?>
 
-<?php endif; ?>
+<?php endif;?>
 
 <?php if (current_user_can('export_reservations_csv_sln_calendar')): ?>
     <div class="row">

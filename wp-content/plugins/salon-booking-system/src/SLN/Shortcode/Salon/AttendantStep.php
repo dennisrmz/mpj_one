@@ -62,10 +62,10 @@ class SLN_Shortcode_Salon_AttendantStep extends SLN_Shortcode_Salon_Step
             $availAttsForEachService[$service->getId()] = $tmp;
             if (empty($tmp)) {
                 $this->addError(
-                    sprintf(
+                    esc_html(sprintf(
                         __('No one of the attendants isn\'t available for %s service', 'salon-booking-system'),
                         $service->getName()
-                    )
+                    ))
                 );
 
                 return false;
@@ -76,7 +76,7 @@ class SLN_Shortcode_Salon_AttendantStep extends SLN_Shortcode_Salon_Step
                     $attendant = $this->getPlugin()->createAttendant($attendantId);
                     $this->addError(
                         sprintf(
-                            __('Attendant %s isn\'t available for %s service at %s', 'salon-booking-system'),
+                            esc_html__('Attendant %s isn\'t available for %s service at %s', 'salon-booking-system'),
                             $attendant->getName(),
                             $service->getName(),
                             $ah->getDayBookings()->getTime(

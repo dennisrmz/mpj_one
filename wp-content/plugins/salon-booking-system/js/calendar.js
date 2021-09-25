@@ -863,7 +863,7 @@ if (!String.prototype.formatNum) {
 				data.headers.push(sln_assistants[att_id]);
 			});
 
-			data.by_hour = /*$self.applyAdvancedFilters*/ by_page[current_page];
+			data.by_hour = by_page[current_page];
 			console.log(data.by_hour);
 			console.log(assistants);
 		} else {
@@ -1252,9 +1252,6 @@ if (!String.prototype.formatNum) {
 
 			data.by_hour.push(e);
 		});
-
-		//var d = new Date('2013-03-14 13:20:00');
-		//warn(d.getTime());
 	};
 
 	Calendar.prototype._hour_min = function(hour) {
@@ -1266,20 +1263,10 @@ if (!String.prototype.formatNum) {
 			: in_hour;
 	};
 	/** BEGIN SLN CUSTOMIZATIONS */
-	Calendar.prototype._hour = calendar_getHourFunc();
-	Calendar.prototype._trans = calendar_getTransFunc();
-	Calendar.prototype._time = calendar_getTimeFunc();
+	Calendar.prototype._hour = sln_calendar_getHourFunc();
+	Calendar.prototype._trans = sln_calendar_getTransFunc();
+	Calendar.prototype._time = sln_calendar_getTimeFunc();
 
-	/*
-	Calendar.prototype._hour = function(hour, part) {
-		var time_start = this.options.time_start.split(":");
-		var time_split = parseInt(this.options.time_split);
-		var h = "" + (parseInt(time_start[0]) + hour * Math.max(time_split / 60, 1));
-		var m = "" + (time_split * part + (hour == 0) ? parseInt(time_start[1]) : 0);
-
-		return h.formatNum(2) + ":" + m.formatNum(2);
-	};
-*/
 	/** END SLN CUSTOMIZATIONS **/
 	Calendar.prototype._week = function(event) {
 		this._loadTemplate("week-days");
@@ -1998,15 +1985,6 @@ if (!String.prototype.formatNum) {
 				show_booking_editor();
 			});
 
-		// $('.day-highlight').off('click').on('click', function(e) {
-
-		// e.preventDefault();
-
-		// bookingDate = bookingTime = undefined;
-		//     bookingId   = $(this).find('.event-item').data('event-id');
-		//     show_booking_editor();
-		// });
-
 		$("[data-action=add-event-by-date]")
 			.off("click")
 			.on("click", function() {
@@ -2047,7 +2025,7 @@ if (!String.prototype.formatNum) {
 				.replace("%id", bookingId)
 				.replace("%date", bookingDate)
 				.replace("%time", bookingTime);
-			$editor.ready(function() {
+			$(function() {
 				$(document).trigger("sln.iframeEditor.ready", [
 					bookingId,
 					bookingDate,
@@ -2139,10 +2117,6 @@ if (!String.prototype.formatNum) {
 			}
 		}
 
-		//$(".day-event-item__calendar-day *:not(.duration-15) + .sln-icon--plus-circle")
-		//	.off("click")
-		//	.on("click", function(event, triggered) {
-
 		$(".day-event-item__calendar-day .sln-icon--plus-circle")
 			.off("click")
 			.on("click", function(event, triggered) {
@@ -2193,7 +2167,6 @@ if (!String.prototype.formatNum) {
 					}
 					dayEvent.css("z-index", 1001);
 				} else {
-					//md.find(".confirm-delete .close").trigger("click");
 					dayEvent.height(dayEvent.data("height"));
 					dayEvent.removeData("height");
 					dayEvent.css(

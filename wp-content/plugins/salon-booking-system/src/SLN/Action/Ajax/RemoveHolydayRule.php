@@ -38,7 +38,6 @@ class SLN_Action_Ajax_RemoveHolydayRule extends SLN_Action_Ajax_Abstract
 				    )) $search_rule[] = $rule;
 			    }
 
-			    //$holidays_rules = SLN_Helper_HolidayItems::processSubmission($holidays_rules);
 			    $settings->set('holidays_daily',$search_rule);
 			    $settings->save();
 			}

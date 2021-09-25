@@ -170,7 +170,6 @@ class SLN_Repository_BookingRepository extends SLN_Repository_AbstractWrapperRep
                 'time' => $booking->getStartsAt()->format('H:i'),
                 'services' => [],
                 'amount' => $this->plugin->format()->money($b->getAmount()),
-                //'cancel_url' => $b->getCancelUrl(),
                 'edit_url' =>get_permalink($b->getId()),
                 'id' => $b->getId(),
             ];

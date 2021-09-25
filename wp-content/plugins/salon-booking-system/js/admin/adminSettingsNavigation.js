@@ -1,12 +1,7 @@
+"use strict";
+
 jQuery(function($) {
 	function settingsInPageNavigations($) {
-		//$("body.salon_page_salon-settings").scrollspy({
-		//	target: "#sln-inpage_navbar",
-		//	offset:
-		//		$("#wpadminbar").outerHeight() +
-		//		$(".sln-inpage_navbar_wrapper").outerHeight() +
-		//		30,
-		//});
 		if ($(".sln-inpage_navbar_wrapper").length) {
 			var initialOffset =
 				$(".sln-inpage_navbar_wrapper").offset().top - 40;
@@ -67,25 +62,10 @@ jQuery(function($) {
 				var x = $(
 					".sln-inpage_navbaritem.active .sln-inpage_navbarlink"
 				).attr("data-initialOffset");
-				//$(".sln-inpage_navbar_inner").animate(
-				//	{
-				//		scrollLeft: x - 20,
-				//	},
-				//	10 //speed
-				//);
 				$(".sln-inpage_navbar_inner").scrollLeft(x - 10);
 			}
 		);
 		$(".sln-inpage_navbar__currenttab").on("click", function(e) {
-			/*
-			var thisTarget = $(this).attr("href");
-			var distance = $(".sln-inpage_navbar").outerWidth();
-			//$(".sln-inpage_navbar_inner").scrollLeft(distance / 2);
-			$("html,body").animate(
-				{ scrollTop: $("" + thisTarget + "").offset().top - 45 },
-				"fast"
-			);
-			*/
 			var navHeight = $(".sln-nav-tab-wrapper").outerHeight();
 			$(".sln-inpage_navbar_wrapper").addClass(
 				"sln-inpage_navbar_wrapper--pusheddown"
@@ -112,7 +92,6 @@ jQuery(function($) {
 		});
 		$(".sln-inpage_navbar__scroller--right").on("click", function(e) {
 			var distance = $(".sln-inpage_navbar_inner").outerWidth();
-			//$(".sln-inpage_navbar_inner").scrollLeft(distance);
 			$(".sln-inpage_navbar_inner").animate(
 				{
 					scrollLeft: "+=" + distance,
@@ -123,7 +102,6 @@ jQuery(function($) {
 		});
 		$(".sln-inpage_navbar__scroller--left").on("click", function(e) {
 			var distance = $(".sln-inpage_navbar_inner").outerWidth();
-			//$(".sln-inpage_navbar_inner").scrollLeft(distance);
 			$(".sln-inpage_navbar_inner").animate(
 				{
 					scrollLeft: "+=" + distance * -1,
@@ -137,14 +115,6 @@ jQuery(function($) {
 	if ($("body.salon_page_salon-settings").length) {
 		settingsInPageNavigations($);
 	}
-	/*
-	HS.beacon.ready(function() {
-		$("#beacon-container .BeaconContainer")
-			.addClass("pollo")
-			.prepend(
-				'<a href="#nogo" class="sln-helpchat__close"><span class="sr-only">Close help chat</span></a>'
-			);
-	});*/
 	Beacon("once", "ready", () => {
 		console.log(
 			"This will only get called the first time the open event is triggered"

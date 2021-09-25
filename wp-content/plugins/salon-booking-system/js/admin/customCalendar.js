@@ -1,8 +1,10 @@
+"use strict";
+
 jQuery(function($) {
-    initSalonCalendarUserSelect2($);
+    sln_initSalonCalendarUserSelect2($);
 });
 
-function calendar_getHourFunc() {
+function sln_calendar_getHourFunc() {
     return function(hour, part) {
         var time_start = this.options.time_start.split(":");
         var time_split = parseInt(this.options.time_split);
@@ -16,11 +18,11 @@ function calendar_getHourFunc() {
         var d = new Date();
         d.setHours(h);
         d.setMinutes(m);
-        return moment(d).format(calendarGetTimeFormat());
+        return moment(d).format(sln_calendarGetTimeFormat());
     };
 }
 
-function calendar_getTimeFunc() {
+function sln_calendar_getTimeFunc() {
     return function(part) {
         var time_start = this.options.time_start.split(":");
         var time_split = parseInt(this.options.time_split);
@@ -29,17 +31,17 @@ function calendar_getTimeFunc() {
         var d = new Date();
         d.setHours(h);
         d.setMinutes(m);
-        return moment(d).format(calendarGetTimeFormat());
+        return moment(d).format(sln_calendarGetTimeFormat());
     };
 }
 
-function calendar_getTransFunc() {
+function sln_calendar_getTransFunc() {
     return function(label) {
         return calendar_translations[label];
     };
 }
 
-function calendarGetTimeFormat() {
+function sln_calendarGetTimeFormat() {
     // http://momentjs.com/docs/#/displaying/format/
     // vs http://www.malot.fr/bootstrap-datetimepicker/#options
     if (!salon.moment_time_format)
@@ -53,7 +55,7 @@ function calendarGetTimeFormat() {
     return salon.moment_time_format;
 }
 
-function initSalonCalendar(
+function sln_initSalonCalendar(
     $,
     ajaxUrl,
     ajaxDay,
@@ -72,8 +74,6 @@ function initSalonCalendar(
             if (!$(e.target).hasClass("cal-day-hour-part")) return;
             DayCalendarHolydays.clearSelection();
             DayCalendarHolydays.selectEl($(this));
-            //$(' .cal-day-hour-part').on('mouseover', DayCalendarHolydays.mouseover);
-            //$('body').on('mouseover', DayCalendarHolydays.bodyBlock);
         },
         bodyBlock: function(e) {
             var target = $(e.target);
@@ -94,12 +94,6 @@ function initSalonCalendar(
         },
         mouseup: function(e) {
             DayCalendarHolydays.selecting = false;
-            //$(' .cal-day-hour-part').off('mouseover', DayCalendarHolydays.mouseover);
-            //$('body').off('mouseover', DayCalendarHolydays.bodyBlock);
-
-            //console.log(DayCalendarHolydays.selection);
-            //var filtered = Object.keys(DayCalendarHolydays.selection)
-            //.map(function(x){ return parseInt(x) }),
 
             var firstEl = DayCalendarHolydays.startEl,
                 lastEl = $(e);
@@ -185,8 +179,6 @@ function initSalonCalendar(
             $(e.target)
                 .siblings(".cal-day-click-tip")
                 .show();
-            //$(' .cal-day-hour-part').on('mouseover', DayCalendarHolydays.mouseover);
-            //$('body').on('mouseover', DayCalendarHolydays.bodyBlock);
         },
         clearSelection: function() {
             if (DayCalendarHolydays.selection.length) {
@@ -488,26 +480,6 @@ function initSalonCalendar(
                 calbar.attr("data-original-title", val.text).html(append);
             });
             if (view === "day") DayCalendarHolydays.showRules(this);
-
-            //$("body").trigger("sln.calendar.after-view-load");
-            //if (view == "day") {
-            //    function elemRepositioning() {
-            //        var granpaWidth = $(".cal-day-panel__wrapper").innerWidth(),
-            //            parentWidth = $("#cal-day-panel-hour").innerWidth(),
-            //            iconBtns = $(".cal-day-hour-part__rowactions"),
-            //            confBtn = $(".calendar-holydays-button"),
-            //            selectBtn = $(
-            //                "#cal-day-panel-hour .sln-btn--cal-day-select"
-            //            );
-            //        //confBtn.css("left", granpaWidth - 120);
-            //        iconBtns.css("right", parentWidth - granpaWidth + 40);
-            //        selectBtn.css("right", parentWidth - granpaWidth + 40);
-            //    }
-            //    elemRepositioning();
-            //    $(window).on("resize", function() {
-            //        elemRepositioning();
-            //    });
-            //}
         },
         classes: {
             months: {
@@ -519,9 +491,8 @@ function initSalonCalendar(
         on_page: dayCalendarColumns,
         _page: 0,
     };
-    initDatepickers($);
+    sln_initDatepickers($);
     // CALENDAR
-    //$('.cal-month-day.cal-day-inmonth [data-toggle="tooltip"]').click(function(e) {
     $(document).on("click", ".cal-month-day.cal-day-inmonth span", function(e) {
         e.preventDefault();
         $(".tooltip").hide();
@@ -697,28 +668,6 @@ function initSalonCalendar(
     calendar.setLanguage(window.salon_calendar.locale);
     calendar.view();
 
-    /*
-     $('#first_day').change(function(){
-     var value = $(this).val();
-     value = value.length ? parseInt(value) : null;
-     calendar.setOptions({first_day: value});
-     calendar.view();
-     });
-
-     $('#language').change(function(){
-     calendar.setLanguage($(this).val());
-     calendar.view();
-     });
-
-     $('#events-in-modal').change(function(){
-     var val = $(this).is(':checked') ? $(this).val() : null;
-     calendar.setOptions({modal: val});
-     });
-     $('#events-modal .modal-header, #events-modal .modal-footer').click(function(e){
-     //e.preventDefault();
-     //e.stopPropagation();
-     });
-     */
     $("body").on(
         "click",
         " .cal-day-hour-part:not(.blocked)",
@@ -732,7 +681,7 @@ function initSalonCalendar(
     );
 }
 
-function initSalonCalendarUserSelect2($) {
+function sln_initSalonCalendarUserSelect2($) {
     $("#sln-calendar-user-field").select2({
         allowClear: true,
         containerCssClass: "sln-select-rendered",

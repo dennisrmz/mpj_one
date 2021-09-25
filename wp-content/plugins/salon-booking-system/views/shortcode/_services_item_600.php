@@ -2,10 +2,6 @@
     <div class="col-xs-12 sln-service__header">
         <div class="row sln-steps-info sln-service-info">
             <div class="col-xs-2 col-sm-1 col-xs-push-10 col-sm-push-0 sln-checkbox sln-steps-check sln-service-check">
-                <?php /*
-                        <span class="service-checkbox <?php echo  $bb->hasService($service) ? 'is-checked' : '' ?>">
-                        </span>
-                        */ ?>
                 <div class="sln-checkbox">
                     <?php SLN_Form::fieldCheckbox(
                         'sln[services][' . $service->getId() . ']',

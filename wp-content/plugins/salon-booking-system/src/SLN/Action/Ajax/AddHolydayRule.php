@@ -27,10 +27,7 @@ class SLN_Action_Ajax_AddHolydayRule extends SLN_Action_Ajax_Abstract
 			    if (!$applied) {
 				$holidays_rules = $settings->get('holidays_daily')?:array();
 
-				//$rule = new SLN_Helper_HolidayItem($rule);
 				$holidays_rules[] = $data;
-
-				//$holidays_rules = SLN_Helper_HolidayItems::processSubmission($holidays_rules);
 
 				$settings->set('holidays_daily', $holidays_rules);
 				$settings->save();

@@ -9,7 +9,7 @@
 	<?php
 
 	    $msg = $plugin->getSettings()->get('feedback_message');
-	    $msg = __( $msg , 'salon-booking-system');
+	    $msg = esc_html__( $msg , 'salon-booking-system');
 
 	    $customer_name = implode(' ', array_filter(array(
 		SLN_Enum_CheckoutFields::getField('firstname')->isHidden() ? '' : $booking->getFirstname(),

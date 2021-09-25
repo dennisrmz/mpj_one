@@ -46,8 +46,6 @@ class TimeInterval
             $ret = $this->from->isLte($time->getFrom()) && $this->to->isGte($time->getTo());
         }
 
-        //echo '<br/>'.$time->toString().($ret ? ' ⊂ ' : '⊄').$this->toString();
-
         return $ret;
     }
 

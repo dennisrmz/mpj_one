@@ -55,12 +55,12 @@ $input = array(
 <div class="clearfix"></div>
 
 <script type="text/javascript">
-jQuery(document).ready(function($) {
+jQuery(function($) {
 
 
 $("div.sln-promo-message").delay(4000).animate({opacity:1, },1500).delay(10000).fadeOut(500);
 
-$("a.message-cta").hover(function() {
+$("a.message-cta").on('hover', function() {
 
 	$("div.sln-promo-message").fadeIn(500);
 });

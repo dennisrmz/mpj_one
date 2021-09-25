@@ -16,7 +16,7 @@
 </tr>
 <tr>
     <td align="left" valign="top" style="font-size:18px;line-height:29px;color:#4d4d4d;font-weight:500;font-family: 'Avenir-Medium',sans-serif,arial;padding: 0 0 0 8px;" class="font1">
-	<?php echo sprintf(__('the following booking at %s has been canceled', 'salon-booking-system'), $plugin->getSettings()->getSalonName() ) ?>.
+	<?php echo esc_html(sprintf(__('the following booking at %s has been canceled', 'salon-booking-system'), $plugin->getSettings()->getSalonName() )) ?>.
     </td>
 </tr>
 <tr>

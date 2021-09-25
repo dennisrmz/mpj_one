@@ -91,7 +91,4 @@ new SLN_UserRole_SalonStaff(
     SLN_Plugin::USER_ROLE_STAFF,
     __('Salon staff', 'salon-booking-system')
 );
-
-//wp_reset_query();
-//wp_reset_postdata();
 // END UPDATE SERVICES & ATTENDANTS FOR BOOKINGS BEFORE 110 feature

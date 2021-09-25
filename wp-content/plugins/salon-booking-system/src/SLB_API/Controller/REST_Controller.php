@@ -198,4 +198,13 @@ abstract class REST_Controller extends WP_REST_Controller
         return true;
     }
 
+    public function rest_validate_empty_string($value, $request, $param)
+    {
+        if ($value === '') {
+            return true;
+        }
+
+        return rest_validate_request_arg($value, $request, $param);
+    }
+
 }

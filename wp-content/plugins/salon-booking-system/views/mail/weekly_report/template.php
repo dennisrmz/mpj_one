@@ -83,10 +83,6 @@
 
 .pad1{display:block!important; margin: 0 auto !important;text-align: center!important;padding:0 0 5px 10px!important;width:98%!important;border-bottom:1px solid #b6b6b6;border-right:none!important;}
              .height2{height:20px!important;}
-/*
-             .wrap1005{display: inline-block; margin: 0 auto !important;text-align: center!important;}
-             .wrap1006{ margin: 0 auto !important;text-align: center!important;width:50%!important;display:inline-block;padding:0 0 25px 0!important;}
-*/
              .font2{font-size:15px!important;}
              .height3{height: 15px!important;}
              .height4{height: 20px!important;}
@@ -114,11 +110,6 @@
          }
       </style>
    </head>
-   <!--[if gte mso 9]>
-   <style>
-      sup { font-size: 100% !important; }
-   </style>
-   <![endif]-->
    <body style="padding:0;margin:0;" bgcolor="#eaeaea">
       <table width="100%" border="0" cellspacing="0" cellpadding="0" class="wrap000">
          <tr>

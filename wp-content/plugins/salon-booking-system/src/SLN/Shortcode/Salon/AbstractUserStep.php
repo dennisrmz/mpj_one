@@ -28,7 +28,7 @@ abstract class SLN_Shortcode_Salon_AbstractUserStep extends SLN_Shortcode_Salon_
                update_user_meta($errors, '_sln_'.$k, $values[$k]);
             }
         }
-        wp_new_user_notification($errors, null, 'both'); //, $values['password']);
+
 	do_action('sln.shortcode.details.successRegistration.after_create_user', $errors, $values, $this);
         if (!$this->dispatchAuth($values['email'], $values['password'])) {
             $this->bindValues($values);
@@ -60,8 +60,6 @@ abstract class SLN_Shortcode_Salon_AbstractUserStep extends SLN_Shortcode_Salon_
             return false;
         }else{
             wp_set_current_user($user->ID);
-            //global $current_user;
-            //$current_user = new WP_User($user->ID);
         }
 
         return true;

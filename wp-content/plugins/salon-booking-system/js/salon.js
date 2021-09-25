@@ -1,3 +1,5 @@
+"use strict";
+
 Number.prototype.formatMoney = function(c, d, t) {
     var n = this,
         c = isNaN((c = Math.abs(c))) ? 2 : c,
@@ -58,7 +60,7 @@ function sln_init($) {
         if ($('[data-salon-click="fb_login"]').length) {
             if (window.fbAsyncInit === undefined) {
                 if (salon.fb_app_id !== undefined) {
-                    facebookInit();
+                    sln_facebookInit();
                 } else {
                     jQuery("[data-salon-click=fb_login]").remove();
                 }
@@ -68,7 +70,7 @@ function sln_init($) {
                     .on("click", function() {
                         FB.login(
                             function() {
-                                facebookLogin();
+                                sln_facebookLogin();
                             },
                             { scope: "email" }
                         );
@@ -127,7 +129,6 @@ function sln_init($) {
     // RADIOBOXES
     $("#sln-salon input:radio").each(function() {
         $(this).on("click", function() {
-            //var selector = '.is-checked input[name="' + jQuery(this).attr('name').replace(/([\[\]])/g, '\\\\$1') + '"]';
             var name = jQuery(this).attr("name");
             jQuery(".is-checked").each(function() {
                 if (
@@ -219,7 +220,7 @@ function sln_init($) {
     if (typeof sln_createSelect2Full !== "undefined") {
         sln_createSelect2Full($);
     }
-    salonBookingCalendarInit();
+    sln_salonBookingCalendarInit();
 
     $(".sln-help-button").on("click", function() {
         window.Beacon("toggle");
@@ -299,7 +300,6 @@ function sln_stepDate($) {
 
     function validate(obj, autosubmit) {
         var form = $(obj).closest("form");
-        //var validatingMessage = '<img src="' + salon.loading + '" alt="loading .." width="16" height="16" /> '+salon.txt_validating;
         var validatingMessage =
             '<div class="sln-alert sln-alert--wait">' +
             salon.txt_validating +
@@ -327,8 +327,6 @@ function sln_stepDate($) {
                     $("#sln-notifications")
                         .html("")
                         .append(alertBox);
-                    // we bind a new interval so we needn't to disable
-                    //                    $('#sln-step-submit').attr('disabled', true);
                     isValid = false;
                 } else {
                     $("#sln-step-submit").attr("disabled", false);
@@ -345,9 +343,6 @@ function sln_stepDate($) {
     }
 
     function bindIntervals(intervals) {
-        //        putOptions($('#sln_date_day'), intervals.days, intervals.suggestedDay);
-        //        putOptions($('#sln_date_month'), intervals.months, intervals.suggestedMonth);
-        //        putOptions($('#sln_date_year'), intervals.years, intervals.suggestedYear);
         items.intervals = intervals;
         $("#salon-step-date").data("intervals", intervals);
         func();
@@ -398,8 +393,8 @@ function sln_stepDate($) {
         return false;
     });
 
-    initDatepickers($);
-    initTimepickers($, items);
+    sln_initDatepickers($);
+    sln_initTimepickers($, items);
 }
 
 function sln_serviceTotal($) {
@@ -500,7 +495,7 @@ function sln_serviceTotal($) {
     evalTot();
 }
 
-function initDatepickers($) {
+function sln_initDatepickers($) {
     $(".sln_datepicker input").each(function() {
         $(this).attr("readonly", "readonly");
         if ($(this).hasClass("started")) {
@@ -532,7 +527,7 @@ function initDatepickers($) {
                 })
                 .on("hide", function() {
                     if ($(this).is(":focus"));
-                    $(this).blur();
+                    $(this).trigger("blur");
                 });
         }
     });
@@ -546,7 +541,7 @@ function initDatepickers($) {
     }
 }
 
-function initTimepickers($, data) {
+function sln_initTimepickers($, data) {
     $(".sln_timepicker input").each(function() {
         $(this).attr("readonly", "readonly");
         if ($(this).hasClass("started")) {
@@ -855,7 +850,7 @@ function initTimepickers($, data) {
     }, 500);
 })(jQuery);
 
-function facebookInit() {
+function sln_facebookInit() {
     window.fbAsyncInit = function() {
         FB.init({
             appId: salon.fb_app_id,
@@ -870,7 +865,7 @@ function facebookInit() {
             .on("click", function() {
                 FB.login(
                     function() {
-                        facebookLogin();
+                        sln_facebookLogin();
                     },
                     { scope: "email" }
                 );
@@ -896,7 +891,7 @@ function facebookInit() {
     })(document, "script", "facebook-jssdk");
 }
 
-function facebookLogin() {
+function sln_facebookLogin() {
     var auth = FB.getAuthResponse();
 
     if (!auth) {
@@ -940,11 +935,11 @@ function facebookLogin() {
     });
 }
 
-function salonBookingCalendarInit() {
+function sln_salonBookingCalendarInit() {
     if (jQuery("#sln-salon-booking-calendar-shortcode").length === 0) {
         return;
     }
-    salonBookingCalendarInitTooltip();
+    sln_salonBookingCalendarInitTooltip();
 
     setInterval(function() {
         jQuery.ajax({
@@ -964,10 +959,10 @@ function salonBookingCalendarInit() {
             dataType: "json",
             success: function(data) {
                 if (data.success) {
-                    jQuery(
-                        "#sln-salon-booking-calendar-shortcode > .wrapper"
-                    ).html(data.content);
-                    salonBookingCalendarInitTooltip();
+                    jQuery("#sln-salon-booking-calendar-shortcode > .wrapper").html(
+                        data.content
+                    );
+                    sln_salonBookingCalendarInitTooltip();
                 } else if (data.redirect) {
                     window.location.href = data.redirect;
                 } else if (data.errors) {
@@ -982,7 +977,7 @@ function salonBookingCalendarInit() {
     }, 10 * 1000);
 }
 
-function salonBookingCalendarInitTooltip() {
+function sln_salonBookingCalendarInitTooltip() {
     jQuery('[data-toggle="tooltip"]').tooltip();
 }
 
@@ -1067,7 +1062,7 @@ function sln_renderAvailableTimeslots($, data) {
     });
 }
 jQuery(function($) {
-    $(document).ready(function() {
+    $(function() {
         if ($(".sln-customcolors").length) {
             $("body").addClass("sln-salon-page-customcolors");
         }
@@ -1081,7 +1076,7 @@ jQuery(function($) {
 });
 // DIVI THEME ACCORDION FIX SNIPPET // END
 
-function applyTipsAmount() {
+function sln_applyTipsAmount() {
     var $ = jQuery;
     var amount = $("#sln_tips").val();
 

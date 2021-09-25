@@ -11,7 +11,7 @@ $minutes = ($hoursParts[0] * 60) + $hoursParts[1];
 <i class="sln-btn--icon sln-icon--checkmark <?php if (!$booking->getOnProcess()) {
 	echo "hide";
 }
-?>" <?php //if(!$booking->getOnProcess()) echo "style=\"display:none\""; ?>></i></span>
+?>" ></i></span>
 
 <span class="day-event-item__booking_id"><?php echo $booking->getId() ?></span>
 </div>

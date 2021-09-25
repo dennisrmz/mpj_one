@@ -178,7 +178,6 @@ class SLN_Update_Manager
             add_query_arg($request, $this->get('store')),
             array('timeout' => 15, 'sslverify' => false)
         );
-//        var_dump(array($this->get('store'), $request, $response));
 
         if (is_wp_error($response)) {
             return $response;

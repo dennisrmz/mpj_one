@@ -51,7 +51,7 @@ $size = SLN_Enum_ShortcodeStyle::getSize($style);
                data-toggle="collapse" href="#collapse<?php echo $group['term']->getId() ?>"
                aria-expanded="false" aria-controls="collapse<?php echo $group['term']->getId() ?>">
                 <h2 class="sln-btn sln-btn--icon sln-btn--fullwidth">
-                    <?php echo __($group['term']->getName(),'salon-booking-system') ?></h2>
+                    <?php echo esc_html__($group['term']->getName(),'salon-booking-system') ?></h2>
             </a>
             <div id="collapse<?php echo $group['term']->getId() ?>"
             class="col-xs-12 sln-panel-content panel-collapse collapse <?php echo $openGroup ? ' in ' : '' ?>" role="tabpanel"

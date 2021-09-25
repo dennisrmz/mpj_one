@@ -1,4 +1,6 @@
-function customSliderRange($, $elements) {
+"use strict";
+
+function sln_customSliderRange($, $elements) {
     // TIME RANGE //
     $($elements).each(function() {
         var labelFrom = $(this)
@@ -40,7 +42,6 @@ function customSliderRange($, $elements) {
             max: 1440,
             step: 5,
             values: [totaleMinutiFrom, totaleMinutiTo],
-            //values: [540, 1020],
             slide: function(e, ui) {
                 var hours1 = Math.floor(ui.values[0] / 60);
                 var minutes1 = ui.values[0] - hours1 * 60;
@@ -130,5 +131,5 @@ function customSliderRange($, $elements) {
 }
 
 jQuery(function($) {
-    customSliderRange($, $(".slider-range"));
+    sln_customSliderRange($, $(".slider-range"));
 });

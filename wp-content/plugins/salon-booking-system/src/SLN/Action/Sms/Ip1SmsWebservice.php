@@ -15,7 +15,5 @@ class SLN_Action_Sms_Ip1SmsWebservice extends SLN_Action_Sms_Abstract
             'meddelande' => $message,
             'prio' => 1
         ));
-//        $ret = print_r($ret, true);
-//        trigger_error('sms sent to '.$to.' with status:'.$ret, E_USER_NOTICE);
     }
 }

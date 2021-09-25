@@ -33,7 +33,6 @@
 					</div>
 					<div class="col-xs-12 form-group sln-input--simple">
 						<textarea id="tools-import" name="tools-import"></textarea>
-<!--						<p class="help-block"><?php _e('Just click inside the textarea and copy (Ctrl+C)','salon-booking-system')?></p>-->
 					</div>
 				</div>
 				<div class="row">
@@ -218,7 +217,7 @@
 <script>
 	jQuery(function($){
 		jQuery('#wpbody #tools-textarea').on('click', function() {
-			jQuery('#tools-textarea').select();
+			jQuery('#tools-textarea').trigger("select");
 		});
 
 		jQuery('#tools-import').on('change', function(){
@@ -230,7 +229,7 @@
 		jQuery('#submit-import').on('click', function(e){
 			if (!confirm('Are you sure to continue?')) {
 				e.preventDefault();
-				$(document.activeElement).blur();
+				$(document.activeElement).trigger("blur");
 			}
 		});
 

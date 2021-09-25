@@ -8,15 +8,6 @@ sum(
 );
 ?>
 <div class="sln-box sln-box--pb sln-box--main">
-    <!--
-    <div class="row">
-        <div class="col-xs-12">
-            <h2 class="sln-box-title">
-                <?php _e('Support', 'salon-booking-system');?>
-            </h2>
-        </div>
-    </div>
-    -->
     <div class="row">
         <div class="col-xs-12">
             <h2 class="sln-box-title">

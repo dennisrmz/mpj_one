@@ -41,8 +41,6 @@ class SLN_Helper_Availability_MyAccountBookings
 			}
 		}
 
-		//var_dump($mode, $ret);
-
 		wp_reset_query();
 		wp_reset_postdata();
 		usort(

@@ -1,3 +1,5 @@
+"use strict";
+
 jQuery(function ($) {
     sln_createSelect2Full($);
 });
@@ -21,7 +23,7 @@ function sln_createSelect2Full($) {
             width: '100%',
             templateResult: function(state){ if(!state.id) return state.text;return $('<span data-value="'+state.id+'">'+state.text+'</span>');},
             placeholder: $(this).data('placeholder'),
-        }).focus(function () {
+        }).on('focus', function () {
             $(this).select2('open');
         })
     });

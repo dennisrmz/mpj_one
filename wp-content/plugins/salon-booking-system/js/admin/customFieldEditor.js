@@ -1,3 +1,5 @@
+"use strict";
+
 ( function($,getFieldDefault){
 	var UPDATE_FIELD_BUTTON_TEXT = salonCheckoutFieldsEditor_l10n['update_field'];
 	var REQUIRED_BY_DEFAULT = ['label','type'];

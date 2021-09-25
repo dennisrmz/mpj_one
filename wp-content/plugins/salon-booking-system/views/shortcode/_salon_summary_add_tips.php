@@ -29,7 +29,7 @@
 	</div>
 	<div class="col-xs-12 col-sm-6">
 	    <div class="sln-btn sln-btn--emphasis sln-btn--medium sln-btn--fullwidth">
-		<button data-salon-toggle="tips" id="sln_tips_btn" type="button" onclick="applyTipsAmount();">
+		<button data-salon-toggle="tips" id="sln_tips_btn" type="button" onclick="sln_applyTipsAmount();">
 		    <?php _e('Apply', 'salon-booking-system'); ?>
 		</button>
 	    </div>

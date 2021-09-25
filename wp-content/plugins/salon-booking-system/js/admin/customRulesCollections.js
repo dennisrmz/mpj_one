@@ -1,9 +1,11 @@
+"use strict";
+
 jQuery(function() {
     jQuery(".sln-booking-rules").each(function() {
-        initBookingRules(jQuery(this));
+        sln_initBookingRules(jQuery(this));
     });
     jQuery(".sln-booking-holiday-rules").each(function() {
-        initBookingHolidayRules(jQuery(this));
+        sln_initBookingHolidayRules(jQuery(this));
     });
 
     jQuery("body").on("change", "[data-unhide]", function() {
@@ -25,12 +27,12 @@ jQuery(function() {
     jQuery("body").on(
         "change",
         ".sln-disable-second-shift input",
-        toggleSecondShift
+        sln_toggleSecondShift
     );
     jQuery(".sln-disable-second-shift input").trigger("change");
 });
 
-function bindRemoveFunction() {
+function sln_bindRemoveFunction() {
     jQuery(this)
         .parent()
         .parent()
@@ -39,19 +41,19 @@ function bindRemoveFunction() {
     return false;
 }
 
-function bindRemove() {
+function sln_bindRemove() {
     jQuery('button[data-collection="remove"]')
-        .off("click", bindRemoveFunction)
-        .on("click", bindRemoveFunction);
+        .off("click", sln_bindRemoveFunction)
+        .on("click", sln_bindRemoveFunction);
 }
 
-function bindDisableSecondShift() {
+function sln_bindDisableSecondShift() {
     jQuery(".sln-disable-second-shift input")
-	.off("change", bindDisableSecondShiftFunction)
-        .on("change", bindDisableSecondShiftFunction);
+	.off("change", sln_bindDisableSecondShiftFunction)
+        .on("change", sln_bindDisableSecondShiftFunction);
 }
 
-function bindDisableSecondShiftFunction() {
+function sln_bindDisableSecondShiftFunction() {
     jQuery(this)
         .closest(".sln-booking-rule")
         .find(
@@ -60,7 +62,7 @@ function bindDisableSecondShiftFunction() {
         .prop("disabled", jQuery(this).prop("checked"));
 }
 
-function initBookingRules(elem) {
+function sln_initBookingRules(elem) {
     var prototype = elem.find('div[data-collection="prototype"]');
     var wrapper = elem.find(".sln-booking-rules-wrapper");
     var html = prototype.html();
@@ -71,20 +73,20 @@ function initBookingRules(elem) {
         count++;
         e.preventDefault();
         wrapper.append(html.replace(/__new__/g, count));
-        bindRemove();
-        bindDisableSecondShift();
+        sln_bindRemove();
+        sln_bindDisableSecondShift();
 
-        initDatepickers(jQuery);
-        initTimepickers(jQuery);
-        customSliderRange(jQuery, jQuery(".slider-range"));
+        sln_initDatepickers(jQuery);
+        sln_initTimepickers(jQuery);
+        sln_customSliderRange(jQuery, jQuery(".slider-range"));
         jQuery("[data-unhide]", elem).trigger('change');
-        jQuery(".sln-booking-rule:last-child input").prop( "checked", true );
+        jQuery(".sln-booking-rule:last-child input", elem).prop( "checked", true );
     });
-    bindRemove();
-    bindDisableSecondShift();
+    sln_bindRemove();
+    sln_bindDisableSecondShift();
 }
 
-function initBookingHolidayRules(elem) {
+function sln_initBookingHolidayRules(elem) {
     var prototype = elem.find('div[data-collection="prototype"]');
     var html = prototype.html();
     var count = prototype.data("count");
@@ -95,14 +97,14 @@ function initBookingHolidayRules(elem) {
         e.preventDefault();
         wrapper.append(html.replace(/__new__/g, count));
         count++;
-        initDatepickers(jQuery);
-        initTimepickers(jQuery);
-        bindRemove();
+        sln_initDatepickers(jQuery);
+        sln_initTimepickers(jQuery);
+        sln_bindRemove();
     });
-    bindRemove();
+    sln_bindRemove();
 }
 
-function toggleSecondShift(e) {
+function sln_toggleSecondShift(e) {
     var disable = jQuery(this).prop("checked");
     if (disable) {
         jQuery(this)
@@ -112,7 +114,6 @@ function toggleSecondShift(e) {
             .find(
                 'input[name="salon_settings[availabilities][1][from][1]"],input[name="salon_settings[availabilities][1][to][1]"]'
             )
-            //.removeAttr("disabled");
             .attr("disabled", "disabled");
         jQuery(this)
             .parent()
@@ -122,7 +123,6 @@ function toggleSecondShift(e) {
             .removeClass("sln-slider--disabled")
             .removeAttr("hidden")
             .find(".sln-slider__inner")
-            //.show();
             .hide();
     } else {
         jQuery(this)
@@ -133,17 +133,14 @@ function toggleSecondShift(e) {
             .find(
                 'input[name="salon_settings[availabilities][1][from][1]"],input[name="salon_settings[availabilities][1][to][1]"]'
             )
-            //.attr("disabled", "disabled");
             .removeAttr("disabled");
         jQuery(this)
-            //.closest(".sln-box-maininfo")
             .parent()
             .parent()
             .parent()
             .find(".sln-slider-wrapper-second-shift")
             .addClass("sln-slider--disabled")
             .find(".sln-slider__inner")
-            //.hide();
             .show();
     }
 }

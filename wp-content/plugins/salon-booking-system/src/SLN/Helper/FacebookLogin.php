@@ -166,7 +166,7 @@ class SLN_Helper_FacebookLogin
 	    }
 	}
 
-	wp_new_user_notification($userID, null, 'both');
+	//wp_new_user_notification($userID, null, 'both');
 
 	return $userID;
     }

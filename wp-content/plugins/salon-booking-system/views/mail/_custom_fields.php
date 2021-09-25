@@ -17,7 +17,7 @@
 	}
 
 	$_additional_fields[] = array(
-	    'label' => __( $field['label'], 'salon-booking-system'),
+	    'label' => esc_html__( $field['label'], 'salon-booking-system'),
 	    'value' => $value,
 	);
     }
@@ -32,7 +32,7 @@
 	    </tr>
 	    <tr>
 		<td align="left" valign="top" style="font-size:14px;line-height:17px;color:#4d4d4d;font-weight:500;font-family: 'Avenir-Medium',sans-serif,arial;">
-		    <?php echo __( $field['label'], 'salon-booking-system') ?>
+		    <?php echo esc_html__( $field['label'], 'salon-booking-system') ?>
 		</td>
 	    </tr>
 	    <tr>

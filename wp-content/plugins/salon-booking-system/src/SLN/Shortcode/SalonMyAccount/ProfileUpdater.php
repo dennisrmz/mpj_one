@@ -84,7 +84,7 @@ class SLN_Shortcode_SalonMyAccount_ProfileUpdater{
         $fields = SLN_Enum_CheckoutFields::forCustomer();
         foreach ($fields as $key => $field) {
             if ($field->isRequired() && empty($values[$key]) ){
-                $this->addError(__( $field['label'].' can\'t be empty', 'salon-booking-system'));
+                $this->addError(esc_html__( $field['label'].' can\'t be empty', 'salon-booking-system'));
                 
             }
             if (!empty($values['email']) && $key === 'email' && !filter_var($values['email'], FILTER_VALIDATE_EMAIL)) {

@@ -47,7 +47,7 @@ sum(
         <div class="col-xs-12 col-sm-4 form-group sln-input--simple">
             <?php $this->row_input_text('google_outh2_redirect_uri', __('Redirect URI', 'salon-booking-system'));?>
             <script>
-                jQuery(document).ready(function () {
+                jQuery(function () {
                     jQuery("#salon_settings_google_outh2_redirect_uri").val('<?php echo admin_url('admin-ajax.php?action=googleoauth-callback'); ?>');
                     jQuery("#salon_settings_google_outh2_redirect_uri").prop('readonly', true);
                 });

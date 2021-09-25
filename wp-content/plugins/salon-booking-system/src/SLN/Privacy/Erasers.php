@@ -23,7 +23,7 @@ class SLN_Privacy_Erasers{
 
 			if ( $erased ) {
 				/* Translators: %s Prop name. */
-				$response['messages'][]    = sprintf( __( 'Removed customer "%s"', 'salon-booking-system' ), $label );
+				$response['messages'][]    = esc_html( sprintf( __( 'Removed customer "%s"', 'salon-booking-system' ), $label ) );
 				$response['items_removed'] = true;
 			}
 		}
