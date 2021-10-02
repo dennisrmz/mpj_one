@@ -191,19 +191,19 @@ function owt_show_data_list_table()
 
     ?>
 <div class="container">
+    <br>
+    <br>
     <div class="row">
-        <!-- <div class="col-sm-12">
+        <div class="col-sm-12">
             <!- download options ->
                 <div class="wcf-ca-right-report-field-group">
 
-                    <input class="wcf-ca-filter-input" type="text" id="wcf_ca_custom_filter_from"
-                        placeholder="YYYY-MM-DD" value="<?php echo esc_attr($from_date); ?>" />
-                    <input class="wcf-ca-filter-input" type="text" id="wcf_ca_custom_filter_to" placeholder="YYYY-MM-DD"
-                        value="<?php echo esc_attr($to_date); ?>" />
+                    <input class="wcf-ca-filter-input" type="text" id="wcf_ca_custom_filter_from" placeholder="YYYY-MM-DD" value="<?php echo esc_attr($from_date); ?>" />
+                    <input class="wcf-ca-filter-input" type="text" id="wcf_ca_custom_filter_to" placeholder="YYYY-MM-DD" value="<?php echo esc_attr($to_date); ?>" />
                     <a class="dropdown-item url-site-pdf" href="<?php echo $excel_url ?>">Download as Excel</a>
 
                 </div>
-        </div> -->
+        </div>
     </div>
 </div>
 
