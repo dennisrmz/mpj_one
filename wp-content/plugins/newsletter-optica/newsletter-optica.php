@@ -49,39 +49,12 @@
     
     function content_before_product(){
 
-    //     echo "<div id='yith-wapo-option-3-0' class='yith-wapo-option' data-replace-image=''>
+        ob_start();
+        include ABSPATH . 'wp-content/plugins/newsletter-optica/template/mpj-add-ons.php';
+        $page = ob_get_contents();
+        ob_end_clean();
+        echo $page;
 
-    //     <div class='image position-above'>
-    //         <img src='http://localhost/mpj_one/wp-content/uploads/2021/08/petr-sevcovic-e12wQLAjQi0-unsplash-3-edited.jpg'>
-    //     </div>
-    
-    
-    //     <span class='radiobutton '>
-    
-    //         <!-- INPUT -->
-    //         <input type='radio' id='yith-wapo-3-0' name='yith_wapo[][3]' value='0' data-price='75' data-price-sale='0' data-price-type='fixed' data-price-method='increase' data-first-free-enabled='' data-first-free-options='' data-addon-id='3'>
-    
-    //     </span>
-    
-    //     <!-- RIGHT IMAGE -->
-        
-    //     <!-- LABEL -->
-    //     <label for='yith-wapo-3-0'>
-    //         Monofocal		
-    //         <!-- PRICE -->
-    //         <small class='option-price'><span class='brackets'>(</span><span class='sign positive'>+</span><span class='woocommerce-Price-amount amount'><span class='woocommerce-Price-currencySymbol'>$</span>75.00</span><span class='brackets'>)</span></small>	</label>
-    
-    //             <span class='tooltip position-' style='width: 100%'>
-    //             <span>Para edades entre 1 - 39 anios</span>
-    //         </span>
-        
-    //     <!-- UNDER IMAGE -->
-        
-    //     <!-- DESCRIPTION -->
-    //             <p class='description'>Monofocal Desc</p>
-        
-    // </div>";
-    echo "hola";
 
     
     }
