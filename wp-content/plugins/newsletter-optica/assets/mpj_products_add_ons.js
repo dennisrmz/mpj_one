@@ -2,7 +2,7 @@
     
     $(document).ready(function () {
 
-        alert('estoy cargando en producto');
+        // alert('estoy cargando en producto');
     });
 
    

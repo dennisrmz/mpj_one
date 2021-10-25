@@ -60,6 +60,9 @@
             <label class="form-check-label" for="si_receta">Si poseeo</label> 
         </div>
 
+        <h4>Como leer tu receta</h4>
+        <a href="<?php echo esc_url(  get_permalink( get_page_by_title( 'Como leer tu receta oftalmológica' ) ) ); ?>" target="_blank"><?php esc_html_e( 'Como leer tu receta oftalmológica', 'textdomain' ); ?></a>
+
         <div style="display: flex; justify-content: flex-start; align-items: center; flex-direction: row;">
 
         <style type="text/css">
