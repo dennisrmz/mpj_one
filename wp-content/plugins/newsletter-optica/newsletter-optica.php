@@ -69,3 +69,52 @@
 
     
     }
+
+    /**
+     * Codigo para cargar una nueva opcion extra en la vista de mi cuenta
+    */
+
+    /**
+     * Register new endpoints to use inside My Account page.
+    */
+
+
+    function my_account_new_endpoints() {
+        add_rewrite_endpoint( 'awards', EP_ROOT | EP_PAGES );
+    }
+
+    add_action( 'init', 'my_account_new_endpoints' );
+
+    /**
+     * Get new endpoint content
+    */
+
+    // Awards
+    add_action( 'woocommerce_account_awards_endpoint', 'awards_endpoint_content' );
+
+    function awards_endpoint_content() {
+        ob_start();
+        include ABSPATH . 'wp-content/plugins/newsletter-optica/template/my-account-awards.php';
+        $page = ob_get_contents();
+        ob_end_clean();
+        echo $page;
+    }
+
+
+/**
+  * Edit my account menu order
+  */
+
+ function my_account_menu_order() {
+ 	$menuOrder = array(
+		'dashboard'          => __( 'Escritorio', 'woocommerce' ),
+ 		'orders'             => __( 'Pedidos', 'woocommerce' ),
+ 		'awards'             => __( 'Recetas Oftalmologicos', 'woocommerce' ),
+ 		'downloads'          => __( 'Descargas', 'woocommerce' ),
+ 		'edit-address'       => __( 'Direcciones', 'woocommerce' ),
+ 		'edit-account'    	=> __( 'Detalles de la cuenta', 'woocommerce' ),
+ 		'customer-logout'    => __( 'Salir', 'woocommerce' ),
+ 	);
+ 	return $menuOrder;
+ }
+ add_filter ( 'woocommerce_account_menu_items', 'my_account_menu_order' );
