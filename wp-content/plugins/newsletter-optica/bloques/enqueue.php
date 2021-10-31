@@ -1,5 +1,11 @@
 <?php 
 
+function mpj_get_current_id_product(){
+    global $post;
+    return $post->ID;
+}
+
+// Asset y funciones que cargan del lado de frontend de wordpress
 function mpj_enqueue_scripts(){
 
     wp_register_style('mpj_style',plugins_url('assets/mpj_style.css', NEWSLETTER_MPJ_PLUGIN_URL));
@@ -39,7 +45,8 @@ function mpj_enqueue_scripts(){
 
     wp_localize_script( 'mpj_main', 'mpj_obj', [
         'ajax_url'              =>  admin_url( 'admin-ajax.php' ),
-        'home_url'              =>  home_url('/')
+        'home_url'              =>  home_url('/'),
+        'mpj_current_prod'      =>  mpj_get_current_id_product()
     ]);
     
     wp_enqueue_script( 'mpj_main' );
