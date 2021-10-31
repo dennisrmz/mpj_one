@@ -1,0 +1,28 @@
+2021-10-25T03:53:48+00:00 CRITICAL syntax error, unexpected token "}", expecting "," or ";" en C:\xampp\htdocs\mpj_one\wp-content\plugins\newsletter-optica\template\mpj-add-ons.php en la línea 23
+
+2021-10-25T03:55:22+00:00 CRITICAL Uncaught Error: Undefined constant "probando" in C:\xampp\htdocs\mpj_one\wp-content\plugins\newsletter-optica\template\mpj-add-ons.php:19
+Stack trace:
+#0 C:\xampp\htdocs\mpj_one\wp-content\plugins\newsletter-optica\newsletter-optica.php(64): include()
+#1 C:\xampp\htdocs\mpj_one\wp-includes\class-wp-hook.php(303): content_before_product('')
+#2 C:\xampp\htdocs\mpj_one\wp-includes\class-wp-hook.php(327): WP_Hook->apply_filters('', Array)
+#3 C:\xampp\htdocs\mpj_one\wp-includes\plugin.php(470): WP_Hook->do_action(Array)
+#4 C:\xampp\htdocs\mpj_one\wp-content\plugins\woocommerce\templates\single-product\add-to-cart\simple.php(33): do_action('woocommerce_bef...')
+#5 C:\xampp\htdocs\mpj_one\wp-content\plugins\woocommerce\includes\wc-core-functions.php(345): include('C:\\xampp\\htdocs...')
+#6 C:\xampp\htdocs\mpj_one\wp-content\plugins\woocommerce\includes\wc-template-functions.php(1629): wc_get_template('single-product/...')
+#7 C:\xampp\htdocs\mpj_one\wp-includes\class-wp-hook.php(303): woocommerce_simple_add_to_cart('')
+#8 C:\xampp\htdocs\mpj_one\wp-includes\class-wp-hook.php(327): WP_Hook->apply_filters('', Array)
+#9 C:\xampp\htdocs\mpj_one\wp-includes\plugin.php(470): WP_Hook->do_action(Array)
+#10 C:\xampp\htdocs\mpj_one\wp-content\plugins\woocommerce\includes\wc-template-functions.php(1620): do_action('woocommerce_sim...')
+#11 C:\xampp\htdocs\mpj_one\wp-includes\class-wp-hook.php(303): woocommerce_template_single_add_to_cart('')
+#12 C:\xampp\htdocs\mpj_one\wp-includes\class-wp-hook.php(327): WP_Hook->apply_filters(NULL, Array)
+#13 C:\xampp\htdocs\mpj_one\wp-includes\plugin.php(470): WP_Hook->do_action(Array)
+#14 C:\xampp\htdocs\mpj_one\wp-content\plugins\woocommerce\templates\content-single-product.php(60): do_action('woocommerce_sin...')
+#15 C:\xampp\htdocs\mpj_one\wp-includes\template.php(772): require('C:\\xampp\\htdocs...')
+#16 C:\xampp\htdocs\mpj_one\wp-content\plugins\woocommerce\includes\wc-core-functions.php(284): load_template('C:\\xampp\\htdocs...', false)
+#17 C:\xampp\htdocs\mpj_one\wp-content\plugins\woocommerce\templates\single-product.php(37): wc_get_template_part('content', 'single-product')
+#18 C:\xampp\htdocs\mpj_one\wp-includes\template-loader.php(106): include('C:\\xampp\\htdocs...')
+#19 C:\xampp\htdocs\mpj_one\wp-blog-header.php(19): require_once('C:\\xampp\\htdocs...')
+#20 C:\xampp\htdocs\mpj_one\index.php(17): require('C:\\xampp\\htdocs...')
+#21 {main}
+  thrown en C:\xampp\htdocs\mpj_one\wp-content\plugins\newsletter-optica\template\mpj-add-ons.php en la línea 19
+

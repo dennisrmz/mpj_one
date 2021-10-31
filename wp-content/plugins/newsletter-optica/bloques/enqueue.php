@@ -18,10 +18,24 @@ function mpj_enqueue_scripts(){
         ['jquery'], 
         '1.0.0', 
         true );
+
+    wp_register_script(
+        'mpj_script_product_add_ons', 
+        plugins_url( '/assets/mpj_products_add_ons.js', NEWSLETTER_MPJ_PLUGIN_URL ), 
+        ['jquery'], 
+        '1.0.0', 
+        true 
+    );
+         
      
     if(is_front_page()){
         wp_enqueue_script('mpj_script_pop_up');
     }
+
+    if(is_product() || is_checkout() || is_cart()){
+        wp_enqueue_script('mpj_script_product_add_ons');
+    }
+
 
     wp_localize_script( 'mpj_main', 'mpj_obj', [
         'ajax_url'              =>  admin_url( 'admin-ajax.php' ),
