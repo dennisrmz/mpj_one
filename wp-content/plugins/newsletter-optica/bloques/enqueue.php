@@ -32,7 +32,38 @@ function mpj_enqueue_scripts(){
         '1.0.0', 
         true 
     );
-         
+    
+    $limites_graduacion = array();
+    
+    $args = array(
+        'post_type' => 'opticampj_add_ons',
+        'nopaging'  => true
+    );
+
+    $posts_type_limites = new WP_Query($args);
+
+    while( $posts_type_limites->have_posts() ): $posts_type_limites->the_post();
+        if(get_field('tipo_add_on') == "tipo_aumento"):
+
+            $id = get_the_ID();
+            $nombre = get_field('nombre');
+            $precio_extra = get_field('precio_extra');
+            $min = get_field('valor_inferior_rango_aumento');
+            $max = get_field('valor_superior_rango_aumento');
+            
+            $datos = [
+                "id"    => $id,
+                "nombre"  => $nombre,
+                "precio_extra" => $precio_extra,
+                "min_limit" => $min,
+                "max_limit" => $max
+            ];
+            array_push($limites_graduacion, $datos);
+
+        endif;
+    endwhile;
+
+    wp_reset_postdata();
      
     if(is_front_page()){
         wp_enqueue_script('mpj_script_pop_up');
@@ -46,7 +77,8 @@ function mpj_enqueue_scripts(){
     wp_localize_script( 'mpj_main', 'mpj_obj', [
         'ajax_url'              =>  admin_url( 'admin-ajax.php' ),
         'home_url'              =>  home_url('/'),
-        'mpj_current_prod'      =>  mpj_get_current_id_product()
+        'mpj_current_prod'      =>  mpj_get_current_id_product(),
+        'limites_rango'         =>  $limites_graduacion
     ]);
     
     wp_enqueue_script( 'mpj_main' );

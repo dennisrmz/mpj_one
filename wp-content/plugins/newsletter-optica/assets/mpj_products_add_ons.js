@@ -1,6 +1,8 @@
 (function ($) {
     var a = 0;
     $(document).ready(function () {
+        console.log('producto_actual');
+        console.log(mpj_obj.limites_rango);
 
        // alert('estoy cargando en producto');      
        $(".radio_receta").click(function(){
