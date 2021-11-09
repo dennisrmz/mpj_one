@@ -24,6 +24,8 @@
     include('procesos/save_info.php');
     include('includes/mpj_list_table.php');
     include('includes/download_excel.php');
+    include('procesos/add-value-fee.php');
+    include('procesos/set-value-fee.php');
 
      //Hooks
     register_activation_hook(NEWSLETTER_MPJ_PLUGIN_URL, 'mpj_activate_plugin');
@@ -40,9 +42,11 @@
     add_action('wp_ajax_mpj_send_data_news','mpj_save_info');
     add_action('wp_ajax_nopriv_mpj_send_data_news','mpj_save_info');
 
+    add_action('wp_ajax_add_checkout_fee', 'add_checkout_fee');
+    add_action('wp_ajax_nopriv_add_checkout_fee', 'add_checkout_fee');
+
     add_action('init', 'print_excel');
 
-    
 
     // add_action( 'woocommerce_product_thumbnails', 'content_before_product');
     add_action( 'woocommerce_before_add_to_cart_button', 'content_before_product');

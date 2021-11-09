@@ -5,6 +5,38 @@ function mpj_get_current_id_product(){
     return $post->ID;
 }
 
+function CartInfo(){
+    $dataInfo = [];
+
+        foreach ( WC()->cart->get_cart() as $cart_item_key => $cart_item ) {
+
+            $product = wc_get_product($cart_item['product_id']);
+
+           $product_id      = $cart_item['product_id'];
+           $name            = $product->get_name();
+           $quantity        = $cart_item['quantity'];
+           $price           = $product->get_price();
+           $link            = $product->get_permalink( $cart_item );
+           $slug            = $product->get_slug();
+           $category_id     = $product->get_category_ids();
+           
+
+
+           $row = [
+            'id'        => $product_id,
+            'name'      => $name,
+            'count'     => $quantity,
+            'precio'    => $price,
+            'uri'       => $link,
+            'slug'      => $slug
+           ];
+
+            array_push($dataInfo,$row);
+        };
+
+    return $dataInfo;
+}
+
 // Asset y funciones que cargan del lado de frontend de wordpress
 function mpj_enqueue_scripts(){
 
@@ -69,7 +101,7 @@ function mpj_enqueue_scripts(){
         wp_enqueue_script('mpj_script_pop_up');
     }
 
-    if(is_product() || is_checkout() || is_cart()){
+    if(is_product() || is_checkout() || is_cart() || is_shop()){
         wp_enqueue_script('mpj_script_product_add_ons');
     }
 
@@ -78,7 +110,8 @@ function mpj_enqueue_scripts(){
         'ajax_url'              =>  admin_url( 'admin-ajax.php' ),
         'home_url'              =>  home_url('/'),
         'mpj_current_prod'      =>  mpj_get_current_id_product(),
-        'limites_rango'         =>  $limites_graduacion
+        'limites_rango'         =>  $limites_graduacion,
+        'products_in_cart'      =>  CartInfo()
     ]);
     
     wp_enqueue_script( 'mpj_main' );
