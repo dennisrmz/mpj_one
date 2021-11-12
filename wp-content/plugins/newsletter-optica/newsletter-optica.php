@@ -26,6 +26,7 @@
     include('includes/download_excel.php');
     include('procesos/add-value-fee.php');
     include('procesos/set-value-fee.php');
+    include('procesos/mpj-filter-add-cart.php');
 
      //Hooks
     register_activation_hook(NEWSLETTER_MPJ_PLUGIN_URL, 'mpj_activate_plugin');
@@ -122,3 +123,5 @@
  	return $menuOrder;
  }
  add_filter ( 'woocommerce_account_menu_items', 'my_account_menu_order' );
+ add_filter( 'woocommerce_add_to_cart_validation', 'mpj_filter_add_cart', 10, 5 );
+ add_filter( 'woocommerce_update_cart_validation', 'filter_woocommerce_update_cart_action_cart_updated', 10, 4 );
