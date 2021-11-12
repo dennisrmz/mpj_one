@@ -1,8 +1,33 @@
 (function ($) {
+
+  function sendFeeWoo() { 
+    // let total_cur_price = VCBoxes.CalcCurrentFob();  //Calcular monto total de precio total_fob_user 
+
+    var form = {
+      action: 'add_checkout_fee',
+      valor: 40
+    };
+
+    $.post(mpj_obj.ajax_url, form).done(function (data) {
+      if (data.codigo == 1) {
+        //$('#btn-save-chg-box').addClass('d-none');
+      } else {
+
+      }
+      console.log("Esto causa el problema");
+      console.log(data);
+    }).fail(function () {
+      console.log('fail');
+      // closeLoading();
+      // showAlertMsg("Error al guardar los totales, recargue el sitio", operacion.DEFAULT, operacionStatus.FAIL);
+    });
+  }
+
     var a = 0;
     $(document).ready(function () {
+        sendFeeWoo()
         console.log('producto_actual');
-        console.log(mpj_obj.limites_rango);
+        console.log(mpj_obj.products_in_cart);
 
        // alert('estoy cargando en producto');      
        $(".radio_receta").click(function(){
