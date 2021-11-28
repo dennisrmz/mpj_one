@@ -45,6 +45,9 @@
 
     add_action('wp_ajax_add_checkout_fee', 'add_checkout_fee');
     add_action('wp_ajax_nopriv_add_checkout_fee', 'add_checkout_fee');
+    
+    add_action('wp_ajax_mpj_get_cart','mpj_get_cart');
+    add_action('wp_ajax_nopriv_mpj_get_cart','mpj_get_cart');
 
     add_action('init', 'print_excel');
 
