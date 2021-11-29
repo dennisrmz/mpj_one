@@ -36,18 +36,10 @@
           return false;
         };
 
-        let LentesData = JSON.parse(lentes_stg);
-
-        if (LentesData.length == 1) { //Si y solo si hay una caja 
-          this.OnlyOneLentes = true;
+          let LentesData = JSON.parse(lentes_stg);
+          this.OnlyOneLentes = false;
           this.lentes = LentesData;
           this.CurrentLentes = LentesData[0];
-        };
-
-        if (LentesData.length == 0) {
-          this.OnlyOneLentes = true;
-          this.CurrentLentes = null;
-        }
       },
       SyncServerAjax: function () {
         /** Si hay un remove del carrito */
@@ -57,23 +49,45 @@
           action: 'mpj_get_cart'
         };
 
-        $.post(mpj_obj.ajax_url, form).done(function (data) {
+        $.post(mpj_obj.ajax_url, form).done(function (itemsCartWo) {
 
-          console.log("Get cart");
-          console.log(data);
+          //Hare init para actualizar mi variable global
+          vcLentes.Init();
+
+          //2. Filtrare para reconocer cual es el producto extra que tengo en el localStorage
+          let itemsCartLS = [];
+          let in_delete = null;
+          itemsCartLS = vcLentes.lentes;
+
+          $.each(itemsCartLS, function (i, item_ls) {
+
+            let result = itemsCartWo.filter(d => d.id == item_ls.producto);
+            if(result.length == 0){
+              //este elemento ya no existe en LS
+              console.log('este elemento no existe' + i);
+              in_delete = i;
+              return false;
+            }
+           
+          });
+          // elimino el elemento i que no retorno respuesta
+          vcLentes.lentes.splice(in_delete,1);
+          
+          //3. Actualizare Local Storage
+          vcLentes.Save();
+
+          //4. Enviare el nuevo valor de Fee al backend
+          vcLentes.sendFeeWoo();
+
         }).fail(function (data) {
+
           console.log('fail');
           console.log(data);
-          // closeLoading();
-          // showAlertMsg("Error al guardar los totales, recargue el sitio", operacion.DEFAULT, operacionStatus.FAIL);
+
         });
 
 
-        //2. Filtrare para reconocer cual es el producto extra que tengo en el localStorage
-
-        //3. Actualizare Local Storage
-
-        //4. Enviare el nuevo valor de Fee al backend
+        
 
 
       },
@@ -88,9 +102,24 @@
         //this.Boxes[0] = this.CurrentBox;
         //localStorage.setItem("vclobi-boxes", JSON.stringify(this.Boxes));
         localStorage.setItem("mpj_lentes", JSON.stringify(this.lentes));
-      },sendFeeWoo(extra) {
+
+      },
+      sendFeeWoo() {
         // let total_cur_price = VCBoxes.CalcCurrentFob();  //Calcular monto total de precio total_fob_user 
-    
+        
+        vcLentes.Init();
+
+          //2. Filtrare para reconocer cual es el producto extra que tengo en el localStorage
+          let itemsCartLS = [];
+          let extra = 0;
+          itemsCartLS = vcLentes.lentes;
+
+          $.each(itemsCartLS, function (i, item_ls) {
+            let extra_item = parseFloat(item_ls.precioExtra);
+            extra = extra + extra_item;
+          });
+        extra = parseFloat(extra).toFixed(2);
+
         var form = {
           action: 'add_checkout_fee',
           valor: extra
@@ -117,15 +146,13 @@
 
     $(document.body).on('removed_from_cart', function (response) {
       /*** Este evento captura que algo se elimino del carrito por lo que  */
-      console.log('se elimino algo del carrito');
       vcLentes.SyncServerAjax();
-      console.log(response);
     });
 
     /******* */
     vcLentes.Init();
     console.log(vcLentes);
-    vcLentes.sendFeeWoo(50);
+    vcLentes.sendFeeWoo();
     console.log('producto_actual');
     console.log(mpj_obj.mpj_current_prod);
     console.log('Productos en carrito');
