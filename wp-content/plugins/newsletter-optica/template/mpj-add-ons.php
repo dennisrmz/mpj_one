@@ -33,7 +33,7 @@
                             </label>
                         </div>
                         <div>
-                            Precio Extra: <?php echo get_field('precio_extra'); ?>
+                            Precio Extra: <?php echo get_field('precio_extra'); ?> <input  style="display:none;" type="number" name="<?php the_ID(); ?>" id="<?php the_ID(); ?>" value="<?php echo get_field('precio_extra'); ?>" readonly> 
                         </div>
                     </div>
 
@@ -84,7 +84,7 @@
                             </label>
                         </div>
                         <div>
-                            Precio Extra: <?php echo get_field('precio_extra'); ?>
+                            Precio Extra: <?php echo get_field('precio_extra'); ?> <input  style="display:none;" type="number" name="<?php the_ID(); ?>" id="<?php the_ID(); ?>" value="<?php echo get_field('precio_extra'); ?>" readonly> 
                         </div>
                     </div>
 

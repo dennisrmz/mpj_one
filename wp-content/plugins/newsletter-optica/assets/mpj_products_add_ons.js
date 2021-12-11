@@ -2,7 +2,8 @@
  
   var tipoLente   = "";
   var tipoFiltro  = "";
-  var precioExtra = "";
+  var precioExtra = 0;
+  var valExtra  = 0;
   var a = 0;
   var datos = {
     'producto'    : "",
@@ -104,6 +105,13 @@
         localStorage.setItem("mpj_lentes", JSON.stringify(this.lentes));
 
       },
+      Delete: function (data) {
+        
+       
+       console.log( this.lentes.findIndex(lente => lente.producto === data));
+       let indice = this.lentes.findIndex(lente => lente.producto === data)
+        this.lentes.splice(indice,1); 
+      },
       sendFeeWoo() {
         // let total_cur_price = VCBoxes.CalcCurrentFob();  //Calcular monto total de precio total_fob_user 
         
@@ -184,6 +192,7 @@
           $("#siguiente").css("display", "block");
           $("#guardar").css("display", "none");
           a--;
+          precioExtra=0;
           var receta = {
             "od_EST"    : $("#od_EST").val(),
             "od_CL"     : $("#od_CL").val(),
@@ -197,7 +206,7 @@
             "os_TIPO"   : $("#os_TIPO").val(),
           }
 
-          console.log(receta);
+          
         }
       }
     });
@@ -207,7 +216,7 @@
         $("#tipoLent").css("display", "none");
         $("#tipoFilt").css("display", "block");
         a++;
-
+       
       } else {
         if (a == 1) {
           $("#tipoFilt").css("display", "none");
@@ -215,24 +224,30 @@
           $("#siguiente").css("display", "none");
           $("#guardar").css("display", "block");
           a++;
+        
         }
       }
     });
 
 
     $('#guardar').click(function () {
-
+     
+      precioExtra = parseFloat(precioExtra)+parseFloat($("#"+tipoLente+"").val())
+      precioExtra = parseFloat(precioExtra)+parseFloat($("#"+tipoFiltro+"").val())
+      console.log(precioExtra)
       $("#siguiente").css("display", "none");
       $("#guardar").css("display", "none");
       for (var i = 0; i < mpj_obj.limites_rango.length; i++) {
 
         if ((parseFloat($("#od_ADICION").val()) > parseFloat(mpj_obj.limites_rango[i].min_limit) && parseFloat($("#od_ADICION").val()) < parseFloat(mpj_obj.limites_rango[i].max_limit)) ||
           (parseFloat(($("#os_ADICION").val()) > parseFloat(mpj_obj.limites_rango[i].min_limit) && parseFloat($("#os_ADICION").val() < mpj_obj.limites_rango[i].max_limit)))) {
-          precioExtra = mpj_obj.limites_rango[i].precio_extra
+          valExtra = parseFloat(mpj_obj.limites_rango[i].precio_extra)
           console.log(mpj_obj.limites_rango[i].precio_extra);
         }
         console.log(mpj_obj.limites_rango[i].min_limit);
       }
+      precioExtra = parseFloat(precioExtra)+parseFloat(valExtra)
+     
       datos.producto = mpj_obj.mpj_current_prod,
         datos.tipoLente         = tipoLente,
         datos.tipoFiltro        = tipoFiltro,
@@ -255,8 +270,11 @@
       } else {
 
         // delete 
+        vcLentes.Delete(datos.producto);
         vcLentes.Insert(datos);
-        push
+        vcLentes.Save();
+        console.log("datos vcLentes:" )
+        console.log(vcLentes.lentes)
       }
       console.log(precioExtra);
       console.log(datos);
@@ -266,13 +284,15 @@
 
   $(".tipoLentes").click(function () {
     tipoLente = $(this).val();
-    console.log("Tipo de lente " + tipoLente);
-
+    console.log("Tipo de lente " + tipoLente);   
+  
   });
   $(".tipoFiltro").click(function () {
     tipoFiltro = $(this).val();
     console.log("Tipo de filtro " + tipoFiltro);
-
+    
+   
+   
   });
 
 
