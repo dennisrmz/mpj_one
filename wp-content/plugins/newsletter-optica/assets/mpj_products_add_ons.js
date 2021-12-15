@@ -139,8 +139,6 @@
           } else {
     
           }
-          console.log("Esto causa el problema");
-          console.log(data);
         }).fail(function () {
           console.log('fail');
           // closeLoading();
@@ -153,6 +151,7 @@
 
 
     $(document.body).on('removed_from_cart', function (response) {
+      console.log("elimino del carrito");
       /*** Este evento captura que algo se elimino del carrito por lo que  */
       vcLentes.SyncServerAjax();
     });
