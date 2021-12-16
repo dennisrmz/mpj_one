@@ -263,6 +263,7 @@
         datos.receta.os_ADICION = $("#os_ADICION").val()
         datos.receta.os_TIPO    = $("#os_TIPO").val()
       if (pivote == 0) {
+        vcLentes.Delete(datos.producto);
         vcLentes.Insert(datos);
         vcLentes.Save();
 
