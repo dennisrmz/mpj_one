@@ -64,6 +64,14 @@ function mpj_enqueue_scripts(){
         '1.0.0', 
         true 
     );
+
+    wp_register_script(
+        'mpj_script_cart', 
+        plugins_url( '/assets/mpj_cart.js', NEWSLETTER_MPJ_PLUGIN_URL ), 
+        ['jquery','mpj_script_product_add_ons'], 
+        '1.0.0', 
+        true 
+    );
     
     $limites_graduacion = array();
     
@@ -104,7 +112,9 @@ function mpj_enqueue_scripts(){
     if(is_product() || is_checkout() || is_cart() || is_shop()){
         wp_enqueue_script('mpj_script_product_add_ons');
     }
-
+    if(is_cart()){
+        wp_enqueue_script('mpj_script_cart');
+    }
 
     wp_localize_script( 'mpj_main', 'mpj_obj', [
         'ajax_url'              =>  admin_url( 'admin-ajax.php' ),
