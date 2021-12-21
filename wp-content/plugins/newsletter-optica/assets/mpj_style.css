@@ -21,3 +21,11 @@
 .title-receta{
     color: #82326f;
 }
+
+#contenedores-filtros{
+    background-color: #ede7e7!important;
+    padding: 10px;
+    pointer-events: none;
+    opacity: 0.3;
+    margin: 10px;
+}

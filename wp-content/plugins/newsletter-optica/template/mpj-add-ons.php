@@ -1,6 +1,11 @@
 <div>
+    <h5>Para agregar complementos, primero debes añadir el tipo de aro al carrito de compra</h5>
+</div>
+
+<div id="contenedores-filtros">
+
     <div id="tipoLent" style="display:block;">
-        <h4>Elegi tu tipo de lente</h4>
+        <h4>Elige tu tipo de lente</h4>
         <br>
         <?php
         $args = array(
@@ -53,7 +58,7 @@
         ?>
     </div>
     <div id="tipoFilt" style="display:none;">
-        <h4>Elegi tu tipo de Filtro</h4>
+        <h4>Elige tu tipo de Filtro</h4>
         <br>
         <?php
         $args = array(
