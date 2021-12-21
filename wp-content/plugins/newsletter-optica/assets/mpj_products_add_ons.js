@@ -1,7 +1,7 @@
 (function ($) {
  
-  var tipoLente   = "";
-  var tipoFiltro  = "";
+  var tipoLente   = "nada";
+  var tipoFiltro  = "nada";
   var precioExtra = 0;
   var valExtra  = 0;
   var a = 0;
@@ -230,10 +230,17 @@
 
 
     $('#guardar').click(function () {
+      
+    
+      if(tipoLente!="nada"){
+        precioExtra = parseFloat(precioExtra)+parseFloat($("#"+tipoLente+"").val())
+      }
      
-      precioExtra = parseFloat(precioExtra)+parseFloat($("#"+tipoLente+"").val())
-      precioExtra = parseFloat(precioExtra)+parseFloat($("#"+tipoFiltro+"").val())
-      console.log(precioExtra)
+      if(tipoFiltro!="nada"){
+        precioExtra = parseFloat(precioExtra)+parseFloat($("#"+tipoFiltro+"").val())
+      }
+     
+      
       $("#siguiente").css("display", "none");
       $("#guardar").css("display", "none");
       for (var i = 0; i < mpj_obj.limites_rango.length; i++) {
