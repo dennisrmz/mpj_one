@@ -21,9 +21,10 @@
       "os_EJE": "",
       "os_ADICION": "",
       "os_TIPO": "",
-    }
+    },
+    'filtros':[],
   }
-  var pivote = 0;
+  
   $(document).ready(function () {
 
     var vcLentes = {
@@ -113,7 +114,9 @@
       },
       Delete: function (data) {
         let indice = this.lentes.findIndex(lente => lente.producto === data)
-        this.lentes.splice(indice, 1);
+        if(indice != -1){
+          this.lentes.splice(indice, 1);
+        }
       },
       sendFeeWoo() {
         // let total_cur_price = VCBoxes.CalcCurrentFob();  //Calcular monto total de precio total_fob_user 
@@ -222,19 +225,27 @@
 
 
     $('#guardar').click(function () {
-
-
+      //Obteniendo precio extra de tipo de lente 
       if (tipoLente != "nada") {
         precioExtra = parseFloat(precioExtra) + parseFloat($("#" + tipoLente + "").val())
       }
+      //Obteniendo check box seleccionado y precio extra
+      var chkAfiltros = document.getElementsByClassName("tipoFiltro");
+        for(i=0;i<chkAfiltros.length;i++){
+          if(chkAfiltros[i].checked){
+            precioExtra = parseFloat(precioExtra) + parseFloat($("#" + chkAfiltros[i].value + "").val())
+            datos.filtros.push(chkAfiltros[i].value);
+          }
+        }
 
-      if (tipoFiltro != "nada") {
-        precioExtra = parseFloat(precioExtra) + parseFloat($("#" + tipoFiltro + "").val())
-      }
+    
+      console.log(precioExtra);
+     
 
 
       $("#siguiente").css("display", "none");
       $("#guardar").css("display", "none");
+      //Obtener precio extra
       for (var i = 0; i < mpj_obj.limites_rango.length; i++) {
 
         if ((parseFloat($("#od_ADICION").val()) > parseFloat(mpj_obj.limites_rango[i].min_limit) && parseFloat($("#od_ADICION").val()) < parseFloat(mpj_obj.limites_rango[i].max_limit)) ||
@@ -258,19 +269,13 @@
       datos.receta.os_EJE = $("#os_EJE").val()
       datos.receta.os_ADICION = $("#os_ADICION").val()
       datos.receta.os_TIPO = $("#os_TIPO").val()
-      if (pivote == 0) {
+     
         vcLentes.Delete(datos.producto);
         vcLentes.Insert(datos);
         vcLentes.Save();
 
-        pivote++;
-      } else {
-
-        // delete 
-        vcLentes.Delete(datos.producto);
-        vcLentes.Insert(datos);
-        vcLentes.Save();
-      }
+        
+     
     });
 
   });

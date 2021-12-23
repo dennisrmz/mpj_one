@@ -83,7 +83,7 @@
                     </div>
                     <div>
                         <div class="form-check">
-                            <input class="form-check-input tipoFiltro" type="radio" name="<?php echo get_field('tipo_add_on'); ?>" id="<?php echo get_field('tipo_add_on') . "_" .  get_the_ID(); ?>" value="<?php the_ID(); ?>">
+                            <input class="form-check-input tipoFiltro" type="checkbox" name="<?php echo get_field('tipo_add_on'); ?>" id="<?php echo get_field('tipo_add_on') . "_" .  get_the_ID(); ?>" value="<?php the_ID(); ?>">
                             <label class="form-check-label" for="<?php echo get_field('nombre'); ?>">
                                 <?php echo get_field('nombre'); ?>
                             </label>
