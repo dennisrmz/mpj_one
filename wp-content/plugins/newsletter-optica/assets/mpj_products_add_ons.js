@@ -8,8 +8,7 @@
   var datos = {
     'producto': "",
     'precioExtra': 0,
-    'tipoLente': "",
-    'tipoFiltro': "",
+    'tipoLente': "",   
     'receta': {
       "od_EST": "",
       "od_CL": "",
@@ -225,6 +224,7 @@
 
 
     $('#guardar').click(function () {
+     
       //Obteniendo precio extra de tipo de lente 
       if (tipoLente != "nada") {
         precioExtra = parseFloat(precioExtra) + parseFloat($("#" + tipoLente + "").val())
@@ -256,10 +256,9 @@
       precioExtra = parseFloat(precioExtra) + parseFloat(valExtra)
 
       datos.producto = mpj_obj.mpj_current_prod,
-        datos.tipoLente = tipoLente,
-        datos.tipoFiltro = tipoFiltro,
-        datos.precioExtra = precioExtra,
-        datos.receta.od_EST = $("#od_EST").val()
+      datos.tipoLente = tipoLente,      
+      datos.precioExtra = precioExtra,
+      datos.receta.od_EST = $("#od_EST").val()
       datos.receta.od_CL = $("#od_CL").val()
       datos.receta.od_EJE = $("#od_EJE").val()
       datos.receta.od_ADICION = $("#od_ADICION").val()
@@ -273,9 +272,31 @@
         vcLentes.Delete(datos.producto);
         vcLentes.Insert(datos);
         vcLentes.Save();
-
-        
-     
+      console.log(datos);
+         //Reinicando variables por si estan guardadas en cache
+      tipoLente = "nada";
+      tipoFiltro = "nada";
+      precioExtra = 0;
+      valExtra = 0;      
+      datos = {
+       'producto': "",
+       'precioExtra': 0,
+       'tipoLente': "",   
+       'receta': {
+         "od_EST": "",
+         "od_CL": "",
+         "od_EJE": "",
+         "od_ADICION": "",
+         "od_TIPO": "",
+         "os_EST": "",
+         "os_CL": "",
+         "os_EJE": "",
+         "os_ADICION": "",
+         "os_TIPO": "",
+       },
+       'filtros':[],
+     }
+     console.log(datos);
     });
 
   });
