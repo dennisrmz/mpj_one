@@ -40,6 +40,8 @@ function CartInfo(){
 // Asset y funciones que cargan del lado de frontend de wordpress
 function mpj_enqueue_scripts(){
 
+    global $wp;
+
     wp_register_style('mpj_style',plugins_url('assets/mpj_style.css', NEWSLETTER_MPJ_PLUGIN_URL));
     wp_enqueue_style('mpj_style');
     
@@ -76,6 +78,14 @@ function mpj_enqueue_scripts(){
     wp_register_script(
         'mpj_script_checkout', 
         plugins_url( '/assets/mpj_checkout.js', NEWSLETTER_MPJ_PLUGIN_URL ), 
+        ['jquery'], 
+        '1.0.0', 
+        true 
+    );
+
+    wp_register_script(
+        'mpj_script_checkout_received', 
+        plugins_url( '/assets/mpj_checkout_received.js', NEWSLETTER_MPJ_PLUGIN_URL ), 
         ['jquery'], 
         '1.0.0', 
         true 
@@ -137,15 +147,22 @@ function mpj_enqueue_scripts(){
         wp_enqueue_script('mpj_script_pop_up');
     }
 
-    if(is_product() || is_checkout() || is_cart() || is_shop()){
+    if(is_product() || is_checkout() || is_cart() || is_shop() || is_front_page()){
         wp_enqueue_script('mpj_script_product_add_ons');
     }
+
     if(is_cart()){
         wp_enqueue_script('mpj_script_cart');
     }
-    if(is_checkout()){
+
+    if(is_checkout() && empty( $wp->query_vars['order-received'] ) ){
         wp_enqueue_script('mpj_script_checkout');
     }
+
+    
+	if ( is_checkout() && !empty( $wp->query_vars['order-received'] ) ) {
+		wp_enqueue_script('mpj_script_checkout_received');
+	}
 
     wp_localize_script( 'mpj_main', 'mpj_obj', [
         'ajax_url'              =>  admin_url( 'admin-ajax.php' ),
