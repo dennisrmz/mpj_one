@@ -1,7 +1,6 @@
 (function ($) {
 
-  var tipoLente = "nada";
-  var tipoFiltro = "nada";
+  var tipoLente = "nada";  
   var precioExtra = 0;
   var valExtra = 0;
   var a = 0;
@@ -275,7 +274,6 @@
       console.log(datos);
          //Reinicando variables por si estan guardadas en cache
       tipoLente = "nada";
-      tipoFiltro = "nada";
       precioExtra = 0;
       valExtra = 0;      
       datos = {
