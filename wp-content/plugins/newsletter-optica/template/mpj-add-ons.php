@@ -14,16 +14,15 @@
         );
 
         $posts_type_tablas = new WP_Query($args);
-        $a = 1;
+        $a = true;
         while ($posts_type_tablas->have_posts()) : $posts_type_tablas->the_post();
-
+        
             if (get_field('tipo_add_on') == "tipo_lente") :
 
 
         ?>
 
-                <div style="
-                            display: flex;
+                <div style="display: flex;
                             justify-content: flex-start;
                             align-items: center;
                             flex-direction: row;">
@@ -32,14 +31,29 @@
                     </div>
                     <div>
                         <div class="form-check">
-                            <input class="form-check-input tipoLentes" type="radio" data-value="<?php echo get_field('aumento_precio_por_rango'); ?>" name="<?php echo get_field('tipo_add_on'); ?>" id="<?php echo get_field('tipo_add_on') . "_" .  get_the_ID(); ?>" value="<?php the_ID(); ?>">
+                            <input class="form-check-input tipoLentes" type="radio" data-value="<?php echo get_field('aumento_precio_por_rango'); ?>" name="<?php echo get_field('tipo_add_on'); ?>" id="<?php echo get_field('tipo_add_on') . "_" .  get_the_ID(); ?>" value="<?php the_ID(); ?>" <?php if($a == true) { ?> checked <?php } ?>>
                             <label class="form-check-label tipoLentes" for="<?php echo get_field('nombre'); ?>">
                                 <?php echo get_field('nombre'); ?>
                             </label>
                         </div>
-                        <div>
-                            Precio Extra: <?php echo get_field('precio_extra'); ?> <input  style="display:none;" type="number" name="<?php the_ID(); ?>" id="<?php the_ID(); ?>" value="<?php echo get_field('precio_extra'); ?>" readonly> 
-                        </div>
+                        <?php 
+                            if(get_field('precio_extra_rebajado') != ''):
+                        ?>
+                            <div style="text-decoration:line-through;">
+                                Precio Normal: <?php echo get_field('precio_extra'); ?> <input data-value="<?php echo get_field('precio_extra_rebajado'); ?>" style="display:none;" type="number" name="n-<?php the_ID(); ?>" id="n-<?php the_ID(); ?>" value="<?php echo get_field('precio_extra'); ?>" readonly> 
+                            </div>
+                            <div>
+                                Precio Oferta: <?php echo get_field('precio_extra_rebajado'); ?> <input  style="display:none;" type="number" name="<?php the_ID(); ?>" id="<?php the_ID(); ?>" value="<?php echo get_field('precio_extra_rebajado'); ?>" readonly> 
+                            </div>
+                        <?php 
+                            else:
+                        ?>
+                            <div>
+                                Precio Normal: <?php echo get_field('precio_extra'); ?> <input data-value=""  style="display:none;" type="number" name="<?php the_ID(); ?>" id="<?php the_ID(); ?>" value="<?php echo get_field('precio_extra'); ?>" readonly> 
+                            </div>
+                        <?php 
+                            endif;
+                        ?>
                     </div>
 
 
@@ -47,14 +61,12 @@
                 <br>
 
         <?php
-
+            $a = false;
             endif;
-
         endwhile;
 
-        /******************* Obteniendo PostTypes Meriendas  ***********************/
+        /******************* Obteniendo PostTypes Filtro  ***********************/
         wp_reset_postdata();
-        2509
         ?>
     </div>
     <div id="tipoFilt" style="display:none;">
@@ -88,9 +100,24 @@
                                 <?php echo get_field('nombre'); ?>
                             </label>
                         </div>
-                        <div>
-                            Precio Extra: <?php echo get_field('precio_extra'); ?> <input  style="display:none;" type="number" name="<?php the_ID(); ?>" id="<?php the_ID(); ?>" value="<?php echo get_field('precio_extra'); ?>" readonly> 
-                        </div>
+                        <?php 
+                            if(get_field('precio_extra_rebajado') != ''):
+                        ?>
+                            <div style="text-decoration:line-through;">
+                                Precio Normal: <?php echo get_field('precio_extra'); ?> <input data-value="<?php echo get_field('precio_extra_rebajado'); ?>" style="display:none;" type="number" name="n-<?php the_ID(); ?>" id="n-<?php the_ID(); ?>" value="<?php echo get_field('precio_extra'); ?>" readonly> 
+                            </div>
+                            <div>
+                                Precio Oferta: <?php echo get_field('precio_extra_rebajado'); ?> <input  style="display:none;" type="number" name="<?php the_ID(); ?>" id="<?php the_ID(); ?>" value="<?php echo get_field('precio_extra_rebajado'); ?>" readonly>
+                            </div>
+                        <?php 
+                            else:
+                        ?>
+                            <div>
+                                Precio Normal: <?php echo get_field('precio_extra'); ?> <input  data-value="" style="display:none;" type="number" name="<?php the_ID(); ?>" id="<?php the_ID(); ?>" value="<?php echo get_field('precio_extra'); ?>" readonly> 
+                            </div>
+                        <?php 
+                            endif;
+                        ?>
                     </div>
 
 

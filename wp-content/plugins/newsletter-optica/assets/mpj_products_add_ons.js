@@ -30,6 +30,26 @@
       CurrentLentes: null,
       OnlyOneLentes: false, //Notifica que si hay una unica caja en Ls o en el server 
       Init: function () {
+
+        if(mpj_obj.products_in_cart.length == 0){
+          localStorage.removeItem('mpj_lentes');
+          var form = {
+            action: 'add_checkout_fee',
+            valor: 0
+          };
+  
+          $.post(mpj_obj.ajax_url, form).done(function (data) {
+            if (data.codigo == 1) {
+              //$('#btn-save-chg-box').addClass('d-none');
+            } else {
+  
+            }
+          }).fail(function () {
+            // closeLoading();
+            // showAlertMsg("Error al guardar los totales, recargue el sitio", operacion.DEFAULT, operacionStatus.FAIL);
+          });
+        } 
+
         $.each(mpj_obj.products_in_cart, function (i, item_wo) {
 
           if(item_wo.id == mpj_obj.mpj_current_prod){
@@ -51,6 +71,18 @@
         this.CurrentLentes = LentesData[0];
 
         
+      },
+      updateBeforeSendFee(){
+        let lentes_stg = localStorage.getItem("mpj_lentes"); //siempre sera un arreglo pero debe tener solo un item 	 
+        if (lentes_stg == null || lentes_stg.length == 0) {
+          this.OnlyOneLentes = true; //OnlyOneLentes se deja como true dado que no hay nada en ls
+          return false;
+        };
+
+        let LentesData = JSON.parse(lentes_stg);
+        this.OnlyOneLentes = false;
+        this.lentes = LentesData;
+        this.CurrentLentes = LentesData[0];
       },
       SyncServerAjax: function () {
         /** Si hay un remove del carrito */
@@ -118,9 +150,7 @@
       },
       sendFeeWoo() {
         // let total_cur_price = VCBoxes.CalcCurrentFob();  //Calcular monto total de precio total_fob_user 
-
-        vcLentes.Init();
-
+        vcLentes.updateBeforeSendFee();
         //2. Filtrare para reconocer cual es el producto extra que tengo en el localStorage
         let itemsCartLS = [];
         let extra = 0;
@@ -237,10 +267,6 @@
           }
         }
 
-    
-      console.log(precioExtra);
-     
-
 
       $("#siguiente").css("display", "none");
       $("#guardar").css("display", "none");
@@ -271,7 +297,6 @@
         vcLentes.Delete(datos.producto);
         vcLentes.Insert(datos);
         vcLentes.Save();
-      console.log(datos);
          //Reinicando variables por si estan guardadas en cache
       tipoLente = "nada";
       precioExtra = 0;
@@ -294,7 +319,7 @@
        },
        'filtros':[],
      }
-     console.log(datos);
+     vcLentes.sendFeeWoo();
     });
 
   });

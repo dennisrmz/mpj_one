@@ -57,14 +57,10 @@
     add_action( 'woocommerce_product_thumbnails', 'content_before_image');
     
     function content_before_image(){
-
-        ob_start();
-        include ABSPATH . 'wp-content/plugins/newsletter-optica/template/mpj-info-receta.php';
-        $page = ob_get_contents();
-        ob_end_clean();
         // echo $page;
 
     }
+
     
     function content_before_product(){
 
