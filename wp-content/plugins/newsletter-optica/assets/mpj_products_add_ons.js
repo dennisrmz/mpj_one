@@ -1,5 +1,5 @@
 (function ($) {
-
+  var Posee_receta = "si";
   var tipoLente = "nada";  
   var precioExtra = 0;
   var valExtra = 0;
@@ -8,6 +8,7 @@
     'producto': "",
     'precioExtra': 0,
     'tipoLente': "",   
+    'Posee_receta': "",   
     'receta': {
       "od_EST": "",
       "od_CL": "",
@@ -196,21 +197,32 @@
       var valor = $(this).val();
       if (valor == 1) {
         $("#tablaReceta").css("display", "block");
+        Posee_receta = "si";
+        if(a==1)
+        {
+         a--;
+        }
+         
       } else {
         $("#tablaReceta").css("display", "none");
+        $("#siguiente").css("display", "none");
+        $("#guardar").css("display", "block");
+        Posee_receta = "no";
+        $(".receta").css("display", "none");
+        a++;
       }
 
     });
 
     $('#anterior').click(function () {
       if (a == 1) {
-        $("#tipoLent").css("display", "block");
-        $("#tipoFilt").css("display", "none");
+        $("#receta").css("display", "block");
+        $("#tipoLent").css("display", "none");
         a--;
       } else {
         if (a == 2) {
-          $("#tipoFilt").css("display", "block");
-          $("#receta").css("display", "none");
+          $("#tipoLent").css("display", "block");
+          $("#tipoFilt").css("display", "none");
           $("#siguiente").css("display", "block");
           $("#guardar").css("display", "none");
           a--;
@@ -233,16 +245,16 @@
       }
     });
     $('#siguiente').click(function () {
-
+      
       if (a == 0) {
-        $("#tipoLent").css("display", "none");
-        $("#tipoFilt").css("display", "block");
+        $("#receta").css("display", "none");
+        $("#tipoLent").css("display", "block");
         a++;
 
       } else {
         if (a == 1) {
-          $("#tipoFilt").css("display", "none");
-          $("#receta").css("display", "block");
+          $("#tipoLent").css("display", "none");
+          $("#tipoFilt").css("display", "block");
           $("#siguiente").css("display", "none");
           $("#guardar").css("display", "block");
           a++;
@@ -254,10 +266,23 @@
 
     $('#guardar').click(function () {
      
+      $('input:radio').each(function () {
+
+      
+           
+
+        if ($(this).prop('checked')) {
+          tipoLente = $(this).val();
+        
+        }
+
+    });
+
       //Obteniendo precio extra de tipo de lente 
       if (tipoLente != "nada") {
         precioExtra = parseFloat(precioExtra) + parseFloat($("#" + tipoLente + "").val())
       }
+      
       //Obteniendo check box seleccionado y precio extra
       var chkAfiltros = document.getElementsByClassName("tipoFiltro");
         for(i=0;i<chkAfiltros.length;i++){
@@ -283,6 +308,7 @@
       datos.producto = mpj_obj.mpj_current_prod,
       datos.tipoLente = tipoLente,      
       datos.precioExtra = precioExtra,
+      datos.Posee_receta = Posee_receta,
       datos.receta.od_EST = $("#od_EST").val()
       datos.receta.od_CL = $("#od_CL").val()
       datos.receta.od_EJE = $("#od_EJE").val()
@@ -304,7 +330,8 @@
       datos = {
        'producto': "",
        'precioExtra': 0,
-       'tipoLente': "",   
+       'tipoLente': "",  
+       'Posee_receta': "", 
        'receta': {
          "od_EST": "",
          "od_CL": "",
@@ -324,13 +351,6 @@
 
   });
 
-  $(".tipoLentes").click(function () {
-    tipoLente = $(this).val();
-  });
-
-  $(".tipoFiltro").click(function () {
-    tipoFiltro = $(this).val();
-  });
 
 
 })(jQuery);

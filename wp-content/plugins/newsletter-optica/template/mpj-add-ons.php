@@ -4,7 +4,7 @@
 
 <div id="contenedores-filtros">
 
-    <div id="tipoLent" style="display:block;">
+    <div id="tipoLent" style="display:none;">
         <h4>Elige tu tipo de lente</h4>
         <br>
         <?php
@@ -135,7 +135,7 @@
 
         ?>
     </div>
-    <div id="receta" style="display:none;">
+    <div id="receta" style="display:block;">
         <h4>Dejanos Saber un poco mas</h4>
         <p>¿Posees Receta de Lentes?</p>
         <div class="form-check">
