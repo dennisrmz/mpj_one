@@ -50,7 +50,7 @@
     </tr>
     <tr>
 	<td align="left" valign="top" style="font-size:16px;line-height:20px;color:#4d4d4d;font-weight:500;font-family: 'Avenir-Medium',sans-serif,arial;padding: 0 0 0 9px;" class="pad0">
-	    <?php echo __('Customer notes', 'salon-booking-system') ?>:
+	    <?php echo "Notas de los clientes"; ?>:
 	</td>
     </tr>
     <tr>
