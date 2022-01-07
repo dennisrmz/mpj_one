@@ -200,9 +200,11 @@
         Posee_receta = "si";
         if(a==1)
         {
+         
          a--;
         }
-         
+        $("#siguiente").css("display", "block");
+        $("#guardar").css("display", "none");
       } else {
         $("#tablaReceta").css("display", "none");
         $("#siguiente").css("display", "none");
@@ -249,6 +251,7 @@
       if (a == 0) {
         $("#receta").css("display", "none");
         $("#tipoLent").css("display", "block");
+      
         a++;
 
       } else {
