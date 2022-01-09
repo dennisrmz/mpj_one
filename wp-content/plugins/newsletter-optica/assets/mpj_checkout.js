@@ -70,9 +70,11 @@
 
             $("#order_comments").val($string_notes);
 
-            if(item_ls.Posee_receta = "no"){
+            if(item_ls.Posee_receta == "no"){
+                console.log('verificare no');
                 flag_verify_reserva = true;
             }else{
+                console.log('asigne valor val 1');
                 $("#billing_wooccm11").val(1);
             }
 
