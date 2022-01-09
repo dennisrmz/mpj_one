@@ -8,6 +8,11 @@ $genMail = $plugin->getSettings()->getSalonEmail();
 
 $payOffsetEnabled = $plugin->getSettings()->get('pay_offset_enabled');
 ?>
+<script type="text/javascript">
+    
+    localStorage.setItem("reserva-cita", JSON.stringify({"reserva" : 1}));
+
+</script>
 <div class="sln-alert sln-alert--info <?php if ($confirmation) : ?> sln-alert--topicon<?php endif ?>">
     <?php if ($confirmation) : ?>
         <p><strong><?php _e(

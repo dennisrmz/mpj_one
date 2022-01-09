@@ -3,6 +3,8 @@
 
     $(document).ready(function () {
 
+        let flag_verify_reserva = false;
+
         $("#order_comments").prop("readonly",true);
 
         let lentes_stg = localStorage.getItem("mpj_lentes"); //siempre sera un arreglo pero debe tener solo un item 	 
@@ -67,8 +69,28 @@
             $string_notes += '\n\n';
 
             $("#order_comments").val($string_notes);
+
+            if(item_ls.Posee_receta = "no"){
+                flag_verify_reserva = true;
+            }else{
+                $("#billing_wooccm11").val(1);
+            }
+
             
         });
+
+        //Si es true quiere decir que algun producto puso que no tenia receta por lo tanto debe hacer cita
+        // hay que comprobar que hizo la cita o 
+        if(flag_verify_reserva == true){
+            //verifica si ya hizo la reserva, sino mantendre en false la bandera
+            let reserva_stg = localStorage.getItem("reserva-cita"); //siempre sera un arreglo pero debe tener solo un item 	 
+            console.log('verificare reserva');     
+            //verificare si el obj de reserva esta creado
+            if (reserva_stg == null) {
+                console.log(reserva_stg);
+                window.location.replace(mpj_obj.home_url + "reserva-cita/");
+            }
+        }
 
     });
 

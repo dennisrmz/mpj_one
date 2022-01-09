@@ -124,3 +124,4 @@
  add_filter ( 'woocommerce_account_menu_items', 'my_account_menu_order' );
  add_filter( 'woocommerce_add_to_cart_validation', 'mpj_filter_add_cart', 10, 5 );
  add_filter( 'woocommerce_update_cart_validation', 'filter_woocommerce_update_cart_action_cart_updated', 10, 4 );
+ add_action( 'woocommerce_after_checkout_validation', 'vclobi_custom_validate_stock', 10, 2);
