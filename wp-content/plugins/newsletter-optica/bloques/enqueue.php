@@ -41,9 +41,20 @@ function CartInfo(){
 function mpj_enqueue_scripts(){
 
     global $wp;
-
+    wp_register_style('vc_alert_style',plugins_url('assets/plugins/alertify/css/alertify.min.css',NEWSLETTER_MPJ_PLUGIN_URL));
+    wp_register_style('vc_alert_theme_style',plugins_url('assets/plugins/alertify/css/themes/default.min.css',NEWSLETTER_MPJ_PLUGIN_URL));
     wp_register_style('mpj_style',plugins_url('assets/mpj_style.css', NEWSLETTER_MPJ_PLUGIN_URL));
+    
+    wp_enqueue_style('vc_alert_style');
+    wp_enqueue_style('vc_alert_theme_style');
     wp_enqueue_style('mpj_style');
+
+    wp_register_script(
+        'mpj_alertify', 
+        plugins_url( '/assets/plugins/alertify/js/alertify.min.js', NEWSLETTER_MPJ_PLUGIN_URL ), 
+        ['jquery'], 
+        '1.0.0', 
+        true );
     
     wp_register_script(
         'mpj_main', 
@@ -90,6 +101,13 @@ function mpj_enqueue_scripts(){
         '1.0.0', 
         true 
     );
+
+    wp_register_script(
+        'mpj_alertify', 
+        plugins_url( '/assets/plugins/alertify/js/alertify.min.js', NEWSLETTER_MPJ_PLUGIN_URL ), 
+        ['jquery'], 
+        '1.0.0', 
+        true );
 
     $all_filters = array();
     
@@ -142,7 +160,7 @@ function mpj_enqueue_scripts(){
     endwhile;
 
     wp_reset_postdata();
-     
+    wp_enqueue_script('mpj_alertify');
     if(is_front_page()){
         wp_enqueue_script('mpj_script_pop_up');
     }

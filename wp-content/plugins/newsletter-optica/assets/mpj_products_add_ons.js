@@ -24,6 +24,16 @@
     'filtros': [],
   }
 
+  function vcShowAlertValidatePlans(target_msg) {
+    alertify.defaults.autoReset = true;
+    alertify.defaults.closable = false;
+    let content = "<p style='text-align: center;'>" + target_msg + "</p>";
+    alertify.alert('¡Datos no validos!', content).set('onok', function (closeEvent) {
+      alertify.success('Ok');
+      window.location.replace(mpj_obj.home_url + "reserva-cita/");
+    });
+  }
+
   $(document).ready(function () {
 
     var vcLentes = {
@@ -347,15 +357,17 @@
         'filtros': [],
       }
       vcLentes.sendFeeWoo();
-      console.log('di click en guardar')
-      console.log(Posee_receta)
-      if(Posee_receta == "no"){
-        window.location.replace(mpj_obj.home_url + "reserva-cita/");
+      if (Posee_receta == "no") {
+        let message = "Para poder finalizar su compra, Sera redireccionado a la pagina de reservas de citas, en la cual debe de agendar una cita oftalmologica para poder finalizar su proceso de compra, al momento de realizar la evalución oftalmologica podrian haber cargos adicinales a su compra";
+        vcShowAlertValidatePlans(message);
+        setTimeout(function () {
+          window.location.replace(mpj_obj.home_url + "reserva-cita/");
+        }, 6000);
       }
-      
+
     });
 
-    
+
   });
 
 
