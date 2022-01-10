@@ -220,6 +220,7 @@
       if (a == 1) {
         $("#receta").css("display", "block");
         $("#tipoLent").css("display", "none");
+        $("#anterior").css("display", "none");
         a--;
       } else {
         if (a == 2) {
@@ -251,7 +252,7 @@
       if (a == 0) {
         $("#receta").css("display", "none");
         $("#tipoLent").css("display", "block");
-      
+        $("#anterior").css("display", "block");
         a++;
 
       } else {

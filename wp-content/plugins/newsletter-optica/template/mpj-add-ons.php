@@ -236,10 +236,10 @@
         <table style="border: hidden">          
             <tr style="border: hidden">
             <td style="border: hidden">
-            <button style="display:block;" type="button" id="anterior" class="btn btn-sm  btn-success"> Anterior </button>
+            <button style="display:none;" type="button" id="anterior" class="btn btn-sm  btn-success"> Anterior </button>
             </td>
             <td style="border: hidden">
-            <button style="display:block;" type="button" id="siguiente" class="btn btn-sm  btn-success"> Siguiente </button>
+            <button style="display:none;" type="button" id="siguiente" class="btn btn-sm  btn-success"> Siguiente </button>
         <button style="display:none;" type="button" id="guardar" class="btn btn-sm  btn-success"> Guardar </button>
             </td>
             </tr>
