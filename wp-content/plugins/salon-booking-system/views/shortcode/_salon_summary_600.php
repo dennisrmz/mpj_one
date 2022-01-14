@@ -101,11 +101,11 @@
     </div>
     <?php do_action('sln.template.summary.before_terms', $bb, $size); ?>
     <div class="col-xs-12 sln-summary__terms">
-        <p><strong><?php _e('Terms & Conditions','salon-booking-system')?></strong><br><?php echo $plugin->getSettings()->get('gen_timetable')
-            /*_e(
-                'In case of delay of arrival. we will wait a maximum of 10 minutes from booking time. Then we will release your reservation',
+        <p><strong><?php _e('Términos y condiciones','salon-booking-system')?></strong><br><?php echo $plugin->getSettings()->get('gen_timetable');
+            _e(
+                'En caso de retraso de la llegada. esperaremos un máximo de 10 minutos desde la hora de la reserva. Luego liberaremos su reserva. En la evaluación optica se pueden aplicar cargos extras a la compra de sus lentes',
                 'salon-booking-system'
-            )*/ ?></p>
+            )  ?></p>
     </div>
 </div>
 <div class="row sln-box--main sln-box--formactions">
