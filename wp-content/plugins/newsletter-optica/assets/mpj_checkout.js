@@ -4,7 +4,7 @@
         alertify.defaults.autoReset = true;
         alertify.defaults.closable = false;
         let content = "<p style='text-align: center;'>" + target_msg + "</p>";
-        alertify.alert('¡Datos no validos!', content).set('onok', function (closeEvent) {
+        alertify.alert('¡Error, Complete estos pasos!', content).set('onok', function (closeEvent) {
           alertify.success('Ok');
           window.location.replace(mpj_obj.home_url + "reserva-cita/");
         });
@@ -14,7 +14,7 @@
         alertify.defaults.autoReset = true;
         alertify.defaults.closable = false;
         let content = "<p style='text-align: center;'>" + target_msg + "</p>";
-        alertify.alert('¡Datos no validos!', content).set('onok', function (closeEvent) {
+        alertify.alert('¡Error, Complete estos pasos!', content).set('onok', function (closeEvent) {
           alertify.success('Ok');
           window.location.replace(uri);
         });

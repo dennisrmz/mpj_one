@@ -31,7 +31,7 @@
                     </div>
                     <div>
                         <div class="form-check">
-                            <input class="form-check-input tipoLentes" type="radio" data-value="<?php echo get_field('aumento_precio_por_rango'); ?>" name="<?php echo get_field('tipo_add_on'); ?>" id="<?php echo get_field('tipo_add_on') . "_" .  get_the_ID(); ?>" value="<?php the_ID(); ?>" <?php if($a == true) { ?> checked <?php } ?>>
+                            <input class="form-check-input tipoLentes" type="radio" name="<?php echo get_field('tipo_add_on'); ?>" id="<?php echo get_field('tipo_add_on') . "_" .  get_the_ID(); ?>" value="<?php the_ID(); ?>" <?php if($a == true) { ?> checked <?php } ?>>
                             <label class="form-check-label tipoLentes" for="<?php echo get_field('nombre'); ?>">
                                 <?php echo get_field('nombre'); ?>
                             </label>

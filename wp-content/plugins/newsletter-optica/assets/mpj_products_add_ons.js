@@ -241,19 +241,6 @@
           $("#guardar").css("display", "none");
           a--;
           precioExtra = 0;
-          var receta = {
-            "od_EST": $("#od_EST").val(),
-            "od_CL": $("#od_CL").val(),
-            "od_EJE": $("#od_EJE").val(),
-            "od_ADICION": $("#od_ADICION").val(),
-            "od_TIPO": $("#od_TIPO").val(),
-            "os_EST": $("#os_EST").val(),
-            "os_CL": $("#os_CL").val(),
-            "os_EJE": $("#os_EJE").val(),
-            "os_ADICION": $("#os_ADICION").val(),
-            "os_TIPO": $("#os_TIPO").val(),
-          }
-
 
         }
       }
@@ -282,10 +269,10 @@
 
     $('#guardar').click(function () {
 
-      $('input:radio').each(function () {
+      $('input:radio.tipoLentes').each(function () {
+
         if ($(this).prop('checked')) {
           tipoLente = $(this).val();
-
         }
       });
 
@@ -293,34 +280,42 @@
       if (tipoLente != "nada") {
         precioExtra = parseFloat(precioExtra) + parseFloat($("#" + tipoLente + "").val())
       }
-
       //Obteniendo check box seleccionado y precio extra
-      var chkAfiltros = document.getElementsByClassName("tipoFiltro");
-      for (i = 0; i < chkAfiltros.length; i++) {
-        if (chkAfiltros[i].checked) {
-          precioExtra = parseFloat(precioExtra) + parseFloat($("#" + chkAfiltros[i].value + "").val())
-          datos.filtros.push(chkAfiltros[i].value);
-        }
-      }
+      $("input:checkbox.tipoFiltro:checked").each(function () {
+        valor = $("#" + `${$(this).val()}`).val();
+        precioExtra = parseFloat(precioExtra) + parseFloat(valor);
+        datos.filtros.push($(this).val());
 
+      });
 
       $("#siguiente").css("display", "none");
       $("#guardar").css("display", "none");
       //Obtener precio extra
+
+      //Obteniendo el valor mayor de adicion
+      let od_adicion = Math.abs(parseFloat($("#od_ADICION").val()));
+      let os_adicion = Math.abs(parseFloat($("#os_ADICION").val()));
+      let valor_definitivo = 0;
+
+      if( os_adicion >= od_adicion){
+          valor_definitivo = os_adicion;
+      }else{
+          valor_definitivo = od_adicion;
+      }
+
       for (var i = 0; i < mpj_obj.limites_rango.length; i++) {
 
-        if ((parseFloat($("#od_ADICION").val()) > parseFloat(mpj_obj.limites_rango[i].min_limit) && parseFloat($("#od_ADICION").val()) < parseFloat(mpj_obj.limites_rango[i].max_limit)) ||
-          (parseFloat(($("#os_ADICION").val()) > parseFloat(mpj_obj.limites_rango[i].min_limit) && parseFloat($("#os_ADICION").val() < mpj_obj.limites_rango[i].max_limit)))) {
+        if(valor_definitivo >= parseFloat(mpj_obj.limites_rango[i].min_limit) && valor_definitivo <= parseFloat(mpj_obj.limites_rango[i].max_limit)){
           valExtra = parseFloat(mpj_obj.limites_rango[i].precio_extra)
         }
       }
       precioExtra = parseFloat(precioExtra) + parseFloat(valExtra)
 
       datos.producto = mpj_obj.mpj_current_prod,
-        datos.tipoLente = tipoLente,
-        datos.precioExtra = precioExtra,
-        datos.Posee_receta = Posee_receta,
-        datos.receta.od_EST = $("#od_EST").val()
+      datos.tipoLente = tipoLente,
+      datos.precioExtra = precioExtra,
+      datos.Posee_receta = Posee_receta,
+      datos.receta.od_EST = $("#od_EST").val()
       datos.receta.od_CL = $("#od_CL").val()
       datos.receta.od_EJE = $("#od_EJE").val()
       datos.receta.od_ADICION = $("#od_ADICION").val()
