@@ -28,9 +28,18 @@
     alertify.defaults.autoReset = true;
     alertify.defaults.closable = false;
     let content = "<p style='text-align: center;'>" + target_msg + "</p>";
-    alertify.alert('¡Datos no validos!', content).set('onok', function (closeEvent) {
+    alertify.alert('¡Reserve su cita para continuar!', content).set('onok', function (closeEvent) {
       alertify.success('Ok');
       window.location.replace(mpj_obj.home_url + "reserva-cita/");
+    });
+  }
+
+  function vcShowAlertValidatePlansSinRedireccion(target_msg) {
+    alertify.defaults.autoReset = true;
+    alertify.defaults.closable = false;
+    let content = "<p style='text-align: center;'>" + target_msg + "</p>";
+    alertify.alert('¡Reserve su cita para continuar!', content).set('onok', function (closeEvent) {
+      alertify.success('Ok');
     });
   }
 
@@ -249,9 +258,18 @@
     $('#siguiente').click(function () {
 
       if (a == 0) {
+        if($("#od_EST").val() === "" || $("#od_CL").val() === "" || $("#od_EJE").val() === "" || $("#od_ADICION").val() === "" ||
+          $("#od_TIPO").val() === "" || $("#os_EST").val() === "" || $("#os_CL").val() === "" || $("#os_EJE").val() === "" || 
+          $("#os_ADICION").val() === "" ||  $("#os_TIPO").val() === ""){
+            let message = "Debe completar todos los datos de la receta oftalmologica, si no posee los datos de click en no posee receta y reserve su cita.";
+            vcShowAlertValidatePlansSinRedireccion(message);
+            return false;
+          }
+        
         $("#receta").css("display", "none");
         $("#tipoLent").css("display", "block");
         $("#anterior").css("display", "block");
+        
         a++;
 
       } else {
@@ -293,15 +311,16 @@
       //Obtener precio extra
 
       //Obteniendo el valor mayor de adicion
-      let od_adicion = Math.abs(parseFloat($("#od_ADICION").val()));
-      let os_adicion = Math.abs(parseFloat($("#os_ADICION").val()));
+      
       let valor_definitivo = 0;
 
-      if( os_adicion >= od_adicion){
-          valor_definitivo = os_adicion;
-      }else{
-          valor_definitivo = od_adicion;
-      }
+      let od_est = Math.abs(parseFloat($("#od_EST").val()));
+      let os_est = Math.abs(parseFloat($("#os_EST").val()));
+      let od_cl = Math.abs(parseFloat($("#od_CL").val()));
+      let os_cl = Math.abs(parseFloat($("#os_CL").val()));
+      var myArray = [od_est, os_est, od_cl, os_cl];
+      valor_definitivo = Math.max(...myArray);
+
 
       for (var i = 0; i < mpj_obj.limites_rango.length; i++) {
 

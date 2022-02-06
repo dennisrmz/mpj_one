@@ -35,3 +35,12 @@
 #billing_wooccm11_field{
     display: none;
 }
+.column-product ul li {
+    margin: 0 auto!important;
+}
+
+@media only screen and (max-width: 600px) {
+  .column-product ul li {
+    width: 100%!important;
+  }
+}
