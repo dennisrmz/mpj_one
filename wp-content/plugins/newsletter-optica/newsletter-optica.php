@@ -122,6 +122,39 @@
  	);
  	return $menuOrder;
  }
+
+
+ // Register Custom Taxonomy
+function njengah_custom_taxonomy_Item()  {
+    $labels = array(
+        'name'                       => 'Marcas',
+        'singular_name'              => 'Marca',
+        'menu_name'                  => 'Marcas',
+        'all_items'                  => 'Todas Marcas',
+        'parent_item'                => 'Marca Padre',
+        'parent_item_colon'          => 'Marca Padre:',
+        'new_item_name'              => 'Nombre Nueva Marca',
+        'add_new_item'               => 'Añadir Nueva Marca',
+        'edit_item'                  => 'Editar Marca',
+        'update_item'                => 'Actualizar Marca',
+        'separate_items_with_commas' => 'Separate Marca with commas',
+        'search_items'               => 'Buscar Marcas',
+        'add_or_remove_items'        => 'Añadir o Eliminar Marcas',
+        'choose_from_most_used'      => 'Choose from the most used Marcas',
+    );
+    $args = array(
+        'labels'                     => $labels,
+        'hierarchical'               => true,
+        'public'                     => true,
+        'show_ui'                    => true,
+        'show_admin_column'          => true,
+        'show_in_nav_menus'          => true,
+        'show_tagcloud'              => true,
+    );
+    register_taxonomy( 'marca', 'product', $args );
+    }
+    add_action( 'init', 'njengah_custom_taxonomy_item', 0 );
+
  add_filter ( 'woocommerce_account_menu_items', 'my_account_menu_order' );
  add_filter( 'woocommerce_add_to_cart_validation', 'mpj_filter_add_cart', 10, 5 );
  add_filter( 'woocommerce_update_cart_validation', 'filter_woocommerce_update_cart_action_cart_updated', 10, 4 );
