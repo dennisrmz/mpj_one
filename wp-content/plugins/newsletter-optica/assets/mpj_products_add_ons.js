@@ -56,6 +56,7 @@
           if(item_wo.id == mpj_obj.mpj_current_prod){
             $("#contenedores-filtros").css("pointer-events", "all");
             $("#contenedores-filtros").css("opacity", "1");
+            $("#contenedores-filtros").css("display", "block");
           }
 
 
@@ -242,7 +243,7 @@
             "os_ADICION": $("#os_ADICION").val(),
             "os_TIPO": $("#os_TIPO").val(),
           }
-
+          $("#seleciones").css("display", "none");
 
         }
       }
@@ -328,6 +329,16 @@
         vcLentes.Insert(datos);
         vcLentes.Save();
          //Reinicando variables por si estan guardadas en cache
+         $("#tipoFilt").css("display", "none");
+         $("#seleciones").css("display", "block");
+         $("#seleciones").empty();
+         $( "#seleciones" ).append( "<h3>Ha elegido los siguientes complementos</h3>" );
+         $( "#seleciones" ).append( "<h3>Lente:</h3>" );
+         $( "#seleciones" ).append( "<h4>"+ datos.tipoLente +"</h4>" );
+         $( "#seleciones" ).append( "<h3>Filtros:</h3>" );
+         for(i=0;i<datos.filtros.length;i++){
+          $( "#seleciones" ).append( "<h4>"+ datos.filtros[i] +"</h4>" );
+         }
       tipoLente = "nada";
       precioExtra = 0;
       valExtra = 0;      

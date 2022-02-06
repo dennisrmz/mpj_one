@@ -2,7 +2,7 @@
     <h5>Para agregar complementos, primero debes añadir el tipo de aro al carrito de compra</h5>
 </div>
 
-<div id="contenedores-filtros">
+<div id="contenedores-filtros" style="display:none;">
 
     <div id="tipoLent" style="display:none;">
         <h4>Elige tu tipo de lente</h4>
@@ -231,7 +231,7 @@
         <a href="<?php echo esc_url(get_permalink(get_page_by_title('Reserva Cita'))); ?>" target="_blank"><?php esc_html_e('Reserva Cita', 'textdomain'); ?></a>
         *Terminos: En la evalucion pueden haber cargo adicionales
     </div>
-    
+    <div class="inner" id="seleciones" style="display:block;"> Probando </div>
     <div>
         <table style="border: hidden">          
             <tr style="border: hidden">
