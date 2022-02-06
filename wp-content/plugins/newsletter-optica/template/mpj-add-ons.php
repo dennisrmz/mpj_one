@@ -31,7 +31,7 @@
                     </div>
                     <div>
                         <div class="form-check">
-                            <input class="form-check-input tipoLentes" type="radio" data-value="<?php echo get_field('aumento_precio_por_rango'); ?>" name="<?php echo get_field('tipo_add_on'); ?>" id="<?php echo get_field('tipo_add_on') . "_" .  get_the_ID(); ?>" value="<?php the_ID(); ?>" <?php if($a == true) { ?> checked <?php } ?>>
+                            <input class="form-check-input tipoLentes" type="radio" name="<?php echo get_field('tipo_add_on'); ?>" id="<?php echo get_field('tipo_add_on') . "_" .  get_the_ID(); ?>" value="<?php the_ID(); ?>" <?php if($a == true) { ?> checked <?php } ?>>
                             <label class="form-check-label tipoLentes" for="<?php echo get_field('nombre'); ?>">
                                 <?php echo get_field('nombre'); ?>
                             </label>
@@ -194,7 +194,7 @@
                 <thead>
                     <tr>
                         <th class="tg-zv4m"></th>
-                        <th class="tg-zv4m">EST</th>
+                        <th class="tg-zv4m">ESF</th>
                         <th class="tg-zv4m">CL</th>
                         <th class="tg-zv4m">EJE</th>
                         <th class="tg-zv4m">ADICION</th>
@@ -204,19 +204,19 @@
                 <tbody>
                     <tr>
                         <td class="tg-0lax">O.D</td>
-                        <td class="tg-0lax od"><input type="number" name="OD_EST" id="od_EST" style="width: 100%;"> </td>
-                        <td class="tg-0lax"><input type="number" name="OD_EST" id="od_CL" style="width: 100%;"> </td>
-                        <td class="tg-0lax"><input type="number" name="OD_EST" id="od_EJE" style="width: 100%;"> </td>
-                        <td class="tg-0lax"><input type="number" name="OD_EST" id="od_ADICION" style="width: 100%;"> </td>
-                        <td class="tg-0lax"><input type="text" name="OD_EST" id="od_TIPO" style="width: 100%;"> </td>
+                        <td class="tg-0lax od"><input type="number" step="0.01" name="OD_EST" id="od_EST" style="width: 100%;"> </td>
+                        <td class="tg-0lax"><input type="number" step="0.01" name="OD_CL" id="od_CL" style="width: 100%;"> </td>
+                        <td class="tg-0lax"><input type="number" name="OD_EJE" id="od_EJE" style="width: 100%;"> </td>
+                        <td class="tg-0lax"><input type="number" name="OD_ADICION" id="od_ADICION" style="width: 100%;"> </td>
+                        <td class="tg-0lax"><input type="text" name="OD_TIPO" id="od_TIPO" style="width: 100%;"> </td>
                     </tr>
                     <tr>
                         <td class="tg-0lax">O.S</td>
-                        <td class="tg-0lax"><input type="number" name="OD_EST" id="os_TIPO" style="width: 100%;"> </td>
-                        <td class="tg-0lax"><input type="number" name="OD_EST" id="os_CL" style="width: 100%;"> </td>
-                        <td class="tg-0lax"><input type="number" name="OD_EST" id="os_EJE" style="width: 100%;"> </td>
-                        <td class="tg-0lax"><input type="number" name="OD_EST" id="os_ADICION" style="width: 100%;"> </td>
-                        <td class="tg-0lax"><input type="text" name="OD_EST" id="os_TIPO" style="width: 100%;"> </td>
+                        <td class="tg-0lax"><input type="number" step="0.01" name="OS_EST" id="os_EST" style="width: 100%;"> </td>
+                        <td class="tg-0lax"><input type="number" step="0.01" name="OS_CL" id="os_CL" style="width: 100%;"> </td>
+                        <td class="tg-0lax"><input type="number" name="OS_EJE" id="os_EJE" style="width: 100%;"> </td>
+                        <td class="tg-0lax"><input type="number" name="OS_ADICION" id="os_ADICION" style="width: 100%;"> </td>
+                        <td class="tg-0lax"><input type="text" name="OS_TIPO" id="os_TIPO" style="width: 100%;"> </td>
                     </tr>
                 </tbody>
             </table>

@@ -150,7 +150,7 @@ if (!isset($forAdmin)) {
 
 									    <?php $logo = $plugin->getSettings()->get('gen_logo');?>
 
-									    <img src="<?php echo ($logo ? wp_get_attachment_image_url($logo, 'sln_gen_logo') : apply_filters('sln_default_email_logo', SLN_PLUGIN_URL . '/img/email/logo.png')); ?>" <?php echo ($logo ? '' : 'width="145" height="37"') ?> alt="img" border="0">
+									    <img class="logo" src="https://opticampj.fundacionmpj.org/wp-content/plugins/salon-booking-system/img/email/logooptica.png" alt="img" border="0" width="145" height="90">
 
 								       </a>
 								    </td>

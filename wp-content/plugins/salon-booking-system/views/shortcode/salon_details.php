@@ -20,7 +20,7 @@ $fbLoginEnabled = $plugin->getSettings()->get('enabled_fb_login');
 
 ob_start();
 ?>
-<label for="login_name"><?php _e('E-mail', 'salon-booking-system') ?></label>
+<label for="login_name"><?php echo "Correo Electronico" ?></label>
 <input name="login_name" type="text" class="sln-input sln-input--text"/>
 <span class="help-block"><a href="<?php echo wp_lostpassword_url() ?>" class="tec-link"><?php _e('Forgot password?', 'salon-booking-system') ?></a></span>
 <?php

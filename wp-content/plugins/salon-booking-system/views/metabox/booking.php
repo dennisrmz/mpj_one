@@ -372,7 +372,7 @@ if ($enableDiscountSystem) {
 		?>
         <div class="col-xs-12 col-sm-3">
             <div class="form-group sln_meta_field sln-select sln-select2-selection__search-primary">
-                <label><?php _e('Discount', 'salon-booking-system');?></label>
+                <label><?php echo "Descuento";?></label>
                 <?php SLN_Form::fieldSelect(
 			$helper->getFieldName($postType, 'discounts[]'),
 			$couponArr,

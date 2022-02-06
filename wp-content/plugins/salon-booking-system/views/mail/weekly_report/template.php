@@ -159,7 +159,7 @@
 
 							<tr>
 							    <td style="font-size:18px;line-height:20px;color:#4d4d4d;font-weight:bold;font-family: 'Avenir-Medium',sans-serif,arial;padding: 0 0 0 8px;letter-spacing: 0.5px;" class="pad0" valign="top" align="left">
-								<?php echo __('Dear administrator', 'salon-booking-system') ?>,
+								<?php echo "Administrador"; ?>,
 							    </td>
 							 </tr>
 							 <tr>
@@ -167,7 +167,7 @@
 							 </tr>
 							 <tr>
 							    <td style="font-size:18px;line-height:29px;color:#4d4d4d;font-weight:500;font-family: 'Avenir-Medium',sans-serif,arial;padding: 0 0 0 8px;" class="pad0" valign="top" align="left">
-								<?php echo __('this is your salon last week performances report', 'salon-booking-system') ?>.
+								<?php echo "este es el informe de rendimiento de la semana pasada de tu salón"; ?>.
 							    </td>
 							 </tr>
 							 <tr>
