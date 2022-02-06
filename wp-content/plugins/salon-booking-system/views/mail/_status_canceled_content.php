@@ -7,7 +7,7 @@
 <?php else: ?>
     <tr>
         <td align="left" valign="top" style="font-size:18px;line-height:20px;color:#4d4d4d;font-weight:bold;font-family: 'Avenir-Medium',sans-serif,arial;padding: 0 0 0 8px;">
-        <?php _e('Dear administrator', 'salon-booking-system') ?>
+        <?php echo "Administrador"; ?>
         </td>
     </tr>
 <?php endif; ?>

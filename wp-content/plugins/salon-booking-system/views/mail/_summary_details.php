@@ -19,7 +19,7 @@ $depositText = ($booking->getDeposit() && $booking->hasStatus(SLN_Enum_BookingSt
 				    </tr>
 				    <tr>
 					<td align="left" valign="top" style="font-size:14px;line-height:18px;color:#4d4d4d;font-weight:500;font-family: 'Avenir-Medium',sans-serif,arial;">
-					    <?php echo __('Date & Time', 'salon-booking-system') ?>
+					    <?php echo "Fecha y Hora" ?>
 					</td>
 				    </tr>
 				    <tr>
@@ -53,7 +53,7 @@ $depositText = ($booking->getDeposit() && $booking->hasStatus(SLN_Enum_BookingSt
 				    </tr>
 				    <tr>
 					<td align="left" valign="top" style="font-size:14px;line-height:18px;color:#4d4d4d;font-weight:500;font-family: 'Avenir-Medium',sans-serif,arial;">
-					    <?php echo __('Services & Assistants', 'salon-booking-system') ?>
+					    <?php echo "Servicio" ?>
 					</td>
 				    </tr>
 				    <tr>

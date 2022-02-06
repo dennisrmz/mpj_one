@@ -8,7 +8,7 @@ class SLN_Admin_Calendar extends SLN_Admin_AbstractPage
     public function admin_menu()
     {
 
-	$admin_menu_title = apply_filters('sln_admin_menu_title', __('Salon', 'salon-booking-system'));
+	$admin_menu_title = "Citas";
 
         add_menu_page(
             $admin_menu_title,

@@ -21,3 +21,26 @@
 .title-receta{
     color: #82326f;
 }
+
+#contenedores-filtros{
+    background-color: #ede7e7!important;
+    padding: 10px;
+    pointer-events: none;
+    opacity: 0.3;
+    margin: 10px;
+}
+#order_comments{
+    min-height: 400px;
+}
+#billing_wooccm11_field{
+    display: none;
+}
+.column-product ul li {
+    margin: 0 auto!important;
+}
+
+@media only screen and (max-width: 600px) {
+  .column-product ul li {
+    width: 100%!important;
+  }
+}

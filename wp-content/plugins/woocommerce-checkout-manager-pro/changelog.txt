@@ -1,0 +1,91 @@
+= 1.3.7 =
+* Fix: WooCommerce compatibility
+
+= 1.3.6 =
+* Fix: Time Picker 24hs format
+
+= 1.3.5 =
+* Fix: invoice empty fields
+
+= 1.3.4 =
+* Fix: allow all fields to be filterable in order admin page
+
+= 1.3.3 =
+* Fix: timepicker hours
+
+= 1.3.2 =
+* Fix: save my account fields
+
+= 1.3.1 =
+* Fix: display extra fields in my account address
+
+= 1.2.9 =
+* Fix: timepicker limit hours
+
+= 1.2.8 =
+* Fix: timepicker limit hours
+
+= 1.2.7 =
+* Fix: hidden license and email fields
+
+= 1.2.5 =
+* Fix: duplicated shipping fields on invoice
+
+= 1.2.5 =
+* Fix: duplicated shipping fields on emails
+
+= 1.2.4 =
+* Fix: invoice
+
+= 1.2.3 =
+* Fix: filter by checkbox
+
+= 1.2.2 =
+* Improvement: save billing order meta
+* Improvement: save shipping order meta
+* Improvement: yith subscriptions compatibility
+
+= 1.2.1 =
+* Fix: time and date fields bugs
+
+= 1.2.0 =
+* Fix: woocommerce checkout mananger 5.0.0 compatibility
+
+= 1.1.9 =
+* Fix: woocommerce checkout mananger 4.9.8 compatibility
+
+= 1.1.8 =
+* Fix: woocommerce conditional fields on my account
+
+= 1.1.7 =
+* Fix: woocommerce conditional fields on my account
+
+= 1.1.6 =
+* Fix: woocommerce sortable fields label
+
+= 1.1.5 =
+* New: woocommerce customer csv export compatibility
+
+= 1.1.4 =
+* New: edit additional fields in order
+
+= 1.1.3 =
+* New: message field
+* New: button field
+
+= 1.1.2 =
+* Fix: filter field options in order list
+* New: add uploaded images to email
+
+= 1.1.1 =
+* Fix: datepicker readonly
+* Fix: datepicker negative days range
+* Fix: timepicker readonly
+
+= 1.1.0 =
+* Fix: datepicker limit days
+
+= 1.0.9 =
+* Fix: Compatibility WooCommerce PDF Invoices
+* Fix: Compatibility WooCommerce PDF Invoices & Packing Slips
+* Fix: Compatibility WooCommerce Print Invoice & Delivery Note

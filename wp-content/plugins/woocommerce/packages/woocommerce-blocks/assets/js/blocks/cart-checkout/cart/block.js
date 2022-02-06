@@ -44,8 +44,8 @@ const Block = ( { emptyCart, attributes, scrollToTop } ) => {
 			'wc-blocks_added_to_cart'
 		);
 		const removeJQueryRemovedFromCartEvent = translateJQueryEventToNative(
-			'removed_from_cart',
-			'wc-blocks_removed_from_cart'
+			'',
+			'wc-blocks_'
 		);
 
 		document.body.addEventListener(
@@ -53,7 +53,7 @@ const Block = ( { emptyCart, attributes, scrollToTop } ) => {
 			invalidateCartData
 		);
 		document.body.addEventListener(
-			'wc-blocks_removed_from_cart',
+			'wc-blocks_',
 			invalidateCartData
 		);
 
@@ -66,7 +66,7 @@ const Block = ( { emptyCart, attributes, scrollToTop } ) => {
 				invalidateCartData
 			);
 			document.body.removeEventListener(
-				'wc-blocks_removed_from_cart',
+				'wc-blocks_',
 				invalidateCartData
 			);
 		};

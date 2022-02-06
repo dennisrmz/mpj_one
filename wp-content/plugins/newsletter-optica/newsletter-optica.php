@@ -24,6 +24,10 @@
     include('procesos/save_info.php');
     include('includes/mpj_list_table.php');
     include('includes/download_excel.php');
+    include('procesos/add-value-fee.php');
+    include('procesos/set-value-fee.php');
+    include('procesos/mpj-filter-add-cart.php');
+    include('procesos/mpj-filter-add-checkout.php');
 
      //Hooks
     register_activation_hook(NEWSLETTER_MPJ_PLUGIN_URL, 'mpj_activate_plugin');
@@ -40,23 +44,24 @@
     add_action('wp_ajax_mpj_send_data_news','mpj_save_info');
     add_action('wp_ajax_nopriv_mpj_send_data_news','mpj_save_info');
 
+    add_action('wp_ajax_add_checkout_fee', 'add_checkout_fee');
+    add_action('wp_ajax_nopriv_add_checkout_fee', 'add_checkout_fee');
+    
+    add_action('wp_ajax_mpj_get_cart','mpj_get_cart');
+    add_action('wp_ajax_nopriv_mpj_get_cart','mpj_get_cart');
+
     add_action('init', 'print_excel');
 
-    
 
     // add_action( 'woocommerce_product_thumbnails', 'content_before_product');
     add_action( 'woocommerce_before_add_to_cart_button', 'content_before_product');
     add_action( 'woocommerce_product_thumbnails', 'content_before_image');
     
     function content_before_image(){
-
-        ob_start();
-        include ABSPATH . 'wp-content/plugins/newsletter-optica/template/mpj-info-receta.php';
-        $page = ob_get_contents();
-        ob_end_clean();
         // echo $page;
 
     }
+
     
     function content_before_product(){
 
@@ -118,3 +123,6 @@
  	return $menuOrder;
  }
  add_filter ( 'woocommerce_account_menu_items', 'my_account_menu_order' );
+ add_filter( 'woocommerce_add_to_cart_validation', 'mpj_filter_add_cart', 10, 5 );
+ add_filter( 'woocommerce_update_cart_validation', 'filter_woocommerce_update_cart_action_cart_updated', 10, 4 );
+ add_action( 'woocommerce_after_checkout_validation', 'mpj_custom_validate_stock', 10, 2);
