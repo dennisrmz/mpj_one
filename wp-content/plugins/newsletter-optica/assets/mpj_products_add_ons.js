@@ -44,7 +44,7 @@
   }
 
   $(document).ready(function () {
-
+    console.log(mpj_obj.all_add_ons);
     var vcLentes = {
       lentes: [],
       CurrentLentes: null,
@@ -272,18 +272,18 @@
     $('#siguiente').click(function () {
 
       if (a == 0) {
-        if($("#od_EST").val() === "" || $("#od_CL").val() === "" || $("#od_EJE").val() === "" || $("#od_ADICION").val() === "" ||
-          $("#od_TIPO").val() === "" || $("#os_EST").val() === "" || $("#os_CL").val() === "" || $("#os_EJE").val() === "" || 
-          $("#os_ADICION").val() === "" ||  $("#os_TIPO").val() === ""){
-            let message = "Debe completar todos los datos de la receta oftalmologica, si no posee los datos de click en no posee receta y reserve su cita.";
-            vcShowAlertValidatePlansSinRedireccion(message);
-            return false;
-          }
-        
+        if ($("#od_EST").val() === "" || $("#od_CL").val() === "" || $("#od_EJE").val() === "" || $("#od_ADICION").val() === "" ||
+          $("#od_TIPO").val() === "" || $("#os_EST").val() === "" || $("#os_CL").val() === "" || $("#os_EJE").val() === "" ||
+          $("#os_ADICION").val() === "" || $("#os_TIPO").val() === "") {
+          let message = "Debe completar todos los datos de la receta oftalmologica, si no posee los datos de click en no posee receta y reserve su cita.";
+          vcShowAlertValidatePlansSinRedireccion(message);
+          return false;
+        }
+
         $("#receta").css("display", "none");
         $("#tipoLent").css("display", "block");
         $("#anterior").css("display", "block");
-        
+
         a++;
 
       } else {
@@ -325,7 +325,7 @@
       //Obtener precio extra
 
       //Obteniendo el valor mayor de adicion
-      
+
       let valor_definitivo = 0;
 
       let od_est = Math.abs(parseFloat($("#od_EST").val()));
@@ -338,7 +338,7 @@
 
       for (var i = 0; i < mpj_obj.limites_rango.length; i++) {
 
-        if(valor_definitivo >= parseFloat(mpj_obj.limites_rango[i].min_limit) && valor_definitivo <= parseFloat(mpj_obj.limites_rango[i].max_limit)){
+        if (valor_definitivo >= parseFloat(mpj_obj.limites_rango[i].min_limit) && valor_definitivo <= parseFloat(mpj_obj.limites_rango[i].max_limit)) {
           valExtra = parseFloat(mpj_obj.limites_rango[i].precio_extra)
         }
       }
@@ -358,21 +358,74 @@
       datos.receta.os_EJE = $("#os_EJE").val()
       datos.receta.os_ADICION = $("#os_ADICION").val()
       datos.receta.os_TIPO = $("#os_TIPO").val()
-     
-        vcLentes.Delete(datos.producto);
-        vcLentes.Insert(datos);
-        vcLentes.Save();
-         //Reinicando variables por si estan guardadas en cache
-         $("#tipoFilt").css("display", "none");
-         $("#seleciones").css("display", "block");
-         $("#seleciones").empty();
-         $( "#seleciones" ).append( "<h3>Ha elegido los siguientes complementos</h3>" );
-         $( "#seleciones" ).append( "<h3>Lente:</h3>" );
-         $( "#seleciones" ).append( "<h4>"+ datos.tipoLente +"</h4>" );
-         $( "#seleciones" ).append( "<h3>Filtros:</h3>" );
-         for(i=0;i<datos.filtros.length;i++){
-          $( "#seleciones" ).append( "<h4>"+ datos.filtros[i] +"</h4>" );
-         }
+
+      vcLentes.Delete(datos.producto);
+      vcLentes.Insert(datos);
+      vcLentes.Save();
+      console.log('val extra: ' +  valExtra);
+      //Reinicando variables por si estan guardadas en cache
+      $("#tipoFilt").css("display", "none");
+      $("#seleciones").css("display", "block");
+      $("#seleciones table#selecciones_receta_table tbody").html(`
+                <tr>
+                    <td class="tg-0lax">O.D</td>
+                    <td class="tg-0lax tbl_od_EST">${datos.receta.od_EST}</td>
+                    <td class="tg-0lax tbl_od_CL">${datos.receta.od_CL}</td>
+                    <td class="tg-0lax tbl_od_EJE">${datos.receta.od_EJE}</td>
+                    <td class="tg-0lax tbl_od_ADICION">${datos.receta.od_ADICION}</td>
+                    <td class="tg-0lax tbl_od_TIPO">${datos.receta.od_TIPO}</td>
+                </tr>
+                <tr>
+                    <td class="tg-0lax">O.S</td>
+                    <td class="tg-0lax tbl_os_EST">${datos.receta.os_EST}</td>
+                    <td class="tg-0lax tbl_os_CL">${datos.receta.os_CL}</td>
+                    <td class="tg-0lax tbl_os_EJE">${datos.receta.os_EJE}</td>
+                    <td class="tg-0lax tbl_os_ADICION">${datos.receta.os_ADICION}</td>
+                    <td class="tg-0lax tbl_os_TIPO">${datos.receta.os_TIPO}</td>
+                </tr>
+                <tr>
+                    <td class="tg-0lax">Costo total
+                         por aumento: </td>
+                    <td class="tg-0lax"> </td>
+                    <td class="tg-0lax"> </td>
+                    <td class="tg-0lax"> </td>
+                    <td class="tg-0lax"> </td>
+                    <td class="tg-0lax">$<span>${parseFloat(valExtra)}</span></td>
+                </tr>`);
+
+      $.each(mpj_obj.all_add_ons, function (i, item) {
+        if (item.id == datos.tipoLente) {
+          
+          let final_price = 0;
+          final_price = item.precio_extra_rebajado !== null ? item.precio_extra_rebajado : item.precio_extra;
+          $("table#tbl_tipo_lente tbody").html(`
+          <tr>
+              <td class="tbl_name_tipo_lente">${item.nombre}</td>
+              <td>Precio: $ <span>${final_price}</span></td>
+          </tr>`);
+        }
+      });
+
+      $("table#tbl_tipo_filtro tbody").empty();
+      for (i = 0; i < datos.filtros.length; i++) {
+        $.each(mpj_obj.all_add_ons, function (iaddons, item) {
+
+          if (item.id == datos.filtros[i]) {
+            let final_price = 0;
+            final_price = item.precio_extra_rebajado !== null ? item.precio_extra_rebajado : item.precio_extra;
+          
+            $("table#tbl_tipo_filtro tbody").append(`
+            <tr>
+                <td class="tbl_name_tipo_lente">${item.nombre}</td>
+                <td>Precio: $ <span>${final_price}</span></td>
+            </tr>`);
+          }
+        });
+      }
+
+      $("#precio_total").html(datos.precioExtra);
+
+
       tipoLente = "nada";
       precioExtra = 0;
       valExtra = 0;

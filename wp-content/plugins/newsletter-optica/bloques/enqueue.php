@@ -147,12 +147,16 @@ function mpj_enqueue_scripts(){
     while( $posts_type_limites->have_posts() ): $posts_type_limites->the_post();
         if(get_field('tipo_add_on') != "tipo_aumento"):
 
-            $id = get_the_ID();
-            $nombre = get_field('nombre');
+            $id                     = get_the_ID();
+            $nombre                 = get_field('nombre');
+            $precio_extra           = get_field('precio_extra');
+            $precio_extra_rebajado  = get_field('precio_extra_rebajado');
             
             $datos = [
-                "id"    => $id,
-                "nombre"  => $nombre
+                "id"                    => $id,
+                "nombre"                => $nombre,
+                "precio_extra"          => $precio_extra,
+                "precio_extra_rebajado" => $precio_extra_rebajado
             ];
             array_push($all_filters, $datos);
 
