@@ -75,6 +75,7 @@
           if (item_wo.id == mpj_obj.mpj_current_prod) {
             $("#contenedores-filtros").css("pointer-events", "all");
             $("#contenedores-filtros").css("opacity", "1");
+            $("#contenedores-filtros").css("display", "block");
           }
 
 
@@ -250,6 +251,20 @@
           $("#guardar").css("display", "none");
           a--;
           precioExtra = 0;
+          
+          var receta = {
+            "od_EST": $("#od_EST").val(),
+            "od_CL": $("#od_CL").val(),
+            "od_EJE": $("#od_EJE").val(),
+            "od_ADICION": $("#od_ADICION").val(),
+            "od_TIPO": $("#od_TIPO").val(),
+            "os_EST": $("#os_EST").val(),
+            "os_CL": $("#os_CL").val(),
+            "os_EJE": $("#os_EJE").val(),
+            "os_ADICION": $("#os_ADICION").val(),
+            "os_TIPO": $("#os_TIPO").val(),
+          }
+          $("#seleciones").css("display", "none
 
         }
       }
@@ -344,11 +359,22 @@
       datos.receta.os_EJE = $("#os_EJE").val()
       datos.receta.os_ADICION = $("#os_ADICION").val()
       datos.receta.os_TIPO = $("#os_TIPO").val()
+     
+        vcLentes.Delete(datos.producto);
+        vcLentes.Insert(datos);
+        vcLentes.Save();
+         //Reinicando variables por si estan guardadas en cache
+         $("#tipoFilt").css("display", "none");
+         $("#seleciones").css("display", "block");
+         $("#seleciones").empty();
+         $( "#seleciones" ).append( "<h3>Ha elegido los siguientes complementos</h3>" );
+         $( "#seleciones" ).append( "<h3>Lente:</h3>" );
+         $( "#seleciones" ).append( "<h4>"+ datos.tipoLente +"</h4>" );
+         $( "#seleciones" ).append( "<h3>Filtros:</h3>" );
+         for(i=0;i<datos.filtros.length;i++){
+          $( "#seleciones" ).append( "<h4>"+ datos.filtros[i] +"</h4>" );
+         }
 
-      vcLentes.Delete(datos.producto);
-      vcLentes.Insert(datos);
-      vcLentes.Save();
-      //Reinicando variables por si estan guardadas en cache
       tipoLente = "nada";
       precioExtra = 0;
       valExtra = 0;
