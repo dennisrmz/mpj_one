@@ -345,10 +345,10 @@
       precioExtra = parseFloat(precioExtra) + parseFloat(valExtra)
 
       datos.producto = mpj_obj.mpj_current_prod,
-      datos.tipoLente = tipoLente,
-      datos.precioExtra = precioExtra,
-      datos.Posee_receta = Posee_receta,
-      datos.receta.od_EST = $("#od_EST").val()
+        datos.tipoLente = tipoLente,
+        datos.precioExtra = precioExtra,
+        datos.Posee_receta = Posee_receta,
+        datos.receta.od_EST = $("#od_EST").val()
       datos.receta.od_CL = $("#od_CL").val()
       datos.receta.od_EJE = $("#od_EJE").val()
       datos.receta.od_ADICION = $("#od_ADICION").val()
@@ -362,7 +362,7 @@
       vcLentes.Delete(datos.producto);
       vcLentes.Insert(datos);
       vcLentes.Save();
-      console.log('val extra: ' +  valExtra);
+      console.log('val extra: ' + valExtra);
       //Reinicando variables por si estan guardadas en cache
       $("#tipoFilt").css("display", "none");
       $("#seleciones").css("display", "block");
@@ -395,9 +395,18 @@
 
       $.each(mpj_obj.all_add_ons, function (i, item) {
         if (item.id == datos.tipoLente) {
-          
+
           let final_price = 0;
-          final_price = item.precio_extra_rebajado !== null ? item.precio_extra_rebajado : item.precio_extra;
+
+          if (item.precio_extra_rebajado != null) {
+            if (item.precio_extra_rebajado != "") {
+              final_price = item.precio_extra_rebajado;
+            } else {
+              final_price = final_price = item.precio_extra;
+            }
+          } else {
+            final_price = item.precio_extra
+          }
           $("table#tbl_tipo_lente tbody").html(`
           <tr>
               <td class="tbl_name_tipo_lente">${item.nombre}</td>
@@ -412,8 +421,16 @@
 
           if (item.id == datos.filtros[i]) {
             let final_price = 0;
-            final_price = item.precio_extra_rebajado !== null ? item.precio_extra_rebajado : item.precio_extra;
-          
+            if (item.precio_extra_rebajado != null) {
+              if (item.precio_extra_rebajado != "") {
+                final_price = item.precio_extra_rebajado;
+              } else {
+                final_price = final_price = item.precio_extra;
+              }
+            } else {
+              final_price = item.precio_extra
+            }
+
             $("table#tbl_tipo_filtro tbody").append(`
             <tr>
                 <td class="tbl_name_tipo_lente">${item.nombre}</td>

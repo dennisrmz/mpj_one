@@ -308,6 +308,7 @@
         </table>
                 
         <div><h5>Precio total de complementos: $ <span id="precio_total"></span></h5></div>
+        <div><h5>Sus lentes estaran listos en un promedio de 7 días, estaremos comunicandonos a usted al correo electronico que proporcione al finalizar la compra</h5></div>
     </div>
     <div>
         <table style="border: hidden">
